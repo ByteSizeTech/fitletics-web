@@ -4,12 +4,39 @@
     <meta charset="utf-8" />
     <meta name="viewpoint " content="width=device=width, initial-scale=1.0" />
     <title>Fitletics page 3</title>
-<<<<<<< HEAD
-<link href="StyleSheet.css" rel="stylesheet" /> 
-    
-=======
     <link rel="stylesheet" href="../src/styles/StyleSheet.css" />
->>>>>>> fac4523377bd5243d6c56403c8f92bf5659bdfe2
+    <script>
+      'use strict';
+      const video = document.getElementById('video');
+      const constraint={
+        audio: true;
+        video{
+          width: 1280, height: 390
+        };
+        // access webcam
+         async function init(){
+           try {
+             const stream = await  navigator.mediaDevice(constraint);
+           }
+           catch(e){
+             errorMsgElement.innerHTML =' navigator.getUsermedia.error':$(e.toString()};
+           }
+           //Success
+           function handleSuccess(stream){
+             window.stream = stream;
+             video.srcobject = stream;
+  
+           }//Loat innit
+           init();
+           //draw image
+           var context =canvas.getContext('2d');
+           snap.addEventListener("click,function(){
+             context.drawImage(video,0,0, 640, 480);
+           }
+         }
+  
+      }
+    </script>
   </head>
   <body>
     <div class="grid">
@@ -17,7 +44,13 @@
         <h1 class="fitletics-heading">Fitletics</h1>
       </div>
       <div id="white"></div>
-      <div id="live">WEB RTC</div>
+      <div id="live" class="video-wrap">
+        <!-- Streaming video-->
+        <video id="video" playsinline autpplay></video>  
+        <!-- Triger canvas web Api  -->
+       
+          </div>
     </div>
   </body>
+  
 </html>
