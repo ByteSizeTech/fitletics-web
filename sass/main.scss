@@ -1,8 +1,22 @@
-$primary-color: black;
+$primary-color: red;
 $not-primary-color: green;
 $whatever: white;
-
+$font-weights: ("regular": 300,
+    "medium": 500,
+    "bold": 600,
+);
 
 body {
     background: $primary-color;
+    color: green($color: #000000);
+    font-weight: map-get($font-weights, regular);
+}
+
+.main {
+    width: 5rem;
+    margin: 0 auto;
+
+    p {
+        font-weight: map-get($font-weights, bold);
+    }
 }
