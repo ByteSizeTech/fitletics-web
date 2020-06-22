@@ -5,29 +5,74 @@
 }
 
 body {
-    background-color: black;
+
     font-family: Roboto;
+    background-color: black;
+
 }
 
-.fitletics-logo {
-    width: 429px;
-    height: 218px;
+.main-div {
+    display: flex;
+
 }
 
-.session-description-div {
-    widows: 500px;
+.container-one {
+
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+}
+
+
+.logo-container {
+    flex: 1;
+    background-color: blue;
+}
+
+#fitletics-logo {
+    width: 30vw;
+    height: 25vh;
+}
+
+
+
+.session-description-container {
+    flex: 2;
+}
+
+.workout-heading {
+    width: 7vw;
+    height: 6vh;
     background-color: white;
+    border-radius: 40px;
+    margin-left: 150px;
+
+
 }
 
-.Session-description {
-    width: 462px;
-    height: 514px;
+.Workout-details {
+    width: 350px;
+    height: 400px;
     background-color: #4F4F4F;
     border-radius: 53px;
+    align-content: center;
+    margin-top: 20px;
+    margin-left: 20px;
+
 }
 
-.live {
-    width: 737px;
+.live-container {
+    width: 50%;
     height: 755px;
-    background-color: #C4C4C4;
+
+
+}
+
+.video {
+    width: 600px;
+    height: 500px;
+    background-color: gray;
+    margin-top: 60px;
+
 }
