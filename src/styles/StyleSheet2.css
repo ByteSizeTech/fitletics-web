@@ -1,89 +1,33 @@
-<<<<<<< HEAD * {
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-html,
-body {
-
-  margin: 0px;
-  padding: 0px;
+* {
+    margin: 0;
+    padding: 0;
 
 }
 
 body {
-  margin: 0px;
-  padding: 0px;
-  background-color: black;
-
-  =======* {
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  }
-
-  body {
-    margin: 0px;
-    padding: 0px;
     background-color: black;
-    >>>>>>>65a5dcc4d33b2dd66ffcd393f27ef14ea1264b42
-  }
+    font-family: Roboto;
+}
 
-  .fitletics-heading {
-    color: #ff6b00;
-    font-size: 100px;
-    width: 521px;
-    margin-left: 72px;
-    margin-top: 20px;
-  }
+.fitletics-logo {
+    width: 429px;
+    height: 218px;
+}
 
-  <<<<<<< HEAD .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+.session-description-div {
+    widows: 500px;
+    background-color: white;
+}
 
-    grid-template-areas:=======.grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
-      grid-template-areas:
-        >>>>>>> 65a5dcc4d33b2dd66ffcd393f27ef14ea1264b42 "heading live"
-        "white live"
-        "white live";
-    }
+.Session-description {
+    width: 462px;
+    height: 514px;
+    background-color: #4F4F4F;
+    border-radius: 53px;
+}
 
-    #Heading {
-      grid-area: heading;
-      margin-top: 20px;
-      margin-left: 72px;
-      width: 36%;
-      height: 13.5%;
-      margin-top: 13.34%;
-    }
-
-    #white {
-      grid-area: white;
-      width: 462px;
-      height: 514px;
-      background-color: white;
-      border-radius: 53px;
-      margin-left: 102px;
-    }
-
-    #live {
-      <<<<<<< HEAD grid-area: live;
-      background-color: gray;
-      width: 737px;
-      height: 755px;
-      margin-top: 85px;
-      margin-right: 47px;
-      =======grid-area: live;
-      background-color: gray;
-      width: 737px;
-      height: 755px;
-      margin-top: 85px;
-      margin-right: 47px;
-      >>>>>>>65a5dcc4d33b2dd66ffcd393f27ef14ea1264b42
-    }
+.live {
+    width: 737px;
+    height: 755px;
+    background-color: #C4C4C4;
+}
