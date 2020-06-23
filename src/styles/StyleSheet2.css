@@ -9,79 +9,53 @@ body {
 
 }
 
-@media screen and (min-width:760px) {
-    .wrapper {
-        display: grid;
-        grid-template-columns: 1.5fr 2.5fr;
-        grid-column-gap: 1em;
-
-
-    }
+.item1 {
+    grid-area: Logo;
+    background-color: orange;
 }
 
-.wrapper {
-    display: grid;
-    grid-template-columns: 1.5fr 2.5fr;
-    grid-column-gap: 1em;
-
+.item2 {
+    grid-area: details;
+    background-color: Gray;
 
 }
 
-.wrapper>div {
-    padding: 1em;
-    background-color: darkblue;
-
-}
-
-.container-one {
-    display: grid;
-    grid-template-rows: 2fr 1fr 4fr;
-    grid-row-gap: 1em;
-    justify-self: center;
-    grid-auto-rows: minmax(500px, auto);
-
-}
-
-.fitletics-logo {
-
-    grid-row: 1/2;
-    justify-self: center;
-    align-self: center;
-    padding: 0;
-
-}
-
-.workout-heading {
+.item3 {
+    grid-area: headings;
     background-color: white;
-    border-radius: 40px;
-    justify-self: center;
-    justify-content: center;
-    max-width: 100px;
-    height: 40px;
-    padding: 0;
-
 }
 
-.workout-details {
-    padding: 0;
-    background-color: darkgray;
-    border-radius: 51px;
-    justify-content: center;
-    width: 400px;
-
+.item4 {
+    grid-area: Live;
+    background-color: lightgray;
 }
 
-.container-two {
+.grid-container {
     display: grid;
-    grid-template-rows: 1fr;
-    justify-items: center;
-    align-items: center;
-
+    grid-template-areas:
+        'Logo Logo Logo  '
+        'headings headings headings '
+        'details details details ';
+    grid-gap: 10px;
+    padding: 10px;
 }
 
-.video {
-    width: 80%;
-    height: 75%;
-    background-color: gray;
+.grid-container>div {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+}
 
+.grid-container-Two {
+    display: grid;
+    grid-template-areas:
+        Live Live Live Live;
+    grid-gap: 10px;
+    padding: 10px;
+}
+
+.grid-container>div {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
 }
