@@ -1,32 +1,73 @@
-* {
+body {
+  font-family: Roboto;
+  font-size: 15px;
+  line-height: 1;
+  background-color: black;
   margin: 0;
   padding: 0;
 }
 
-body {
-  background-color: black;
-  font-family: Roboto;
+@media screen and (min-width: 760px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1.5fr 2.5fr;
+    grid-column-gap: 1em;
+  }
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1.5fr 2.5fr;
+  grid-column-gap: 1em;
+}
+
+.wrapper > div {
+  padding: 1em;
+  background-color: darkblue;
+}
+
+.container-one {
+  display: grid;
+  grid-template-rows: 2fr 1fr 4fr;
+  grid-row-gap: 1em;
+  justify-self: center;
+  grid-auto-rows: minmax(500px, auto);
 }
 
 .fitletics-logo {
-  width: 429px;
-  height: 218px;
+  grid-row: 1/2;
+  justify-self: center;
+  align-self: center;
+  padding: 0;
 }
 
-.session-description-div {
-  widows: 500px;
+.workout-heading {
   background-color: white;
+  border-radius: 40px;
+  justify-self: center;
+  justify-content: center;
+  max-width: 100px;
+  height: 40px;
+  padding: 0;
 }
 
-.Session-description {
-  width: 462px;
-  height: 514px;
-  background-color: #4f4f4f;
-  border-radius: 53px;
+.workout-details {
+  padding: 0;
+  background-color: darkgray;
+  border-radius: 51px;
+  justify-content: center;
+  width: 400px;
 }
 
-.live {
-  width: 737px;
-  height: 755px;
-  background-color: #c4c4c4;
+.container-two {
+  display: grid;
+  grid-template-rows: 1fr;
+  justify-items: center;
+  align-items: center;
+}
+
+.video {
+  width: 80%;
+  height: 75%;
+  background-color: gray;
 }
