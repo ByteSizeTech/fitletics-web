@@ -16,7 +16,7 @@ body {
   /* border: gray solid 5px; */
   display: grid;
   grid-template-columns: 1fr 1.2fr;
-  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-rows: 250px 2fr 1fr;
 }
 .grid-item {
   /* border: white solid 1px; */
