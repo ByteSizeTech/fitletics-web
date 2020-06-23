@@ -1,33 +1,32 @@
 * {
-    margin: 0;
-    padding: 0;
-
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background-color: black;
-    font-family: Roboto;
+  background-color: black;
+  font-family: Roboto;
 }
 
 .fitletics-logo {
-    width: 429px;
-    height: 218px;
+  width: 429px;
+  height: 218px;
 }
 
 .session-description-div {
-    widows: 500px;
-    background-color: white;
+  widows: 500px;
+  background-color: white;
 }
 
 .Session-description {
-    width: 462px;
-    height: 514px;
-    background-color: #4F4F4F;
-    border-radius: 53px;
+  width: 462px;
+  height: 514px;
+  background-color: #4f4f4f;
+  border-radius: 53px;
 }
 
 .live {
-    width: 737px;
-    height: 755px;
-    background-color: #C4C4C4;
+  width: 737px;
+  height: 755px;
+  background-color: #c4c4c4;
 }
