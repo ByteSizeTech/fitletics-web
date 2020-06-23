@@ -1,6 +1,8 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-size: 30px;
 }
 
 body {
@@ -8,40 +10,20 @@ body {
   font-family: Roboto;
   color: aliceblue;
 }
-
-.fitletics-logo {
-  width: 429px;
-  height: 218px;
-}
 .grid-container {
+  height: 100vh;
+  width: 100vw;
+  border: gray solid 5px;
   display: grid;
-  border: aliceblue 1px solid;
-  grid-template-columns: auto auto;
-  grid-gap: 5px;
-}
-.grid-container2 {
-  display: grid;
-  border: gray 1px solid;
-  grid-template-columns: auto;
-  grid-gap: 10px;
+  grid-template-columns: 1fr 1.2fr;
+  grid-template-rows: 1fr 2fr 1fr;
 }
 .grid-item {
-  border: 1px white solid;
-  padding: 100px;
-  margin: 5px;
+  border: white solid 1px;
+  padding: 20px;
+  /* background-color: rgba(21, 10, 11, 90); */
 }
-.grid-item-info {
-}
-.grid-item-img {
-}
-.qr-info {
-  border: 1px white solid;
-  padding: 100px;
-  margin: 10px;
-  width: 20px;
-}
-#scan-code-text {
-  display: block;
-  border: 1px solid white;
-  text-justify: auto;
+.item4 {
+  grid-column: 2 /3;
+  grid-row: 1 / 4;
 }
