@@ -13,15 +13,15 @@ body {
 .grid-container {
   height: 100vh;
   width: 100vw;
-  border: gray solid 5px;
+  /* border: gray solid 5px; */
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   grid-template-rows: 250px auto auto;
 }
 .grid-item {
-  border: white solid 1px;
+  /* border: white solid 1px; */
   padding: 20px;
-  background-color: rgba(21, 10, 11, 90);
+  /* background-color: rgba(21, 10, 11, 90); */
   text-align: center;
 }
 .item4 {
@@ -45,11 +45,11 @@ p {
 }
 .item2 {
   text-align: right;
+  margin-top: min(30px);
 }
+
 .button {
   font-family: Graphik;
-  font-style: normal;
-  font-weight: 600;
   font-size: 25px;
   margin-top: min(60px);
   padding: 0px 40px;
@@ -57,3 +57,15 @@ p {
   background-color: #323232;
   text-decoration: none;
 }
+.button:hover {
+  background-color: rgb(30, 30, 30, 100);
+}
+.boxed-info {
+  background-color: white;
+  border: white solid 1px;
+  border-radius: 10%;
+  padding: 80px;
+  width: 300px;
+}
+
+.boxed-info h1[];
