@@ -9,20 +9,51 @@
 
   <body>
     <div class="grid-container">
-      <div class="grid-item item1">
+      <div class="grid-item grid-item-logo">
         <img src="images/logo.png" alt="Logo" class="fitletics-logo" />
       </div>
-      <div class="grid-item item2">
-        <button class="button">Logout</button>
+      <div class="grid-item grid-item-logout">
+        <button class="button logout-button">Logout</button>
       </div>
       <div class="grid-item item3">
-        <div class="boxed-info user-profile"></div>
+        <h1 class="boxed-info-heading">
+          User Details
+        </h1>
+        <div class="boxed-info">
+          <div class="boxed-info-item boxed-logo">
+            <img
+              src="images/dp.png"
+              alt="profile picture"
+              class="boxed-logo-image"
+            />
+          </div>
+          <div class="boxed-info-item boxed-heading">John Doe</div>
+          <div class="boxed-info-item boxed-subheading">Level 7</div>
+          <div class="boxed-info-item boxed-prog-bar">progression bar</div>
+          <!-- <img src="images/dp.png" alt="profile picture" class="boxed-logo" />
+          <span class="main-info">
+            John Doe
+          </span> -->
+        </div>
       </div>
       <div class="grid-item item4">
         <div class="tips-container"></div>
       </div>
       <div class="grid-item item5">
-        <div class="boxed-info last-session"></div>
+        <h1 class="boxed-info-heading">
+          Last Session
+        </h1>
+        <div class="boxed-info">
+          <div class="boxed-info-item boxed-logo">
+            <img
+              src="images/abs.png"
+              alt="fitness logo depending on the workout"
+              class="boxed-logo-image"
+            />
+          </div>
+          <div class="boxed-info-item boxed-heading">ABS</div>
+          <div class="boxed-info-item boxed-subheading">47.02 Minutes</div>
+        </div>
       </div>
     </div>
   </body>
