@@ -73,9 +73,8 @@ p {
   border: white solid 1px;
   border-radius: 10%;
   width: 300px;
-  height: 100px;
-  padding-left: 100px;
-  padding-right: auto;
+  height: auto;
+  padding: 20px;
 }
 .tips-container {
   background-color: gray;
@@ -87,4 +86,26 @@ p {
   width: 100%;
   max-width: 400px;
   height: auto;
+}
+.user-profile img {
+  border-radius: 50%;
+  width: 80px;
+  /* margin-right: 200px; */
+  border: 1px gray solid;
+  float: left;
+}
+.boxed-info-heading {
+  text-align: left;
+  margin: 10px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 35px;
+  color: #ffffff;
+}
+.main-info {
+  color: black;
+  font-weight: 600;
+  text-align: right;
+  border: solid red 1px;
 }
