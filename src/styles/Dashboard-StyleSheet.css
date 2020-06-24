@@ -11,10 +11,11 @@ body {
   color: aliceblue;
 }
 .grid-container {
+  display: grid;
+
   height: 100vh;
   width: 100vw;
   border: gray solid 5px;
-  display: grid;
   grid-template-columns: 1fr 1.2fr;
   grid-template-rows: 250px auto auto;
 }
@@ -24,12 +25,7 @@ body {
   background-color: rgba(21, 10, 11, 90);
   text-align: center;
 }
-.item4 {
-  object-fit: cover;
-  grid-row: 2/4;
-  grid-column: 2/3;
-  text-align: center;
-}
+
 #indeximage {
   /* width: 100%;
   min-height: 500px; */
@@ -46,14 +42,49 @@ p {
 .item2 {
   text-align: right;
 }
+.item3 {
+  align-self: center;
+  justify-self: center;
+}
+.item5 {
+  align-self: center;
+  justify-self: center;
+}
+.item4 {
+  object-fit: cover;
+  grid-row: 2/4;
+  grid-column: 2/3;
+  text-align: center;
+}
 .button {
   font-family: Graphik;
-  font-style: normal;
-  font-weight: 600;
   font-size: 25px;
-  margin-top: min(60px);
+  margin-top: min(70px);
   padding: 0px 40px;
   color: aliceblue;
   background-color: #323232;
   text-decoration: none;
+}
+.button:hover {
+  background-color: rgb(30, 30, 30, 100);
+}
+.boxed-info {
+  background-color: white;
+  border: white solid 1px;
+  border-radius: 10%;
+  width: 300px;
+  height: 100px;
+  padding-left: 100px;
+  padding-right: auto;
+}
+.tips-container {
+  background-color: gray;
+  height: 70%;
+  width: 80%;
+  border: white solid 1px;
+}
+.fitletics-logo {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
 }
