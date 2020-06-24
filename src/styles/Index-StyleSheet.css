@@ -36,6 +36,11 @@ body {
   height: 100%;
   object-fit: cover;
 }
+.fitletics-logo {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
 p {
   text-align: center;
 }
