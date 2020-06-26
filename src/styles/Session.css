@@ -13,7 +13,7 @@ body {
 .grid {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr 1fr 1fr;
     grid-template-areas:
         "Session "
         "Session "
@@ -22,11 +22,7 @@ body {
 
 }
 
-.Live {
-    background-color: #c4c4c4;
-    grid-area: Live;
-    margin: 5%
-}
+
 
 .Session {
     background-color: gray;
@@ -37,15 +33,109 @@ body {
     margin: 5%;
     justify-self: center;
     display: grid;
-    grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
-    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 2fr 1fr;
     grid-template-areas:
-        ". timer difficulty ."
-        ". Exercises Exercises ."
-        ". button button .";
+        " heading  heading "
+        "timer timer "
+        " exercise  exercise "
+        "reps skip "
+        "end-session end-session";
 
 
 }
+
+.Heading {
+    grid-area: heading;
+    background-color: white;
+    margin: auto;
+    border-radius: 40px;
+    color: black;
+    font-size: 140%;
+}
+
+.timer {
+    grid-area: timer;
+    background-color: red;
+    align-self: center;
+    justify-self: center;
+}
+
+
+
+.Exercise {
+    grid-area: exercise;
+    background-color: pink;
+    align-self: center;
+    justify-self: center;
+}
+
+
+.reps {
+    grid-area: reps;
+    background-color: khaki;
+    border-radius: 50%;
+    align-self: center;
+    justify-self: center;
+    font-size: 400%;
+
+
+}
+
+.skip {
+    grid-area: skip;
+    background-color: gray;
+    align-self: center;
+    justify-self: center;
+
+}
+
+.end-session {
+    grid-area: end-session;
+    background-color: purple;
+    align-self: center;
+    justify-self: center;
+}
+
+.Image {
+    height: 3vh;
+    width: 3vw;
+}
+
+.Live {
+    background-color: gray;
+    grid-area: Live;
+    margin: 5% auto;
+    width: 70vw;
+    /*margin:5%;*/
+}
+
+.skip-button {
+    background-color: white;
+    color: black;
+    width: 180%;
+    height: 5vh;
+}
+
+.skip-button:hover {
+    background-color: black;
+    color: white;
+
+}
+
+.end-session-button {
+    background-color: orange;
+    color: white;
+    width: 20vw;
+    height: 5vh;
+}
+
+.end-session-button:hover {
+    background-color: white;
+    color: black;
+
+}
+
 
 @media screen and (min-width: 1200px) {
     .grid {

@@ -20,8 +20,6 @@ body {
         " Details "
         " Details "
         " Live "
-
-
 }
 
 .Logo {
@@ -95,7 +93,7 @@ body {
 }
 
 .Live {
-    background-color: #c4c4c4;
+    background-color: lightblue;
     grid-area: Live;
     margin: 5%
 }
