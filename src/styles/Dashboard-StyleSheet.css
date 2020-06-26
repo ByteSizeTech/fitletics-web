@@ -36,12 +36,10 @@ body {
 p {
   text-align: center;
 }
-.grid-item-logo {
-  text-align: center;
-}
+
 .grid-item-logout {
   text-align: right;
-  align-self: end;
+  align-self: center;
   justify-self: end;
 }
 .item3 {
@@ -52,7 +50,7 @@ p {
   align-self: center;
   justify-self: center;
 }
-.item4 {
+.grid-item-tips {
   object-fit: cover;
   grid-row: 2/4;
   grid-column: 2/3;
