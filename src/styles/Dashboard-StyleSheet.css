@@ -1,6 +1,4 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
   font-size: 30px;
 }
@@ -9,6 +7,8 @@ body {
   background-color: black;
   font-family: Roboto;
   color: aliceblue;
+  margin: 0;
+  padding: 0;
 }
 .grid-container {
   display: grid;
@@ -21,8 +21,8 @@ body {
 }
 .grid-item {
   padding: 20px;
-  border: white solid 1px;
-  background-color: rgba(21, 10, 11, 90);
+  /* border: white solid 1px;
+  background-color: rgba(21, 10, 11, 90); */
   text-align: center;
 }
 
@@ -42,11 +42,11 @@ p {
   align-self: center;
   justify-self: end;
 }
-.item3 {
+.grid-item-ud {
   align-self: center;
   justify-self: center;
 }
-.item5 {
+.grid-item-ls {
   align-self: center;
   justify-self: center;
 }
@@ -55,6 +55,8 @@ p {
   grid-row: 2/4;
   grid-column: 2/3;
   text-align: center;
+  align-self: center;
+  justify-self: center;
 }
 .button {
   font-family: Graphik;
@@ -68,6 +70,7 @@ p {
 .logout-button {
   /* margin-top: min(70px);
   margin-right: 60px; */
+  font-weight: 200;
 }
 .button:hover {
   background-color: rgb(30, 30, 30, 100);
@@ -115,13 +118,33 @@ p {
 }
 
 .boxed-prog-bar {
+  position: relative;
   grid-column: 1/3;
+  background-color: #555;
+  height: 1em;
+  width: auto;
+  border-radius: 1.5em;
+}
+.boxed-prog-bar::before {
+  content: "";
+  display: flex;
+  min-width: 2rem;
+  align-items: center;
+  position: absolute;
+  left: 0.5em;
+  top: 0.5em;
+  bottom: 0.5em;
+  max-width: calc(100%-1em);
+  width: 10%;
+  background-color: blue;
+  color: white;
 }
 .tips-container {
   background-color: gray;
-  height: 70%;
-  width: 80%;
+  height: 400px;
+  width: 400px;
   border: white solid 1px;
+  text-align: center;
 }
 .fitletics-logo {
   width: 100%;
