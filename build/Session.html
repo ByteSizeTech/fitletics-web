@@ -12,7 +12,10 @@
     <div class="Session">
       <div class="Heading"> &nbsp &nbsp <img src="../build/Images/abs.png" class="Image">
         &nbsp<b>ABS</b> &nbsp &nbsp</div>
-      <div class="timer"><b> 37:59:84</b>
+      <div class="timer">
+        <a id="m">00</a>:
+        <a id="s">00</a>:
+        <a id="mi">00</a>
       </div>
       <div class="Exercise"> &nbsp<b>PULL &nbsp- &nbsp UPS &nbsp </b> </div>
       <div class="reps">
@@ -41,6 +44,27 @@
 
     function videoError(e) { // do something}
   </script>-->
+  <script>
+    Number.prototype.pad = function (n) {
+      for (var r = this.toString(); r.length < n; r = 0 + r);
+      return r;
+    };
+
+    function updateClock() {
+      var now = new Date();
+      var milli = now.getMilliseconds(),
+        sec = now.getSeconds(),
+        min = now.getMinutes(),
+        corr = [min.pad(2), sec.pad(2), milli];
+      for (var i = 0; i < tags.length; i++)
+        document.getElementById(tags[i]).firstChild.nodeValue = corr[i];
+    }
+
+    function initClock() {
+      updateClock();
+      window.setInterval("updateClock()", 1);
+    }
+  </script>
 </body>
 
 </html>

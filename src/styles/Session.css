@@ -39,7 +39,7 @@ body {
         " heading  heading "
         "timer timer "
         " exercise  exercise "
-        "reps skip "
+        "reps  skip "
         "end-session end-session";
 
 
@@ -111,9 +111,6 @@ body {
     background-color: #c4c4c4;
     grid-area: Live;
     margin: 5%;
-    height: 90vh;
-    width: 55vw;
-    /*margin:5%;*/
 }
 
 .skip-button {
@@ -121,11 +118,13 @@ body {
     color: black;
     width: 180%;
     height: 5vh;
+    border: none;
 }
 
 .skip-button:hover {
     background-color: black;
     color: white;
+    border: none;
 
 }
 
@@ -134,6 +133,7 @@ body {
     color: white;
     width: 17vw;
     height: 5vh;
+    border: none;
 }
 
 .end-session-button:hover {
@@ -142,8 +142,6 @@ body {
 
 
 }
-
-
 
 
 @media screen and (min-width: 1200px) {
