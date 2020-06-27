@@ -1,116 +1,107 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: black;
-    color: aliceblue;
-    font-family: Roboto;
+  background-color: black;
+  color: aliceblue;
+  font-family: Roboto;
 }
 
 .grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 90px 1fr 1fr 2fr;
-    grid-template-areas:
-        "Logo "
-        " Heading "
-        " Details "
-        " Details "
-        " Live "
-
-
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 90px 1fr 1fr 2fr;
+  grid-template-areas:
+    "Logo "
+    " Heading "
+    " Details "
+    " Details "
+    " Live ";
 }
 
 .Logo {
-    grid-area: Logo;
-    justify-self: center;
-
+  grid-area: Logo;
+  justify-self: center;
 }
 
 .fitletics-logo {
-    width: 300px;
-    height: 170px;
-    margin-top: 6%;
+  width: 300px;
+  height: 170px;
+  margin-top: 6%;
 }
 
 .Heading {
-    background-color: White;
-    grid-area: Heading;
-    border-radius: 40px;
-    color: black;
-    justify-self: center;
-    width: 90px;
-    height: 5.5vh;
-
+  background-color: White;
+  grid-area: Heading;
+  border-radius: 40px;
+  color: black;
+  justify-self: center;
+  width: 90px;
+  height: 5.5vh;
 }
 
 .Details {
-    background-color: gray;
-    grid-area: Details;
-    border-radius: 40px;
-    height: 75vh;
-    width: 400px;
-    margin-bottom: 5%;
-    justify-self: center;
-    display: grid;
-    grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
-    grid-template-rows: 1fr 2fr 1fr;
-    grid-template-areas:
-        ". timer difficulty ."
-        ". Exercises Exercises ."
-        ". button button .";
-
-
+  background-color: gray;
+  grid-area: Details;
+  border-radius: 40px;
+  height: 75vh;
+  width: 400px;
+  margin-bottom: 5%;
+  justify-self: center;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
+  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-areas:
+    ". timer difficulty ."
+    ". Exercises Exercises ."
+    ". button button .";
 }
 
 .Exercises {
-    grid-area: Exercises;
-    justify-self: center;
+  grid-area: Exercises;
+  justify-self: center;
 }
 
 .timer {
-    grid-area: timer;
+  grid-area: timer;
 }
 
 .difficulty {
-    grid-area: difficulty;
-    align-self: center;
+  grid-area: difficulty;
+  align-self: center;
 }
 
 .button {
-    background-color: orange;
-    color: aliceblue;
-    grid-area: button;
-    width: 20vw;
-    height: 8vh;
-
+  background-color: orange;
+  color: aliceblue;
+  grid-area: button;
+  width: 20vw;
+  height: 8vh;
 }
 
 .button:hover {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
 .Live {
-    background-color: #c4c4c4;
-    grid-area: Live;
-    margin: 5%
+  background-color: #c4c4c4;
+  grid-area: Live;
+  margin: 5%;
 }
 
 @media screen and (min-width: 1200px) {
-    .grid {
-        display: grid;
-        grid-template-columns: 100px 0.5fr 80px 2fr 40px;
-        grid-template-rows: 170px 40px 1fr 1fr;
-        grid-template-areas:
-            ". Logo . Live ."
-            ". Heading . Live . "
-            ". Details . Live ."
-            ". Details . Live ."
-
-
-    }
+  .grid {
+    display: grid;
+    grid-template-columns: 100px 0.5fr 80px 2fr 40px;
+    grid-template-rows: 170px 40px 1fr 1fr;
+    grid-template-areas:
+      ". Logo . Live ."
+      ". Heading . Live . "
+      ". Details . Live ."
+      ". Details . Live .";
+  }
 }
