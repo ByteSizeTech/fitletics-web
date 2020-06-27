@@ -93,7 +93,7 @@ body {
 }
 
 .Live {
-    background-color: lightblue;
+    background-color: gray;
     grid-area: Live;
     margin: 5%
 }
