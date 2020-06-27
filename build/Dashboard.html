@@ -8,17 +8,22 @@
   </head>
 
   <body>
+    <!-- web structure of a CSS GRID w/ each grid item for a specific thing -->
     <div class="grid-container">
+      <!-- Logo -->
       <div class="grid-item grid-item-logo">
         <img src="images/logo.png" alt="Logo" class="fitletics-logo" />
       </div>
+      <!-- Log out button -->
       <div class="grid-item grid-item-logout">
         <button class="button logout-button">Logout</button>
       </div>
-      <div class="grid-item item3">
+      <!-- User Details -->
+      <div class="grid-item grid-item-ud">
         <h1 class="boxed-info-heading">
           User Details
         </h1>
+        <!-- GRID for holding information ina boxed structure as per the design reqs -->
         <div class="boxed-info">
           <div class="boxed-info-item boxed-logo">
             <img
@@ -29,17 +34,22 @@
           </div>
           <div class="boxed-info-item boxed-heading">John Doe</div>
           <div class="boxed-info-item boxed-subheading">Level 7</div>
-          <div class="boxed-info-item boxed-prog-bar">progression bar</div>
-          <!-- <img src="images/dp.png" alt="profile picture" class="boxed-logo" />
-          <span class="main-info">
-            John Doe
-          </span> -->
+          <!-- progress bar -->
+          <div class="boxed-info-item boxed-prog-bar"></div>
         </div>
       </div>
+      <!-- tips section -->
       <div class="grid-item grid-item-tips">
-        <div class="tips-container"></div>
+        <div class="tips-container">
+          <h1>Tip of the Day</h1>
+
+          Be aware of your body. Think about how the particular exercise is
+          making you feel. If something doesn’t feel right, stop immediately and
+          seek medical advice.
+        </div>
       </div>
-      <div class="grid-item item5">
+      <!-- Last Session boxed details -->
+      <div class="grid-item grid-item-ls">
         <h1 class="boxed-info-heading">
           Last Session
         </h1>
