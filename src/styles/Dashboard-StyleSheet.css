@@ -126,18 +126,6 @@ p {
   border-radius: 1.5em;
 }
 .boxed-prog-bar::before {
-  content: "";
-  display: flex;
-  min-width: 2rem;
-  align-items: center;
-  position: absolute;
-  left: 0.5em;
-  top: 0.5em;
-  bottom: 0.5em;
-  max-width: calc(100%-1em);
-  width: 10%;
-  background-color: blue;
-  color: white;
 }
 .tips-container {
   background-color: gray;
