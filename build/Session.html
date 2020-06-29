@@ -5,6 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewpoint " content="width=device=width, initial-scale=1.0" />
   <link rel="stylesheet" href="../src/styles/Session.css" />
+
 </head>
 
 <body>
@@ -13,15 +14,15 @@
       <div class="Heading"> &nbsp &nbsp <img src="../build/Images/abs.png" class="Image">
         &nbsp<b>ABS</b> &nbsp &nbsp</div>
       <div class="timer">
-        <a id="m">00</a>:
-        <a id="s">00</a>:
-        <a id="mi">00</a>
+        <span id="time">
+          00:00
+        </span>
       </div>
       <div class="Exercise"> &nbsp<b>PULL &nbsp- &nbsp UPS &nbsp </b> </div>
       <div class="reps">
         &nbsp <b>5</b> &nbsp
       </div>
-      <div class="skip"><button class="skip-button"><b>SKIP</b></button></div>
+      <div class="skip"><button class="skip-button">SKIP</button></div>
       <div class="end-session"><button class="end-session-button"><b>End session</b></button></div>
     </div>
     <div class="Live">
@@ -44,26 +45,7 @@
 
     function videoError(e) { // do something}
   </script>-->
-  <script>
-    Number.prototype.pad = function (n) {
-      for (var r = this.toString(); r.length < n; r = 0 + r);
-      return r;
-    };
-
-    function updateClock() {
-      var now = new Date();
-      var milli = now.getMilliseconds(),
-        sec = now.getSeconds(),
-        min = now.getMinutes(),
-        corr = [min.pad(2), sec.pad(2), milli];
-      for (var i = 0; i < tags.length; i++)
-        document.getElementById(tags[i]).firstChild.nodeValue = corr[i];
-    }
-
-    function initClock() {
-      updateClock();
-      window.setInterval("updateClock()", 1);
-    }
+  <script src="../src/Scripts/Session.js">
   </script>
 </body>
 

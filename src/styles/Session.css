@@ -119,6 +119,10 @@ body {
     width: 180%;
     height: 5vh;
     border: none;
+    font-weight: 900;
+    font-size: 120%;
+
+
 }
 
 .skip-button:hover {
@@ -142,6 +146,7 @@ body {
 
 
 }
+
 
 
 @media screen and (min-width: 1200px) {
