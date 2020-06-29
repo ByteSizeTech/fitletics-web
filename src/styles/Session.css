@@ -1,11 +1,10 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-<<<<<<< HEAD
     background-color: black;
     color: aliceblue;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -30,7 +29,7 @@ body {
     grid-area: Session;
     border-radius: 40px;
     height: 75vh;
-    width: 22vw;
+    width: 300px;
     margin: 15%;
     justify-self: center;
     display: grid;
@@ -44,45 +43,6 @@ body {
         "end-session end-session";
 
 
-=======
-  background-color: black;
-  color: aliceblue;
-  font-family: Roboto;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-template-areas:
-    "Session "
-    "Session "
-    "Live"
-    "Live";
-}
-
-.Live {
-  background-color: #c4c4c4;
-  grid-area: Live;
-  margin: 5%;
-}
-
-.Session {
-  background-color: gray;
-  grid-area: Session;
-  border-radius: 40px;
-  height: 75vh;
-  width: 400px;
-  margin: 5%;
-  justify-self: center;
-  display: grid;
-  grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
-  grid-template-rows: 1fr 2fr 1fr;
-  grid-template-areas:
-    ". timer difficulty ."
-    ". Exercises Exercises ."
-    ". button button .";
->>>>>>> 3a74c1897a92ca39835122655d6066b6a1dab702
 }
 
 .Heading {
@@ -150,7 +110,7 @@ body {
 .Live {
     background-color: #c4c4c4;
     grid-area: Live;
-    margin: 5%;
+    margin: 10%;
 }
 
 .skip-button {
@@ -190,7 +150,6 @@ body {
 
 
 @media screen and (min-width: 1200px) {
-<<<<<<< HEAD
     .grid {
         display: grid;
         grid-template-columns: 50px 1fr 50px 2fr 50px;
@@ -201,14 +160,3 @@ body {
 
     }
 }
-=======
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas:
-      "Session Live"
-      "Session Live";
-  }
-}
->>>>>>> 3a74c1897a92ca39835122655d6066b6a1dab702
