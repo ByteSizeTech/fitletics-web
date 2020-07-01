@@ -11,17 +11,6 @@ body {
 }
 
 .grid {
-<<<<<<< HEAD
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 90px 1fr 1fr 2fr;
-    grid-template-areas:
-        "Logo "
-        " Heading "
-        " Details "
-        " Details "
-        " Live "
-=======
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 90px 1fr 1fr 2fr;
@@ -31,7 +20,6 @@ body {
     " Details "
     " Details "
     " Live ";
->>>>>>> 3a74c1897a92ca39835122655d6066b6a1dab702
 }
 
 .Logo {
@@ -100,15 +88,9 @@ body {
 }
 
 .Live {
-<<<<<<< HEAD
-    background-color: gray;
-    grid-area: Live;
-    margin: 5%
-=======
   background-color: #c4c4c4;
   grid-area: Live;
   margin: 5%;
->>>>>>> 3a74c1897a92ca39835122655d6066b6a1dab702
 }
 
 @media screen and (min-width: 1200px) {

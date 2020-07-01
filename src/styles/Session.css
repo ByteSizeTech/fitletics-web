@@ -5,46 +5,6 @@
 }
 
 body {
-<<<<<<< HEAD
-    background-color: black;
-    color: aliceblue;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr 2fr 1fr 1fr;
-    grid-template-areas:
-        "Session "
-        "Session "
-        "Live"
-        "Live";
-
-}
-
-
-
-.Session {
-    background-color: gray;
-    grid-area: Session;
-    border-radius: 40px;
-    height: 75vh;
-    width: 22vw;
-    margin: 15%;
-    justify-self: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 2fr 1fr;
-    grid-template-areas:
-        " heading  heading "
-        "timer timer "
-        " exercise  exercise "
-        "reps  skip "
-        "end-session end-session";
-
-
-=======
   background-color: black;
   color: aliceblue;
   font-family: Roboto;
@@ -82,126 +42,99 @@ body {
     ". timer difficulty ."
     ". Exercises Exercises ."
     ". button button .";
->>>>>>> 3a74c1897a92ca39835122655d6066b6a1dab702
 }
 
 .Heading {
-    grid-area: heading;
-    background-color: white;
-    margin: auto;
-    border-radius: 40px;
-    color: black;
-    font-size: 120%;
+  grid-area: heading;
+  background-color: white;
+  margin: auto;
+  border-radius: 40px;
+  color: black;
+  font-size: 120%;
 }
 
 .timer {
-    grid-area: timer;
-    align-self: center;
-    justify-self: center;
-    color: white;
-    font-size: 200%;
+  grid-area: timer;
+  align-self: center;
+  justify-self: center;
+  color: white;
+  font-size: 200%;
 }
-
-
 
 .Exercise {
-    grid-area: exercise;
-    background-color: gray;
-    align-self: center;
-    justify-self: center;
-    color: pink;
-    font-size: 175%;
+  grid-area: exercise;
+  background-color: gray;
+  align-self: center;
+  justify-self: center;
+  color: pink;
+  font-size: 175%;
 }
 
-
 .reps {
-    grid-area: reps;
-    background-color: white;
-    border-radius: 50%;
-    align-self: center;
-    justify-self: center;
-    font-size: 300%;
-    color: black;
-
-
-
+  grid-area: reps;
+  background-color: white;
+  border-radius: 50%;
+  align-self: center;
+  justify-self: center;
+  font-size: 300%;
+  color: black;
 }
 
 .skip {
-    grid-area: skip;
-    background-color: gray;
-    align-self: center;
-    justify-self: center;
-
+  grid-area: skip;
+  background-color: gray;
+  align-self: center;
+  justify-self: center;
 }
 
 .end-session {
-    grid-area: end-session;
-    background-color: purple;
-    align-self: center;
-    justify-self: center;
+  grid-area: end-session;
+  background-color: purple;
+  align-self: center;
+  justify-self: center;
 }
 
 .Image {
-    height: 3vh;
-    width: 3vw;
+  height: 3vh;
+  width: 3vw;
 }
 
 .Live {
-    background-color: #c4c4c4;
-    grid-area: Live;
-    margin: 5%;
+  background-color: #c4c4c4;
+  grid-area: Live;
+  margin: 5%;
 }
 
 .skip-button {
-    background-color: white;
-    color: black;
-    width: 180%;
-    height: 5vh;
-    border: none;
-    font-weight: 900;
-    font-size: 120%;
-
-
+  background-color: white;
+  color: black;
+  width: 180%;
+  height: 5vh;
+  border: none;
+  font-weight: 900;
+  font-size: 120%;
 }
 
 .skip-button:hover {
-    background-color: black;
-    color: white;
-    border: none;
-
+  background-color: black;
+  color: white;
+  border: none;
 }
 
 .end-session-button {
-    background-color: #FF850D;
-    color: white;
-    width: 17vw;
-    height: 5vh;
-    border: none;
+  background-color: #ff850d;
+  color: white;
+  width: 17vw;
+  height: 5vh;
+  border: none;
 }
 
 .end-session-button:hover {
-    background-color: white;
-    color: black;
-
-
+  background-color: white;
+  color: black;
 }
-
-
 
 @media screen and (min-width: 1200px) {
-<<<<<<< HEAD
-    .grid {
-        display: grid;
-        grid-template-columns: 50px 1fr 50px 2fr 50px;
-        grid-template-rows: 1fr 1fr;
-        grid-template-areas:
-            ". Session . Live ."
-            ". Session . Live .";
-
-    }
-}
-=======
   .grid {
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -211,4 +144,3 @@ body {
       "Session Live";
   }
 }
->>>>>>> 3a74c1897a92ca39835122655d6066b6a1dab702

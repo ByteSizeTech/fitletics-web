@@ -1,6 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 * {
   box-sizing: border-box;
-  font-size: 30px;
 }
 
 body {
@@ -120,8 +120,8 @@ p {
 }
 
 .boxed-prog-bar {
+  display: flex;
   position: relative;
-  display: inline;
   grid-column: 1/3;
   background-color: #ddd;
   height: 17px;
