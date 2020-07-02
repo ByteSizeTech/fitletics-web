@@ -15,12 +15,12 @@
         &nbsp<b>ABS</b> &nbsp &nbsp</div>
       <div class="timer">
         <span id="time">
-          00:00
+          00:00.00
         </span>
       </div>
       <div class="Exercise"> &nbsp<b>PULL &nbsp- &nbsp UPS &nbsp </b> </div>
       <div class="reps">
-        &nbsp <b>5</b> &nbsp
+        &nbsp <b>5</b> /7 &nbsp
       </div>
       <div class="skip"><button class="skip-button">SKIP</button></div>
       <div class="end-session"><button class="end-session-button"><b>End session</b></button></div>
@@ -29,22 +29,7 @@
       <div id="videoElement"><video class="video" autoplay playsinline> </video></div>
     </div>
   </div>
-  <!--<script>
-    var video = document.querySelector("#videoElement");
-    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia ||
-      navigator.msGetUserMedia || navigator.oGetUserMedia;
-    if (navigator.getUserMedia) {
-      navigator.getUserMedia({
-        video: true
-      }, handleVideo, videoError);
-    }
 
-    function handleVideo(stream) {
-      video.src = window.URL.createObjectURL(stream);
-    }
-
-    function videoError(e) { // do something}
-  </script>-->
   <script src="../src/Scripts/Session.js">
   </script>
 </body>

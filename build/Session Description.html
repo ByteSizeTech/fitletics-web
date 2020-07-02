@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Session Description</title>
-    <link href="../src/styles/Session-Description.css" rel="stylesheet" />
-  </head>
 
-  <body>
-    <div class="grid">
-      <div class="Logo">
-        <img src="Images/logo.png" class="fitletics-logo" />
-      </div>
-      <div class="Heading">
-        <center>ABS</center>
-      </div>
-      <div class="Details">
-        <p class="difficulty">Difficulty Level</p>
-        <img />
-        <p class="Exercises">Exercises</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Session Description</title>
+  <link href="../src/styles/Session-Description.css" rel="stylesheet" />
+</head>
 
-        <button class="button">Start Session</button>
-      </div>
-      <div class="Live">Live</div>
+<body>
+  <div class="grid">
+    <div class="Logo">
+      <img src="Images/logo.png" class="fitletics-logo" />
     </div>
-  </body>
+    <div class="Heading">
+      <center>ABS</center>
+    </div>
+    <div class="Details">
+      <p class="difficulty">Difficulty Level</p>
+      <img />
+      <p class="Exercises">Exercises</p>
+
+      <button class="button">Start Session</button>
+    </div>
+    <div class="Live"><video class="video" autoplay playsinline></video></div>
+  </div>
+  <script src="../src/Scripts/Session.js">
+  </script>
+</body>
+
 </html>

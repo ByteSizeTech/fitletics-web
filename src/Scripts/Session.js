@@ -4,7 +4,7 @@ function startTimer(duration, display) {
     setInterval(function () {
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
-        milliseconds = parseInt(timer * 1000);
+        milliseconds = parseInt(seconds / 1000);
 
         minutes = minutes < 10 ? "0" + minutes : minutes;
         seconds = seconds < 10 ? "0" + seconds : seconds;
