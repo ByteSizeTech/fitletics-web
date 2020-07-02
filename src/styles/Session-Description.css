@@ -19,12 +19,8 @@ body {
     " Heading "
     " Details "
     " Details "
-<<<<<<< HEAD
     " Live "
 
-=======
-    " Live ";
->>>>>>> 21168689f248fde9d020a15f970fa3d6d58f00e8
 }
 
 .Logo {
@@ -93,15 +89,12 @@ body {
 }
 
 .Live {
-<<<<<<< HEAD
-  background-color: gray;
+  <<<<<<< HEAD background-color: gray;
   grid-area: Live;
-  margin: 5%
-=======
-  background-color: #c4c4c4;
+  margin: 5%=======background-color: #c4c4c4;
   grid-area: Live;
   margin: 5%;
->>>>>>> 21168689f248fde9d020a15f970fa3d6d58f00e8
+  >>>>>>>21168689f248fde9d020a15f970fa3d6d58f00e8
 }
 
 @media screen and (min-width: 1200px) {
