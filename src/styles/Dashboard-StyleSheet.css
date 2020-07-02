@@ -13,15 +13,15 @@ body {
 }
 .grid-container {
   display: grid;
-  border: gray solid 5px;
+  /* border: gray solid 5px; */
   grid: 250px auto auto/1fr 1.2fr;
   /* grid-template-columns: 1fr 1.2fr;
   grid-template-rows: 250px auto auto; */
 }
 .grid-item {
   padding: 20px;
-  border: white solid 1px;
-  background-color: rgba(21, 10, 11, 90);
+  /* border: white solid 1px;
+  background-color: rgba(21, 10, 11, 90); */
   text-align: center;
 }
 
@@ -82,27 +82,26 @@ p {
   font-weight: 900;
   font-size: 35px;
   color: #ffffff;
-  border: blue solid 3px;
+  /* border: blue solid 3px; */
 }
 .boxed-info {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr 3fr;
   grid-template-rows: auto auto auto;
   background-color: white;
-  border: red solid 3px;
+  /* border: red solid 3px; */
   border-radius: 5%;
   width: 350px;
   height: auto;
   padding: 20px;
 }
+
 /* .boxed-info-item {
-  border: gray solid 1px;
-} */
-.boxed-info-item {
   border: green solid 3px;
-}
+} */
 .boxed-logo {
   grid-row: 1/3;
+  justify-self: start;
 }
 .boxed-logo-image {
   width: 100%;
@@ -131,31 +130,37 @@ p {
   margin-top: 10px;
 }
 .progress-bar {
-  flex: 5;
+  flex: 4;
   border-radius: 20px;
   background-color: rgb(210, 210, 210);
   height: 15px;
 }
 .progress-done {
   border-radius: 20px;
-  width: 70;
+  width: 70%;
   opacity: 1;
   background-color: green;
   height: 100%;
   background: linear-gradient(to left, #5cc468, #479650);
-  transition: 1s ease;
 }
 .progress-info {
   flex: 1;
   font-size: 10px;
   color: gray;
+  font-weight: lighter;
 }
 .tips-container {
   background-color: gray;
   height: 400px;
   width: 400px;
-  border: white solid 1px;
+  /* border: white solid 1px; */
   text-align: center;
+  margin-top: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .fitletics-logo {
   width: 100%;
