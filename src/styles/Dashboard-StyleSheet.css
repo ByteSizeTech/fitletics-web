@@ -1,6 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+
 * {
   box-sizing: border-box;
-  font-size: 30px;
 }
 
 body {
@@ -12,12 +13,10 @@ body {
 }
 .grid-container {
   display: grid;
-
-  height: 100vh;
-  width: 100vw;
-  border: gray solid 5px;
-  grid-template-columns: 1fr 1.2fr;
-  grid-template-rows: 250px auto auto;
+  /* border: gray solid 5px; */
+  grid: 250px auto auto/1fr 1.2fr;
+  /* grid-template-columns: 1fr 1.2fr;
+  grid-template-rows: 250px auto auto; */
 }
 .grid-item {
   padding: 20px;
@@ -39,8 +38,9 @@ p {
 
 .grid-item-logout {
   text-align: right;
+  padding-right: min(150px);
   align-self: center;
-  justify-self: end;
+  /* justify-self: end; */
 }
 .grid-item-ud {
   align-self: center;
@@ -54,9 +54,10 @@ p {
   object-fit: cover;
   grid-row: 2/4;
   grid-column: 2/3;
-  text-align: center;
+  text-align: right;
   align-self: center;
-  justify-self: center;
+  justify-self: right;
+  padding-right: 150px;
 }
 .button {
   font-family: Graphik;
@@ -68,8 +69,6 @@ p {
   text-decoration: none;
 }
 .logout-button {
-  /* margin-top: min(70px);
-  margin-right: 60px; */
   font-weight: 200;
 }
 .button:hover {
@@ -83,56 +82,85 @@ p {
   font-weight: 900;
   font-size: 35px;
   color: #ffffff;
+  /* border: blue solid 3px; */
 }
 .boxed-info {
   display: grid;
-  grid-template-columns: 35% 65%;
+  grid-template-columns: 1fr 3fr;
   grid-template-rows: auto auto auto;
   background-color: white;
-  border: gray solid 3px;
-  border-radius: 10%;
-  width: 300px;
+  /* border: red solid 3px; */
+  border-radius: 5%;
+  width: 350px;
   height: auto;
   padding: 20px;
 }
-/* .boxed-info-item {
-  border: gray solid 1px;
-} */
 
+/* .boxed-info-item {
+  border: green solid 3px;
+} */
 .boxed-logo {
   grid-row: 1/3;
+  justify-self: start;
 }
 .boxed-logo-image {
-  width: max(80px);
-  height: max(80px);
+  width: 100%;
+  max-width: 80px;
+  max-height: 80px;
+  height: auto;
   border-radius: 50%;
 }
 .boxed-heading {
   color: black;
   font-size: 25px;
   font-weight: 900;
+  text-align: left;
+  margin: 5px;
 }
 .boxed-subheading {
   color: orange;
   font-size: 20px;
+  text-align: left;
+  margin: 5px;
 }
 
 .boxed-prog-bar {
-  position: relative;
+  display: flex;
   grid-column: 1/3;
-  background-color: #555;
-  height: 1em;
-  width: auto;
-  border-radius: 1.5em;
+  margin-top: 10px;
 }
-.boxed-prog-bar::before {
+.progress-bar {
+  flex: 4;
+  border-radius: 20px;
+  background-color: rgb(210, 210, 210);
+  height: 15px;
+}
+.progress-done {
+  border-radius: 20px;
+  width: 70%;
+  opacity: 1;
+  background-color: green;
+  height: 100%;
+  background: linear-gradient(to left, #5cc468, #479650);
+}
+.progress-info {
+  flex: 1;
+  font-size: 10px;
+  color: gray;
+  font-weight: lighter;
 }
 .tips-container {
   background-color: gray;
   height: 400px;
   width: 400px;
-  border: white solid 1px;
+  /* border: white solid 1px; */
   text-align: center;
+  margin-top: 10px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .fitletics-logo {
   width: 100%;

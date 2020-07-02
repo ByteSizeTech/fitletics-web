@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../src/styles/Dashboard-StyleSheet.css" />
+    <script src="../src/Scripts/sc_dashboard.js"></script>
     <title>Dashboard</title>
   </head>
 
@@ -35,13 +36,20 @@
           <div class="boxed-info-item boxed-heading">John Doe</div>
           <div class="boxed-info-item boxed-subheading">Level 7</div>
           <!-- progress bar -->
+
           <div class="boxed-info-item boxed-prog-bar">
-            <div class="progress-done" data-done="70"></div>
+            <div class="progress-bar">
+              <div class="progress-done" data-done:"70"></div>
+            </div>
+            <div class="progress-info">70/100 XP</div>
           </div>
         </div>
       </div>
       <!-- tips section -->
       <div class="grid-item grid-item-tips">
+        <h1 class="boxed-info-heading">
+          No ongoing sessions...
+        </h1>
         <div class="tips-container">
           <h1>Tip of the Day</h1>
 
