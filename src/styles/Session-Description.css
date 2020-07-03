@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+
 * {
   padding: 0;
   margin: 0;
@@ -23,6 +25,7 @@ body {
 
 }
 
+/*Logo Div*/
 .Logo {
   grid-area: Logo;
   justify-self: center;
@@ -37,61 +40,139 @@ body {
 .Heading {
   background-color: White;
   grid-area: Heading;
+  margin: auto;
   border-radius: 40px;
   color: black;
+  font-size: 120%;
+  height: 35px;
+
+
+}
+
+.Image {
+  height: 5vh;
+  width: 2vw;
   justify-self: center;
-  width: 90px;
-  height: 5.5vh;
+  align-self: center;
 }
 
 .Details {
-  background-color: gray;
+  background-color: rgb(58, 57, 57);
   grid-area: Details;
   border-radius: 40px;
-  height: 75vh;
-  width: 400px;
+  height: 370px;
+  width: 370px;
   margin-bottom: 5%;
   justify-self: center;
   display: grid;
-  grid-template-columns: 0.5fr 1fr 1fr 0.5fr;
-  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-columns: 50px 1fr 1fr 50px;
+  grid-template-rows: 1fr 3fr 1fr;
   grid-template-areas:
-    ". timer difficulty ."
-    ". Exercises Exercises ."
+    ". one  one ."
+    ". exercises exercises ."
     ". button button .";
+
 }
 
-.Exercises {
-  grid-area: Exercises;
+.one {
+  grid-area: one;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 2fr 1fr;
+  grid-template-areas:
+    "timer difficulty "
+    "timetaken  levels";
+}
+
+/* .Line {
+  width: 10px;
+  height: 5px;
+} */
+.time-taken {
+  grid-area: timetaken;
   justify-self: center;
+}
+
+
+.clockimage {
+  width: 45px;
+  height: 50px;
+}
+
+.levels {
+  grid-area: levels;
+  justify-self: center;
+  font-size: 15px;
+
 }
 
 .timer {
   grid-area: timer;
+  justify-self: center;
 }
 
 .difficulty {
   grid-area: difficulty;
-  align-self: center;
+  justify-self: center;
+  margin-top: 10px;
+  font-weight: bolder;
+  font-size: 18px;
 }
 
+/* Exercise div is a flex box */
+.exercises {
+  grid-area: exercises;
+  display: flex;
+  height: 200px;
+  width: auto;
+
+
+}
+
+.number {
+  min-height: 100px;
+  background-color: blueviolet;
+  width: 40px;
+}
+
+.exercise-name {
+  min-height: 100px;
+  margin-right: 5%;
+  margin-left: 5%;
+  background-color: crimson;
+}
+
+.information-symbol {
+  min-height: 100px;
+  background-color: darkblue;
+  width: 30px;
+
+}
+
+/* EXERCISE FLEX BOX ENDS HERE */
+
 .button {
+  grid-area: button;
   background-color: orange;
   color: aliceblue;
-  grid-area: button;
   width: 20vw;
-  height: 8vh;
+  height: 6vh;
+  border-radius: 10px;
+
 }
 
 .button:hover {
   background-color: white;
   color: black;
+  font-weight: bolder;
 }
 
 .Live {
-  background-color: gray;
+  background-color: lightgray;
   grid-area: Live;
-  margin: 5%;
+  margin: 10%;
+  width: 40vw;
+  height: 65vh;
 }
 
 
