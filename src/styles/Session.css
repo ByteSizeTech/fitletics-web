@@ -50,18 +50,28 @@ body {
   color: black;
   font-size: 120%;
   height: 35px;
-  text-align: center;
+  width: 115px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    ". Image workout-heading .";
 
 }
+
 
 .workout-heading {
-  margin: 5px;
+  grid-area: workout-heading;
+  justify-content: space-around;
+  margin-top: 5px;
+  margin-left: 10px;
 }
 
-.exercise-name {
-  margin: 5px;
-  font-weight: 50px;
-  margin-bottom: 80px;
+.Image {
+  grid-area: Image;
+  height: 5vh;
+  width: 25px;
+
 }
 
 .timer {
@@ -80,11 +90,12 @@ body {
   align-self: center;
   justify-self: center;
   color: #FFA1A1;
+  letter-spacing: 3.5px;
   font-size: 175%;
 }
 
 .information {
-  width: 15px;
+  width: 20px;
 }
 
 .reps {
@@ -125,12 +136,7 @@ body {
   justify-self: center;
 }
 
-.Image {
-  height: 5vh;
-  width: 2vw;
-  justify-self: center;
-  align-self: center;
-}
+
 
 .Live {
   background-color: lightgray;
@@ -163,6 +169,7 @@ body {
   height: 5vh;
   border: none;
   border-radius: 6px;
+  font-weight: bolder;
 }
 
 .end-session-button:hover {

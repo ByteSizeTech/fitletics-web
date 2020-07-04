@@ -129,12 +129,14 @@ body {
 .clockimage {
   width: 45px;
   height: 50px;
+  margin-bottom: 10px;
 }
 
 .levels {
   grid-area: levels;
   justify-self: center;
   font-size: 15px;
+  letter-spacing: 1px;
 
 }
 
@@ -149,6 +151,8 @@ body {
   margin-top: 10px;
   font-weight: bolder;
   font-size: 18px;
+  letter-spacing: 1px;
+
 }
 
 
@@ -280,7 +284,7 @@ body {
   grid-area: Live;
   margin: 6%;
   width: 60vw;
-  height: 83vh;
+  height: ;
 }
 
 .video {
