@@ -35,7 +35,7 @@ body {
 .fitletics-logo {
   width: 300px;
   height: 170px;
-  margin-top: 6%;
+  margin-top: 1%;
 }
 
 .Heading {
@@ -46,26 +46,34 @@ body {
   font-size: 120%;
   width: 115px;
   height: 35px;
-  padding-bottom: 20px;
-  display: flex;
-  justify-content: space-around;
-  align-content: space-around;
-
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    ". Image workout-heading .";
 }
 
+.workout-heading {
+  grid-area: workout-heading;
+  justify-content: space-around;
+  margin-top: 5px;
+  margin-left: 10px;
+}
 
 .Image {
+  grid-area: Image;
   height: 5vh;
-  width: 20px;
+  width: 25px;
 
 }
 
 .Details {
-  background-color: rgb(58, 57, 57);
+  background-color: #4F4F4F;
   grid-area: Details;
   border-radius: 40px;
   height: 370px;
   width: 380px;
+  margin-top: 3%;
   margin-bottom: 5%;
   justify-self: center;
   align-items: center;
