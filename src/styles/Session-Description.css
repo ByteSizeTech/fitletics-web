@@ -258,7 +258,7 @@ body {
   grid-area: Live;
   margin: 6%;
   width: 60vw;
-  /* height: ; */
+  height: 550px;
 }
 
 .video {
