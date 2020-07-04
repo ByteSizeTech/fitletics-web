@@ -60,7 +60,7 @@ body {
 
 .Image {
   grid-area: Image;
-  height: 5vh;
+  height: 30px;
   width: 25px;
 }
 
