@@ -16,6 +16,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 90px 1fr 1fr 2fr;
+  justify-items: center;
   grid-template-areas:
     "Logo "
     " Heading "
@@ -40,23 +41,18 @@ body {
 .Heading {
   background-color: White;
   grid-area: Heading;
-  margin: auto;
   border-radius: 40px;
   color: black;
   font-size: 120%;
+  width: 115px;
   height: 35px;
-
-
-
-
-}
-
-.workout-name {
-
-  text-align: center;
-
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-content: space-around;
 
 }
+
 
 .Image {
   height: 5vh;
@@ -69,28 +65,41 @@ body {
   grid-area: Details;
   border-radius: 40px;
   height: 370px;
-  width: 370px;
+  width: 380px;
   margin-bottom: 5%;
   justify-self: center;
   align-items: center;
   display: grid;
   grid-template-columns: 50px 1fr 1fr 50px;
-  grid-template-rows: 1fr 25px 3fr 1fr;
+  grid-template-rows: 1fr 25px 3fr 10px 1fr;
   grid-template-areas:
     ". one  one ."
-    ". . . . "
+    ". line line . "
     ". exercises exercises ."
-    ". button button .";
+    ". line-two line-two ."
+    ". button button ."
+  ;
 
 }
 
-/* .line {
+.line {
   grid-area: line;
-  width: 250px;
-  height: 47px;
+  width: 200px;
+  height: 5px;
   border-bottom: 1px solid white;
-  position: absolute;
-} */
+  justify-self: center;
+
+}
+
+.line-two {
+  grid-area: line-two;
+  width: 200px;
+  height: 5px;
+  border-bottom: 1px solid white;
+  justify-self: center;
+  margin: 0;
+
+}
 
 .one {
   grid-area: one;
@@ -138,14 +147,13 @@ body {
 /* Exercise div is grid */
 .exercises {
   grid-area: exercises;
-  justify-items: space-around;
   display: grid;
-  height: 200px;
+  height: 150px;
   width: auto;
-  grid-template-columns: 1fr 10px 5fr 10px 1fr;
+  grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: 1fr;
   grid-template-areas:
-    "number . exercisename . symbol";
+    "number  exercisename  symbol";
 
 }
 
@@ -162,7 +170,7 @@ body {
     "rep-three"
     "rep-four"
     "rep-five";
-  justify-items: center;
+  justify-items: right;
 
 }
 
