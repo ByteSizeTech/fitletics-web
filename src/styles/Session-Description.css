@@ -15,12 +15,11 @@ body {
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 90px 1fr 1fr 2fr;
+  grid-template-rows: 170px 90px 1fr 2fr;
   justify-items: center;
   grid-template-areas:
     "Logo "
     " Heading "
-    " Details "
     " Details "
     " Live ";
 }
@@ -241,7 +240,7 @@ body {
 
 .button {
   grid-area: button;
-  background-color: orange;
+  background-color: #ff850d;
   color: aliceblue;
   width: 290px;
   height: 35px;
@@ -259,7 +258,7 @@ body {
   grid-area: Live;
   margin: 6%;
   width: 60vw;
-  height: ;
+  /* height: ; */
 }
 
 .video {
