@@ -188,4 +188,19 @@ p {
     display: flex;
     flex-direction: column;
   }
+  .tips-container {
+    background-color: #c4c4c4;
+    color: black;
+    height: auto;
+    width: 80%;
+    /* border: white solid 1px; */
+
+    /* alighing text inside the tios container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 15%;
+    font-size: 1.3em;
+  }
 }
