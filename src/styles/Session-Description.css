@@ -47,13 +47,21 @@ body {
   height: 35px;
 
 
+
+
+}
+
+.workout-name {
+
+  text-align: center;
+
+
 }
 
 .Image {
   height: 5vh;
-  width: 2vw;
-  justify-self: center;
-  align-self: center;
+  width: 20px;
+
 }
 
 .Details {
@@ -64,15 +72,25 @@ body {
   width: 370px;
   margin-bottom: 5%;
   justify-self: center;
+  align-items: center;
   display: grid;
   grid-template-columns: 50px 1fr 1fr 50px;
-  grid-template-rows: 1fr 3fr 1fr;
+  grid-template-rows: 1fr 25px 3fr 1fr;
   grid-template-areas:
     ". one  one ."
+    ". . . . "
     ". exercises exercises ."
     ". button button .";
 
 }
+
+/* .line {
+  grid-area: line;
+  width: 250px;
+  height: 47px;
+  border-bottom: 1px solid white;
+  position: absolute;
+} */
 
 .one {
   grid-area: one;
@@ -84,10 +102,7 @@ body {
     "timetaken  levels";
 }
 
-/* .Line {
-  width: 10px;
-  height: 5px;
-} */
+
 .time-taken {
   grid-area: timetaken;
   justify-self: center;
@@ -119,43 +134,120 @@ body {
   font-size: 18px;
 }
 
-/* Exercise div is a flex box */
+
+/* Exercise div is grid */
 .exercises {
   grid-area: exercises;
-  display: flex;
+  justify-items: space-around;
+  display: grid;
   height: 200px;
   width: auto;
-
+  grid-template-columns: 1fr 10px 5fr 10px 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "number . exercisename . symbol";
 
 }
+
+/* Number of reps div starts here */
 
 .number {
-  min-height: 100px;
-  background-color: blueviolet;
-  width: 40px;
+  grid-area: number;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "rep-one"
+    "rep-two"
+    "rep-three"
+    "rep-four"
+    "rep-five";
+  justify-items: center;
+
 }
 
-.exercise-name {
-  min-height: 100px;
-  margin-right: 5%;
-  margin-left: 5%;
-  background-color: crimson;
+.rep-one {
+  grid-area: rep-one;
+
 }
+
+.rep-two {
+
+  grid-area: rep-two;
+}
+
+.rep-three {
+  grid-area: rep-three;
+}
+
+.rep-four {
+  grid-area: rep-four;
+}
+
+.rep-five {
+  grid-area: rep-five;
+}
+
+/* Number of rep div ends here */
+/* exercise name div starts here */
+.exercise-name {
+  grid-area: exercisename;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "exercise-one"
+    "exercise-two"
+    "exercise-three"
+    "exercise-four"
+    "exercise-five";
+  justify-items: center;
+}
+
+.exercise-one {
+  grid-area: exercise-one;
+
+}
+
+.exercise-two {
+  grid-area: exercise-two;
+
+}
+
+.exercise-three {
+  grid-area: exercise-three;
+
+}
+
+.exercise-four {
+  grid-area: exercise-four;
+
+}
+
+.exercise-five {
+  grid-area: exercise-five;
+
+}
+
+/* exercise  name div ends here */
+/* information symbol grid starts here */
 
 .information-symbol {
-  min-height: 100px;
-  background-color: darkblue;
-  width: 30px;
+  grid-area: symbol;
+  width: 20px;
+  display: grid;
+
 
 }
 
+/* information symbol grid ends here */
 /* EXERCISE FLEX BOX ENDS HERE */
 
 .button {
   grid-area: button;
   background-color: orange;
   color: aliceblue;
-  width: 20vw;
+  width: 290px;
   height: 6vh;
   border-radius: 10px;
 
@@ -170,21 +262,26 @@ body {
 .Live {
   background-color: lightgray;
   grid-area: Live;
-  margin: 10%;
-  width: 40vw;
-  height: 65vh;
+  margin: 6%;
+  width: 60vw;
+  height: 83vh;
 }
 
+.video {
+  width: 60vw;
+  height: 83vh;
+
+}
 
 @media screen and (min-width: 1200px) {
   .grid {
     display: grid;
-    grid-template-columns: 100px 0.5fr 80px 2fr 40px;
+    grid-template-columns: 50px 1fr 2fr 50px;
     grid-template-rows: 170px 40px 1fr 1fr;
     grid-template-areas:
-      ". Logo . Live ."
-      ". Heading . Live . "
-      ". Details . Live ."
-      ". Details . Live .";
+      ". Logo Live ."
+      ". Heading  Live . "
+      ". Details  Live ."
+      ". Details  Live .";
   }
 }
