@@ -15,7 +15,7 @@ body {
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 170px 90px 1fr 2fr;
+  grid-template-rows: 200px 0.05fr 1fr 2fr;
   justify-items: center;
   grid-template-areas:
     "Logo "
@@ -28,6 +28,7 @@ body {
 .Logo {
   grid-area: Logo;
   justify-self: center;
+
 }
 
 .fitletics-logo {
@@ -48,6 +49,7 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   grid-template-areas: ". Image workout-heading .";
+  margin-bottom: 10px;
 }
 
 .workout-heading {
@@ -68,7 +70,7 @@ body {
   grid-area: Details;
   border-radius: 40px;
   height: 370px;
-  width: 380px;
+  width: 350px;
   margin-top: 3%;
   margin-bottom: 5%;
   justify-self: center;
@@ -149,108 +151,63 @@ body {
   display: grid;
   height: 150px;
   width: auto;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "number  exercisename  symbol";
-}
-
-/* Number of reps div starts here */
-
-.number {
-  grid-area: number;
-  display: grid;
+  margin-left: 60px;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas:
-    "rep-one"
-    "rep-two"
-    "rep-three"
-    "rep-four"
-    "rep-five";
-  justify-items: right;
+    "Rep-1"
+    "Rep-2"
+    "Rep-3"
+    "Rep-4"
+    "Rep-5"
+    "Rep-6";
 }
 
-.rep-one {
-  grid-area: rep-one;
+.Rep-1 {
+  grid-area: Rep-1;
 }
 
-.rep-two {
-  grid-area: rep-two;
+.Rep-2 {
+  grid-area: Rep-2;
 }
 
-.rep-three {
-  grid-area: rep-three;
+.Rep-3 {
+  grid-area: Rep-3;
 }
 
-.rep-four {
-  grid-area: rep-four;
+.Rep-4 {
+  grid-area: Rep-4;
 }
 
-.rep-five {
-  grid-area: rep-five;
+.Rep-5 {
+  grid-area: Rep-5;
 }
 
-/* Number of rep div ends here */
-/* exercise name div starts here */
-.exercise-name {
-  grid-area: exercisename;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas:
-    "exercise-one"
-    "exercise-two"
-    "exercise-three"
-    "exercise-four"
-    "exercise-five";
-  justify-items: center;
+.Rep-6 {
+  grid-area: Rep-6;
 }
-
-.exercise-one {
-  grid-area: exercise-one;
-}
-
-.exercise-two {
-  grid-area: exercise-two;
-}
-
-.exercise-three {
-  grid-area: exercise-three;
-}
-
-.exercise-four {
-  grid-area: exercise-four;
-}
-
-.exercise-five {
-  grid-area: exercise-five;
-}
-
-/* exercise  name div ends here */
-/* information symbol grid starts here */
 
 .information-symbol {
-  grid-area: symbol;
-  width: 20px;
-  display: grid;
+  width: 16px;
+  height: 12px;
 }
 
-/* information symbol grid ends here */
-/* EXERCISE FLEX BOX ENDS HERE */
 
 .button {
   grid-area: button;
   background-color: #ff850d;
   color: aliceblue;
-  width: 290px;
+  width: 260px;
   height: 35px;
   border-radius: 10px;
+  border: none;
 }
 
 .button:hover {
   background-color: white;
   color: black;
   font-weight: bolder;
+  border: none;
 }
 
 .Live {
