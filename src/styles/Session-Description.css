@@ -213,9 +213,9 @@ body {
 .Live {
   background-color: lightgray;
   grid-area: Live;
-  margin: 6%;
+  margin: 4%;
   width: 60vw;
-  height: 550px;
+  height: 560px;
 }
 
 .video {

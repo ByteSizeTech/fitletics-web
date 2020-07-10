@@ -27,19 +27,19 @@ body {
   background-color: gray;
   grid-area: Session;
   border-radius: 40px;
-  height: 500px;
-  width: 300px;
-  margin: 15%;
+  height: 490px;
+  width: 290px;
+  margin-top: 60px;
   justify-self: center;
   display: grid;
-  grid-template-columns: 20px 1fr 5px 1fr;
+  grid-template-columns: 10px 1fr 5px 1fr 10px;
   grid-template-rows: 1fr 1fr 1fr 2fr 1fr;
   grid-template-areas:
-    ". heading heading heading "
-    ".timer timer timer "
-    ". exercise exercise exercise "
-    ". reps . skip "
-    ". end-session  end-session end-session";
+    ". heading heading heading ."
+    ".timer timer timer ."
+    ". exercise exercise exercise ."
+    ". reps . skip ."
+    ". end-session  end-session end-session .";
 }
 
 .Heading {
@@ -69,7 +69,7 @@ body {
 
 .Image {
   grid-area: Image;
-  height: 5vh;
+  height: 30px;
   width: 25px;
 
 }
@@ -79,7 +79,7 @@ body {
   align-self: center;
   justify-self: center;
   color: white;
-  font-size: 200%;
+  font-size: 35px;
   text-shadow: 2px 2px rgb(95, 93, 93);
 
 }
@@ -109,6 +109,7 @@ body {
   line-height: 110px;
   width: 110px;
   height: 110px;
+  margin-left: 30px;
 }
 
 .currentRep {
@@ -127,23 +128,19 @@ body {
   align-self: center;
   justify-self: left;
   width: 40px;
+  margin-left: 25px;
 }
 
-.end-session {
-  grid-area: end-session;
 
-  align-self: center;
-  justify-self: center;
-}
 
 
 
 .Live {
   background-color: lightgray;
   grid-area: Live;
-  margin: 6%;
+  margin: 4%;
   width: 60vw;
-  height: 80vh;
+  height: 87vh;
 }
 
 .skip-button {
@@ -163,33 +160,39 @@ body {
 }
 
 .end-session-button {
+  grid-area: end-session;
   background-color: #ff850d;
-  color: white;
-  width: 17vw;
-  height: 5vh;
+  color: aliceblue;
+  width: 226px;
+  height: 35px;
+  border-radius: 5px;
   border: none;
-  border-radius: 6px;
   font-weight: bolder;
+  justify-self: center;
+  align-self: center;
 }
 
 .end-session-button:hover {
   background-color: white;
   color: black;
+  font-weight: bolder;
+  border: none;
 }
 
-.videoElement {
 
+.videoElement {
   width: 60vw;
-  height: 80vh;
+  height: 83vh;
+  margin-top: 1.5%;
 }
 
 @media screen and (min-width: 1200px) {
   .grid {
     display: grid;
-    grid-template-columns: 50px 1fr 50px 2fr 50px;
+    grid-template-columns: 50px 1fr 2fr 50px;
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
-      ". Session . Live ."
-      ". Session . Live .";
+      ". Session  Live ."
+      ". Session  Live .";
   }
 }
