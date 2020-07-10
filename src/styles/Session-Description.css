@@ -215,10 +215,11 @@ body {
   grid-area: Live;
   margin: 4%;
   width: 60vw;
-  height: 560px;
+  height: 90vh;
 }
 
 .video {
+  margin-top: 12px;
   width: 60vw;
   height: 83vh;
 }
