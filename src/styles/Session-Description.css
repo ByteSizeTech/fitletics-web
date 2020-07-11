@@ -222,17 +222,19 @@ body {
   margin-top: 12px;
   width: 60vw;
   height: 83vh;
+  /* max-width: 100%;
+  width: 54vw; */
 }
 
 @media screen and (min-width: 1200px) {
   .grid {
     display: grid;
-    grid-template-columns: 50px 1fr 2fr 50px;
+    grid-template-columns: 1fr 2fr;
     grid-template-rows: 170px 40px 1fr 1fr;
     grid-template-areas:
-      ". Logo Live ."
-      ". Heading  Live . "
-      ". Details  Live ."
-      ". Details  Live .";
+      " Logo Live "
+      " Heading  Live  "
+      " Details  Live "
+      " Details  Live ";
   }
 }
