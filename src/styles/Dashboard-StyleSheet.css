@@ -236,4 +236,9 @@ color: #ffffff;
     padding: 15%;
     font-size: 1.3em;
   }
+  .grid-item-logout {
+    text-align: right;
+    align-self: center;
+    /* justify-self: end; */
+  }
 }
