@@ -214,17 +214,17 @@ body {
   background-color: lightgray;
   grid-area: Live;
   margin: 4%;
-  /* width: 60vw;
-  height: 90vh;*/
-  width: 850px;
-  height: 580px;
+  width: 60vw;
+  height: 90vh;
+  /* width: 850px;
+  height: 580px; */
 }
 
 .video {
-  width: 850px;
-  height: 580px;
-  /* max-width: 100%;
-  width: 54vw; */
+  /* width: 850px;
+  height: 580px; */
+  max-width: 100%;
+  width: 54vw;
 }
 
 @media screen and (min-width: 1200px) {
