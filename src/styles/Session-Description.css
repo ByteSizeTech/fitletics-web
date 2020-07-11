@@ -229,7 +229,7 @@ body {
 @media screen and (min-width: 1200px) {
   .grid {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 2fr 2fr;
     grid-template-rows: 170px 40px 1fr;
     grid-template-areas:
       " Logo Live "
