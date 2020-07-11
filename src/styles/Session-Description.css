@@ -223,8 +223,8 @@ body {
 .video {
   /* width: 850px;
   height: 580px; */
-  max-width: 100%;
-  width: 54vw;
+  width: 60vw;
+  height: 90vh;
 }
 
 @media screen and (min-width: 1200px) {
