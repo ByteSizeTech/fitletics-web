@@ -230,11 +230,10 @@ body {
   .grid {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: 170px 40px 1fr 1fr;
+    grid-template-rows: 170px 40px 1fr;
     grid-template-areas:
       " Logo Live "
       " Heading  Live  "
-      " Details  Live "
       " Details  Live ";
   }
 }
