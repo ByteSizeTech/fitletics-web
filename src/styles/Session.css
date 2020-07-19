@@ -184,6 +184,9 @@ body {
   width: 60vw;
   height: 83vh;
   margin-top: 1.5%;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
 }
 
 @media screen and (min-width: 1200px) {

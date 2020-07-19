@@ -225,6 +225,11 @@ body {
   height: 580px; */
   width: 60vw;
   height: 90vh;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+
+
 }
 
 @media screen and (min-width: 1200px) {
