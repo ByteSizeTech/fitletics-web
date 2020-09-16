@@ -1,78 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Session Description</title>
+    <link href="../src/styles/Session-Description.css" rel="stylesheet" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
-  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
-  <title>Session Description</title>
-  <link href="../src/styles/Session-Description.css" rel="stylesheet" />
-</head>
+  <body>
+    <div class="grid">
+      <div class="Logo">
+        <img src="Images/logo.png" class="fitletics-logo" />
+      </div>
+      <div class="Session-div">
+        <div class="Heading">
+          <div class="Image">
+            <img src="../build/Images/abs.png" class="Image" />
+          </div>
+          <div class="workout-heading"><span>ABS</span></div>
+        </div>
 
-<body>
-  <div class="grid">
-    <div class="Logo">
-      <img src="Images/logo.png" class="fitletics-logo" />
-    </div>
-    <div class="Heading">
-      <div class="Image"> <img src="../build/Images/abs.png" class="Image"> </div>
-      <div class="workout-heading"><span>ABS</span></div>
-    </div>
+        <div class="Details">
+          <div class="one">
+            <div class="difficulty">Difficulty :</div>
+            <div class="levels">Easy</div>
+            <div class="time-taken"><span>30 mins</span></div>
 
-    <div class="Details">
-      <div class="one">
+            <div class="timer">
+              <img src="../build/Images/clock.jpg" class="clockimage" />
+            </div>
+          </div>
 
-        <div class="difficulty">Difficulty :</div>
-        <div class="levels">Easy</div>
-        <div class="time-taken"> <span>30 mins</span></div>
+          <div class="exercises">
+            <div class="Rep-1">
+              5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
+              <img
+                src="../build/Images/information symbol.png"
+                class="information-symbol"
+              />
+            </div>
+            <div class="Rep-2">
+              5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
+              <img
+                src="../build/Images/information symbol.png"
+                class="information-symbol"
+              />
+            </div>
+            <div class="Rep-3">
+              <rep>5x</rep> &nbsp; &nbsp;<exercise-name>Crunches</exercise-name>
+              &nbsp; &nbsp;
+              <img
+                src="../build/Images/information symbol.png"
+                class="information-symbol"
+              />
+            </div>
+            <div class="Rep-4">
+              5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
+              <img
+                src="../build/Images/information symbol.png"
+                class="information-symbol"
+              />
+            </div>
+            <div class="Rep-5">
+              5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
+              <img
+                src="../build/Images/information symbol.png"
+                class="information-symbol"
+              />
+            </div>
+            <div class="Rep-6">
+              5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
+              <img
+                src="../build/Images/information symbol.png"
+                class="information-symbol"
+              />
+            </div>
+          </div>
+          <div class="line-two"></div>
+          <div class="line"></div>
 
-        <div class="timer"><img src="../build/Images/clock.jpg" class="clockimage"></div>
-
+          <div class="button">
+            <button class="button">
+              <b>Start Session</b>
+            </button>
+          </div>
+        </div>
       </div>
 
-
-      <div class="exercises">
-        <div class="Rep-1">
-          <rep>5x</rep> &nbsp; &nbsp;<exercise>Crunches </exercise>&nbsp; &nbsp; <img
-            src="../build/Images/information symbol.png" class="information-symbol">
-        </div>
-        <div class="Rep-2">
-          <rep>5x</rep> &nbsp; &nbsp;<exercise>Crunches </exercise>&nbsp; &nbsp;; <img
-            src="../build/Images/information symbol.png" class="information-symbol">
-        </div>
-        <div class="Rep-3">
-          <rep>5x</rep> &nbsp; &nbsp;<exercise>Crunches </exercise>&nbsp; &nbsp; <img
-            src="../build/Images/information symbol.png" class="information-symbol">
-        </div>
-        <div class="Rep-4">
-          <rep>5x</rep> &nbsp; &nbsp;<exercise>Crunches </exercise>&nbsp; &nbsp; <img
-            src="../build/Images/information symbol.png" class="information-symbol">
-        </div>
-        <div class="Rep-5">
-          <rep>5x</rep> &nbsp; &nbsp;<exercise>Crunches </exercise>&nbsp; &nbsp; <img
-            src="../build/Images/information symbol.png" class="information-symbol">
-        </div>
-        <div class="Rep-6">
-          <rep>5x</rep> &nbsp; &nbsp;<exercise>Crunches </exercise>&nbsp; &nbsp; <img
-            src="../build/Images/information symbol.png" class="information-symbol">
-        </div>
-
-
-      </div>
-      <div class="line-two"></div>
-      <div class="line"></div>
-
-      <div class="button "><button class="button">
-          <b>Start Session</b>
-        </button></div>
+      <div class="Live"><video class="video" autoplay playsinline></video></div>
     </div>
-
-
-
-    <div class=" Live"><video class="video" autoplay playsinline></video></div>
-  </div>
-  <script src="../src/Scripts/Session.js">
-  </script>
-</body>
-
+    <script src="../src/Scripts/Session.js"></script>
+  </body>
 </html>
