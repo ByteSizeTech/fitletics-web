@@ -19,7 +19,7 @@ body {
   grid-template-rows: 250px 2fr 1fr;
 }
 .grid-item {
-  border: white solid 1px;
+  /* border: white solid 1px; */
   padding: 20px;
   /* background-color: rgba(21, 10, 11, 90); */
   text-align: center;
