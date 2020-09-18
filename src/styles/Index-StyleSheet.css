@@ -17,8 +17,6 @@ body {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
   grid-template-rows: 250px 2fr 1fr;
-  width: 100vw;
-  height: 100vh;
 }
 .grid-item {
   /* border: white solid 1px; */
@@ -45,7 +43,7 @@ body {
   padding: 8px; */
 }
 .item-design::after {
-  content: url("../../build/images/fit\ pic.png");
+  content: url("../../build/images/fit_pic.png");
 }
 #indeximage {
   height: 100%;
