@@ -19,6 +19,8 @@ body {
   grid: 30% auto auto/1fr 1.2fr;
   /* grid-template-columns: 1fr 1.2fr;
   grid-template-rows: 250px auto auto; */
+  width: 100vw;
+  height: 100vh;
 }
 .grid-item {
   padding: 20px;
