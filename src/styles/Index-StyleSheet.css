@@ -9,7 +9,6 @@ body {
   background-color: black;
   font-family: Roboto;
   color: aliceblue;
-  background-image: url("images/fit pic.png");
 }
 .grid-container {
   height: 100vh;
@@ -20,16 +19,31 @@ body {
   grid-template-rows: 250px 2fr 1fr;
 }
 .grid-item {
-  /* border: white solid 1px; */
+  border: white solid 1px;
   padding: 20px;
   /* background-color: rgba(21, 10, 11, 90); */
   text-align: center;
 }
-.item4 {
+.item-logo {
+  text-align: center;
+}
+.item-QR {
+}
+.item-scan {
+  font-size: 10vw;
+  /* color: blue; */
+}
+.item-design {
   grid-column: 2 /3;
   grid-row: 1 / 4;
-  object-fit: cover;
-  background-image: "images/QR.png";
+  /* background: black;
+  float: left;
+  color: #333;
+  font-weight: bold;
+  padding: 8px; */
+}
+.item-design::after {
+  content: url("../../build/images/fit\ pic.png");
 }
 #indeximage {
   height: 100%;
@@ -37,19 +51,17 @@ body {
   object-fit: cover;
 }
 .fitletics-logo {
-  width: 100%;
+  width: 850px;
   max-width: 400px;
   height: auto;
 }
 p {
   text-align: center;
 }
-.item1 {
-  text-align: center;
-}
-.item3 {
-  font-size: 10vw;
-}
 
 @media (max-width: 700px) {
+  .item-design {
+    grid-column: 2 /3;
+    grid-row: 1 / 4;
+  }
 }
