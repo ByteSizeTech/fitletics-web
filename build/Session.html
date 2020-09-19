@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewpoint " content="width=device=width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../src/styles/Session.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewpoint " content="width=device=width, initial-scale=1.0" />
-  <link rel="stylesheet" href="../src/styles/Session.css" />
-</head>
-
-<body>
-  <div class="grid">
-    <div class="Session">
-      <div class="Heading">
-        <div class="Image"> <img src="../build/Images/abs.png" class="Image"></div>
-        <div class="workout-heading"><span>ABS</span></div>
+  <body>
+    <div class="grid">
+      <div class="Session">
+        <div class="Heading">
+          <div class="Image">
+            <img src="../build/Images/abs.png" class="Image" />
+          </div>
+          <div class="workout-heading"><span>ABS</span></div>
+        </div>
+        <div class="timer">
+          <span id="time"> 00:00.00 </span>
+        </div>
+        <div class="Exercise">
+          <b>PULL - UPS </b>
+          <img src="../build/Images/images.png" class="information" />
+        </div>
+        <div class="reps">
+          <span class="currentRep">5</span> <span class="totalRep">/7</span>
+        </div>
+        <div class="skip"><button class="skip-button">SKIP</button></div>
+        <div class="end-session-button">
+          <button class="end-session-button">End Session</button>
+        </div>
       </div>
-      <div class="timer">
-        <span id="time">
-          00:00.00
-        </span>
+      <div class="Live">
+        <div id="videoElement">
+          <video class="videoElement" autoplay playsinline></video>
+        </div>
       </div>
-      <div class="Exercise"> <b>PULL - UPS </b> <img src="../build/Images/images.png" class="information">
-      </div>
-      <div class="reps">
-        <span class="currentRep">5</span> <span class="totalRep">/7</span>
-      </div>
-      <div class="skip"><button class="skip-button"> SKIP</button></div>
-      <div class="end-session-button"><button class="end-session-button"> End Session </button></div>
-
     </div>
-    <div class="Live">
 
-      <div id="videoElement"><video class="videoElement" autoplay playsinline> </video></div>
-    </div>
-  </div>
-
-  <script src="../src/Scripts/Session.js">
-  </script>
-</body>
-
+    <script src="../src/Scripts/Session.js"></script>
+  </body>
 </html>
