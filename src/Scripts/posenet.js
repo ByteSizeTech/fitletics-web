@@ -23,6 +23,8 @@ function setup() {
 }
 
 function draw() {
+  translate(video.width, 0);
+  scale(-1, 1);
   image(video, 0, 0, width, height);
 
   // We can call both functions to draw all keypoints and the skeletons
