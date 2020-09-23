@@ -27,15 +27,15 @@ window.onload = function () {
 };
 
 // On this codelab, you will be streaming only video (video: true).
-var video = document.querySelector("#session-video");
+// var video = document.querySelector("#session-video");
 
-if (navigator.mediaDevices.getUserMedia) {
-  navigator.mediaDevices
-    .getUserMedia({ video: true })
-    .then(function (stream) {
-      video.srcObject = stream;
-    })
-    .catch(function (err0r) {
-      console.log("Something went wrong!");
-    });
-}
+// if (navigator.mediaDevices.getUserMedia) {
+//   navigator.mediaDevices
+//     .getUserMedia({ video: true })
+//     .then(function (stream) {
+//       video.srcObject = stream;
+//     })
+//     .catch(function (err0r) {
+//       console.log("Something went wrong!");
+//     });
+// }
