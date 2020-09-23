@@ -1,14 +1,15 @@
-let video;
-let poseNet;
+const video2 = document.getElementById("session-video");
 
-function setup() {
-  var canvas = createCanvas(740, 680);
-  canvas.parent("videoElement");
-  background(200);
-  video = createCapture(VIDEO);
-  video.hide();
+// Create a new poseNet method
+const poseNet = ml5.poseNet(video2, modelLoaded);
+
+// When the model is loaded
+function modelLoaded() {
+  console.log("Model Loaded!");
 }
+// Listen to new 'pose' events
+poseNet.on("pose", gotPoses);
 
-function draw() {
-  image(video, 0, 0);
+function gotPoses(poses) {
+  console.log(poses);
 }

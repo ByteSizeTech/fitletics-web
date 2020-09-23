@@ -4,6 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewpoint " content="width=device=width, initial-scale=1.0" />
     <link rel="stylesheet" href="../src/styles/Session.css" />
+
+    <!-- p5 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script> -->
+    <!-- ml5 -->
+    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+
+    <!-- <script src="../src/Scripts/session-N.js"></script> -->
+    <script src="../src/Scripts/sketch.js"></script>
   </head>
 
   <body>
@@ -32,11 +42,16 @@
       </div>
       <div class="Live">
         <div id="videoElement">
-          <video class="videoElement" autoplay playsinline></video>
+          <video
+            class="videoElement"
+            id="session-video"
+            autoplay
+            playsinline
+          ></video>
         </div>
       </div>
     </div>
-
-    <script src="../src/Scripts/Session.js"></script>
+    <script src="../src/Scripts/session-N.js"></script>
+    <!-- <script src="../src/Scripts/sketch.js"></script> -->
   </body>
 </html>
