@@ -26,6 +26,7 @@ body {
   max-width: 400px;
   height: auto;
   justify-self: center;
+  margin-top: 4%;
 }
 
 .Session {
@@ -167,26 +168,15 @@ body {
   border: none;
 }
 .Live {
-  background-color: lightgray;
+  /* background-color: lightgray; */
   grid-area: live;
   margin: 4%;
   /* width: 60vw;
   height: 87vh; */
 }
-@media only screen and(min-width:768px) {
-  body {
-    margin: 0;
-    background-color: black;
-    color: aliceblue;
-    font-family: Roboto;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 20% auto auto;
-    grid-template-areas:
-      "logo live"
-      "session live"
-      "session live";
-  }
+#videoElement {
+  /* background-color: blanchedalmond; */
+  height: 54rem;
 }
 @media (max-width: 1200px) {
   body {
