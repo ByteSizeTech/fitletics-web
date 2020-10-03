@@ -1,36 +1,42 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+body,
+html {
+  height: 100%;
 }
 
 body {
+  margin: 0;
   background-color: black;
   color: aliceblue;
   font-family: Roboto;
-}
-
-.grid {
   display: grid;
-  grid-template-columns: 50px 1fr 2fr 10px;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 20% auto auto;
   grid-template-areas:
-    ". Session . "
-    ".  Session . "
-    ". Live ."
-    ". Live .";
+    "logo live"
+    "session live"
+    "session live";
+}
+.Logo {
+  grid-area: logo;
+  background-color: yellow;
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  justify-self: center;
 }
 
 .Session {
   background-color: gray;
-  grid-area: Session;
+  grid-area: session;
   border-radius: 40px;
   height: 490px;
   width: 290px;
   margin-top: 60px;
   justify-self: center;
+  align-self: center;
   display: grid;
   grid-template-columns: 10px 1fr 5px 1fr 10px;
   grid-template-rows: 1fr 1fr 1fr 2fr 1fr;
@@ -54,11 +60,8 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  grid-template-areas:
-    ". Image workout-heading .";
-
+  grid-template-areas: ". Image workout-heading .";
 }
-
 
 .workout-heading {
   grid-area: workout-heading;
@@ -71,7 +74,6 @@ body {
   grid-area: Image;
   height: 30px;
   width: 25px;
-
 }
 
 .timer {
@@ -81,7 +83,6 @@ body {
   color: white;
   font-size: 35px;
   text-shadow: 2px 2px rgb(95, 93, 93);
-
 }
 
 .Exercise {
@@ -89,7 +90,7 @@ body {
   background-color: gray;
   align-self: center;
   justify-self: center;
-  color: #FFA1A1;
+  color: #ffa1a1;
   letter-spacing: 3.5px;
   font-size: 175%;
 }
@@ -130,19 +131,6 @@ body {
   width: 40px;
   margin-left: 25px;
 }
-
-
-
-
-
-.Live {
-  background-color: lightgray;
-  grid-area: Live;
-  margin: 4%;
-  width: 60vw;
-  height: 87vh;
-}
-
 .skip-button {
   background-color: white;
   color: black;
@@ -178,24 +166,40 @@ body {
   font-weight: bolder;
   border: none;
 }
-
-
-.videoElement {
-  width: 60vw;
-  height: 83vh;
-  margin-top: 1.5%;
-  transform: rotateY(180deg);
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
+.Live {
+  background-color: lightgray;
+  grid-area: live;
+  margin: 4%;
+  /* width: 60vw;
+  height: 87vh; */
 }
-
-@media screen and (min-width: 1200px) {
-  .grid {
+@media only screen and(min-width:768px) {
+  body {
+    margin: 0;
+    background-color: black;
+    color: aliceblue;
+    font-family: Roboto;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 20% auto auto;
     grid-template-areas:
-      " Session  Live "
-      " Session  Live ";
+      "logo live"
+      "session live"
+      "session live";
+  }
+}
+@media (max-width: 1200px) {
+  body {
+    margin: 0;
+    background-color: black;
+    color: aliceblue;
+    font-family: Roboto;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% auto auto;
+    grid-template-areas:
+      "logo"
+      "session"
+      "live";
   }
 }

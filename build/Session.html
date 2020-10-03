@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewpoint " content="width=device=width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../src/styles/Session.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../src/styles/Session-Stylesheet.css" />
+    <title>Ongoing Workout Session</title>
 
     <!-- load p5.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
@@ -14,36 +15,35 @@
       type="text/javascript"
     ></script>
   </head>
-
   <body>
-    <div class="grid">
-      <div class="Session">
-        <div class="Heading">
-          <div class="Image">
-            <img src="../build/Images/abs.png" class="Image" />
-          </div>
-          <div class="workout-heading"><span>ABS</span></div>
+    <div class="Logo">
+      <img src="images/logo.png" alt="Logo" class="fitletics-logo" />
+    </div>
+    <div class="Session">
+      <div class="Heading">
+        <div class="Image">
+          <img src="../build/Images/abs.png" class="Image" />
         </div>
-        <div class="timer">
-          <span id="time"> 00:00.00 </span>
-        </div>
-        <div class="Exercise">
-          <b>PULL - UPS </b>
-          <img src="../build/Images/images.png" class="information" />
-        </div>
-        <div class="reps">
-          <span class="currentRep">5</span> <span class="totalRep">/7</span>
-        </div>
-        <div class="skip"><button class="skip-button">SKIP</button></div>
-        <div class="end-session-button">
-          <button class="end-session-button">End Session</button>
-        </div>
+        <div class="workout-heading"><span>ABS</span></div>
       </div>
-      <div class="Live">
-        <div id="videoElement"></div>
+      <div class="timer">
+        <span id="time"> 00:00.00 </span>
+      </div>
+      <div class="Exercise">
+        <b>PULL - UPS </b>
+        <img src="../build/Images/images.png" class="information" />
+      </div>
+      <div class="reps">
+        <span class="currentRep">5</span> <span class="totalRep">/7</span>
+      </div>
+      <div class="skip"><button class="skip-button">SKIP</button></div>
+      <div class="end-session-button">
+        <button class="end-session-button">End Session</button>
       </div>
     </div>
-    <script src="../src/Scripts/session.js"></script>
+    <div class="Live">
+      <div id="videoElement"></div>
+    </div>
     <script src="../src/Scripts/posenet.js"></script>
   </body>
 </html>
