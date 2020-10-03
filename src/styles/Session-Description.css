@@ -19,24 +19,21 @@ body {
   justify-items: center;
   grid-template-areas:
     "Logo "
-    " Heading "
-    " Details "
-    " Live ";
+    "Heading "
+    "Details "
+    "Live ";
 }
 
 /*Logo Div*/
 .Logo {
   grid-area: Logo;
   justify-self: center;
-
-
 }
 
 .fitletics-logo {
   width: 300px;
   height: 170px;
   margin-top: 1%;
-
 }
 
 .Heading {
