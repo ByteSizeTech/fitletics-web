@@ -24,7 +24,7 @@ body {
 }
 
 .Session {
-  background-color: gray;
+  background-color: #4f4f4f;
   grid-area: Session;
   border-radius: 40px;
   height: 490px;
