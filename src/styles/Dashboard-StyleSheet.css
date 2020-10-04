@@ -55,36 +55,6 @@ p {
 .button:hover {
   background-color: rgb(30, 30, 30, 100);
 }
-/* 
-/* 
-Rectangle 2 
-
-position: absolute;
-left: 0%;
-right: 0%;
-top: 0%;
-bottom: 0%;
-background: #323232;
-border-radius: 5px;
-
-/* Log Out 
-
-position: absolute;
-left: 29.95%;
-right: 30.36%;
-top: 16.67%;
-bottom: 19.05%;
-
-font-family: Graphik;
-font-style: normal;
-font-weight: 600;
-font-size: 20px;
-line-height: 27px;
-/* identical to box height 
-text-align: center;
-
-color: #ffffff;
- */
 
 .grid-item-ud {
   align-self: center;

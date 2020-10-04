@@ -3,12 +3,16 @@ let poseNet;
 let poses = [];
 
 function setup() {
-  const canvas = createCanvas(1040, 780);
-  canvas.parent("videoElement");
+  var canvasDiv = document.getElementById("videoElement");
+  console.log(canvasDiv.offsetWidth + " and height " + canvasDiv.offsetHeight);
+  var canvasWidth = canvasDiv.offsetWidth;
+  var canvasHeight = canvasDiv.offsetHeight;
+  const canvas = createCanvas(canvasWidth, canvasHeight);
+  canvas.parent(canvasDiv);
 
   // Video capture
   video = createCapture(VIDEO);
-  video.size(width, height);
+  video.size(canvasWidth, canvasHeight);
 
   // Create a new poseNet method with a single detection
   poseNet = ml5.poseNet(video, modelReady);
