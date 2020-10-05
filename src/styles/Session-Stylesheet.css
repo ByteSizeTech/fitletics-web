@@ -18,24 +18,21 @@ body {
     "session live"
     "session live";
 }
-
 .Logo {
   grid-area: logo;
   text-align: center;
   width: 100%;
   max-width: 400px;
-  height: auto;
   justify-self: center;
   margin-top: 4%;
 }
 
 .Session {
   background-color: #4f4f4f;
-  grid-area: Session;
+  grid-area: session;
   border-radius: 40px;
-  height: 490px;
-  width: 360px;
-  margin-top: 60px;
+  height: 550px;
+  width: 350px;
   justify-self: center;
   align-self: center;
   display: grid;
@@ -88,7 +85,6 @@ body {
 
 .Exercise {
   grid-area: exercise;
-  background-color: gray;
   align-self: center;
   justify-self: center;
   color: #ffa1a1;
@@ -132,7 +128,6 @@ body {
   width: 40px;
   margin-left: 25px;
 }
-
 .skip-button {
   background-color: white;
   color: black;
@@ -168,7 +163,6 @@ body {
   font-weight: bolder;
   border: none;
 }
-
 .Live {
   /* background-color: lightgray; */
   grid-area: live;
@@ -176,12 +170,10 @@ body {
   /* width: 60vw;
   height: 87vh; */
 }
-
 #videoElement {
   /* background-color: blanchedalmond; */
-  height: 51rem;
+  height: 54rem;
 }
-
 @media (max-width: 1200px) {
   body {
     margin: 0;
