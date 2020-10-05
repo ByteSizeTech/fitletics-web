@@ -28,6 +28,7 @@ body {
 .Logo {
   grid-area: Logo;
   justify-self: center;
+  margin-left: 60px;
 }
 
 .fitletics-logo {
@@ -44,6 +45,7 @@ body {
   font-size: 120%;
   width: 115px;
   margin-left: 75px;
+  margin-top: 10px;
   height: 35px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -70,14 +72,15 @@ body {
   border-radius: 40px;
   height: 390px;
   width: 350px;
-  margin-top: 3%;
+  margin-left: 30px;
+
   margin-bottom: 5%;
   justify-self: center;
   align-self: center;
 
   display: grid;
   grid-template-columns: 50px 1fr 1fr 50px;
-  grid-template-rows: 1 fr 1fr 25px 3fr 10px 1fr;
+  grid-template-rows: 1fr 1fr 12px 3fr 20px 1fr;
   grid-template-areas:
     ". Heading Heading ."
     ". one  one ."
