@@ -37,7 +37,7 @@ function draw() {
 }
 
 function modelReady() {
-  select("#status").html("model Loaded");
+  console.log("model ready");
 }
 
 // A function to draw ellipses over the detected keypoints
