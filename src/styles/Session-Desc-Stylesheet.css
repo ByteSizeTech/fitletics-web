@@ -214,3 +214,22 @@ body {
   font-weight: bolder;
   border: none;
 }
+#videoElement {
+  /* background-color: blanchedalmond; */
+  height: 54rem;
+}
+@media (max-width: 1200px) {
+  body {
+    margin: 0;
+    background-color: black;
+    color: aliceblue;
+    font-family: Roboto;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% auto auto;
+    grid-template-areas:
+      "logo"
+      "session"
+      "live";
+  }
+}

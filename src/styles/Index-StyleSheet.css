@@ -20,7 +20,7 @@ body {
 }
 .grid-item {
   /* border: white solid 1px; */
-  padding: 20px;
+  /* padding: 20px; */
   /* background-color: rgba(21, 10, 11, 90); */
   text-align: center;
 }
@@ -28,6 +28,8 @@ body {
   text-align: center;
 }
 .item-QR {
+  justify-self: center;
+  align-self: center;
 }
 .item-scan {
   font-size: 10vw;
