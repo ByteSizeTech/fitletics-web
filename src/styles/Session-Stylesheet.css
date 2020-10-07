@@ -27,6 +27,12 @@ body {
   margin-top: 4%;
 }
 
+.fitletics-logo {
+  width: 850px;
+  max-width: 400px;
+  height: auto;
+}
+
 .Session {
   background-color: #4f4f4f;
   grid-area: session;
