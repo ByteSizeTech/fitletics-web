@@ -78,6 +78,7 @@ function drawSkeleton() {
     for (let j = 0; j < skeleton.length; j++) {
       let partA = skeleton[j][0];
       let partB = skeleton[j][1];
+      strokeWeight(2);
       stroke(255, 0, 0);
       line(
         partA.position.x,
