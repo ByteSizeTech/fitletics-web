@@ -1,3 +1,4 @@
+//STATUS: WORKS WELL
 let video;
 let poseNet;
 let poses = [];

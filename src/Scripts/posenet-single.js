@@ -1,6 +1,8 @@
+//STATUS: HAS ISSUES
 let video;
 let poseNet;
 let pose;
+let skeleton;
 
 function setup() {
   var canvasDiv = document.getElementById("videoElement");
@@ -72,16 +74,18 @@ function drawKeypoints() {
 
 // A function to draw the skeletons
 function drawSkeleton() {
-  let skeleton = pose.skeleton;
-  for (let j = 0; j < skeleton.length; j++) {
-    let partA = skeleton[j][0];
-    let partB = skeleton[j][1];
-    stroke(255, 0, 0);
-    line(
-      partA.position.x,
-      partA.position.y,
-      partB.position.x,
-      partB.position.y
-    );
+  if (pose) {
+    skeleton = pose.skeleton;
+    for (let j = 0; j < skeleton.length; j++) {
+      let partA = skeleton[j][0];
+      let partB = skeleton[j][1];
+      stroke(255, 0, 0);
+      line(
+        partA.position.x,
+        partA.position.y,
+        partB.position.x,
+        partB.position.y
+      );
+    }
   }
 }
