@@ -14,21 +14,21 @@ function setup() {
   video = createCapture(VIDEO);
   video.size(canvasWidth, canvasHeight);
 
-  // var posenetOpts = {
-  //   architecture: "MobileNetV1",
-  //   imageScaleFactor: 0.3,
-  //   outputStride: 16,
-  //   flipHorizontal: false,
-  //   minConfidence: 0.5,
-  //   maxPoseDetections: 1,
-  //   scoreThreshold: 0.5,
-  //   nmsRadius: 20,
-  //   detectionType: "single",
-  //   inputResolution: 513,
-  //   multiplier: 0.75,
-  //   quantBytes: 2,
-  // };
-  poseNet = ml5.poseNet(video, modelLoaded);
+  var posenetOpts = {
+    architecture: "ResNet50",
+    imageScaleFactor: 0.3,
+    outputStride: 16,
+    flipHorizontal: false,
+    minConfidence: 0.5,
+    maxPoseDetections: 1,
+    scoreThreshold: 0.5,
+    nmsRadius: 20,
+    detectionType: "single",
+    inputResolution: 513,
+    multiplier: 0.75,
+    quantBytes: 2,
+  };
+  poseNet = ml5.poseNet(video, posenetOpts, modelLoaded);
   poseNet.on("pose", gotPose);
   video.hide();
 }
@@ -50,7 +50,7 @@ function modelLoaded() {
 function gotPose(results) {
   poses = results;
 
-  // console.log(poses);
+  console.log(poses);
 }
 
 // A function to draw ellipses over the detected keypoints
