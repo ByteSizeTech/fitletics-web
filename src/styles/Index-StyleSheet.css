@@ -26,8 +26,12 @@ body {
 }
 .item-logo {
   text-align: center;
+  justify-self: center;
+  align-self: center;
 }
 .item-QR {
+  padding: 10px;
+  background-color: black;
   justify-self: center;
   align-self: center;
 }
@@ -47,6 +51,7 @@ body {
 .item-design::after {
   content: url("../../build/images/fit_pic.png");
 }
+
 #indeximage {
   height: 100%;
   width: 100%;

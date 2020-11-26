@@ -51,7 +51,7 @@ function modelLoaded() {
 function gotPose(results) {
   poses = results;
 
-  console.log(poses);
+  //console.log(poses);
 }
 
 // A function to draw ellipses over the detected keypoints
