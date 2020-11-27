@@ -35,10 +35,14 @@ body {
   background-color: lightgrey;
   grid-area: live;
   margin: 4%;
+
   /* width: 60vw;
   height: 580px; */
 }
-
+.centered-image {
+  display: block;
+  margin: auto auto;
+}
 .Heading {
   background-color: White;
   grid-area: Heading;
