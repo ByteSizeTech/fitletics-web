@@ -7,7 +7,7 @@ function setup() {
   var canvasDiv = document.getElementById("videoElement");
   console.log(canvasDiv.offsetWidth + " and height " + canvasDiv.offsetHeight);
   var canvasWidth = canvasDiv.offsetWidth;
-  var canvasHeight = canvasDiv.offsetHeight;
+  var canvasHeight = canvasWidth * (10 / 15);
   const canvas = createCanvas(canvasWidth, canvasHeight);
   canvas.parent(canvasDiv);
 
@@ -50,7 +50,6 @@ function modelLoaded() {
 }
 function gotPose(results) {
   poses = results;
-
   //console.log(poses);
 }
 

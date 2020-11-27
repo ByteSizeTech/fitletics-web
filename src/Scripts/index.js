@@ -1,6 +1,6 @@
 var defaultVals = {
   uid: null,
-  task: null,
+  active_task: null,
   task_state: null,
 };
 
@@ -66,12 +66,12 @@ function goToSession() {
       .collection("Sessions")
       .doc(firebase.auth().currentUser.uid)
       .onSnapshot(function (doc) {
-        console.log("Current data: ", doc.data()["task"]);
+        console.log("Current data: ", doc.data()["active_task"]);
         let task = doc.data()["task"];
         switch (task) {
           case "BA":
             console.log("going to Body analysis..");
-            // window.location.replace("../build/Session.html");
+            // window.location.replace("../build/BodyAnalysis.html");
             break;
           case "DB":
             console.log("going to Dashboard..");
