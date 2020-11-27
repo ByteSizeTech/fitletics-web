@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      type="text/javascript"
+      src="https://cdn.socket.io/socket.io-1.4.5.js"
+    ></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test</title>
+  </head>
+  <script>
+    // const socket = io("http://localhost:8080", {
+    //   withCredentials: true,
+    //   extraHeaders: {
+    //     "my-custom-header": "abcd",
+    //   },
+    // });
+    // socket.io.connect();
+    const ws = new WebSocket("ws://localhost:28000");
+    ws.onopen = function () {
+      console.log("WebSocket Client Connected");
+      ws.send("HI! This is the web client!");
+    };
+
+    ws.onmessage = function (e) {
+      console.log("Recieved " + e.data);
+    };
+  </script>
+  <body>
+    HELLO!
+  </body>
+</html>
