@@ -17,18 +17,21 @@ function setup() {
   video.size(canvasWidth, canvasHeight);
 
   var posenetOpts = {
-    architecture: "ResNet50",
+    // architecture: "ResNet50",
+    // imageScaleFactor: 0.3,
+    // outputStride: 16,
+    // flipHorizontal: false,
+    // minConfidence: 0.5,
+    // maxPoseDetections: 1,
+    // scoreThreshold: 0.5,
+    // nmsRadius: 20,
+    // detectionType: "single",
+    // inputResolution: 513,
+    // multiplier: 0.75,
+    // quantBytes: 2,
+
     imageScaleFactor: 0.3,
-    outputStride: 16,
-    flipHorizontal: false,
     minConfidence: 0.5,
-    maxPoseDetections: 1,
-    scoreThreshold: 0.5,
-    nmsRadius: 20,
-    detectionType: "single",
-    inputResolution: 513,
-    multiplier: 0.75,
-    quantBytes: 2,
   };
   poseNet = ml5.poseNet(video, posenetOpts, modelLoaded);
   poseNet.on("pose", gotResults);
@@ -58,6 +61,7 @@ function gotResults(results) {
     // console.log("result.length > than 0");
     for (let index = 0; index < results.length; index++) {
       if (results[index].pose.score > 0.2) {
+        // console.log(pose);
         pose = results[index].pose;
         skeleton = results[index].skeleton;
       }

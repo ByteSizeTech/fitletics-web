@@ -1,4 +1,4 @@
-//STATUS: WORKS WELL
+//STATUS: WORKS WELL for multiple poses/ NOT IN USE
 let video;
 let poseNet;
 let poses = [];
