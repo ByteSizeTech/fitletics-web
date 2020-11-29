@@ -11,11 +11,10 @@
 let img;
 let posenet;
 let pose;
-let skeleton;
 
 let PWClassifier; // Plank and Wallsit classifier -> neural network
+// let targetLabel = "wallsit"; //change when changing the folder
 let targetLabel = "wallsit"; //change when changing the folder
-// let targetLabel = "plank"; //change when changing the folder
 
 let finished = false;
 let TOTAL_IMAGE = 50; //Change accordingly depending on the number of data
@@ -38,14 +37,14 @@ function preload() {
   //nn options
   let options = {
     inputs: 34, //17 pairs, single pose
-    outputs: 2, //since the target label is 1
+    outputs: 2, //since the 2 labels- wallsit and plankl
     task: "classification",
     debug: true,
   };
   PWClassifier = ml5.neuralNetwork(options);
 
   // LOAD TRAINING DATA
-  PWClassifier.loadData("../../build/Dataset/Plank-Data.json");
+  PWClassifier.loadData("../../build/Dataset/PWData.json");
 }
 
 // function dataReady() {
@@ -59,14 +58,24 @@ async function setup() {
     //iterate through all the images in the folder
     await new Promise((next) => {
       //LOADING THE IMAGE
-      newImg = "Wall Sit (" + i + ").jpg";
+      newImg = "wallsit(" + i + ").jpg";
       path = "Dataset/Wallsit/" + newImg;
       img = loadImage(path);
       console.log("loaded " + path);
       //posenet options
       let posenetOpts = {
+        architecture: "ResNet50",
         imageScaleFactor: 0.3,
+        outputStride: 16,
+        flipHorizontal: false,
         minConfidence: 0.5,
+        maxPoseDetections: 1,
+        scoreThreshold: 0.5,
+        nmsRadius: 20,
+        detectionType: "single",
+        inputResolution: 513,
+        multiplier: 0.75,
+        quantBytes: 2,
       };
 
       posenet = ml5.poseNet(loaded, posenetOpts);
@@ -102,24 +111,23 @@ function gotPoses(results) {
     for (let index = 0; index < results.length; index++) {
       if (results[index].pose.score > 0.2) {
         pose = results[index].pose;
-        skeleton = results[index].skeleton;
       }
     }
 
     let inputs = [];
     for (let i = 0; i < pose.keypoints.length; i++) {
-      let noseX = pose.nose.x;
-      let noseY = pose.nose.y;
+      // let noseX = pose.nose.x;
+      // let noseY = pose.nose.y;
 
-      let x = pose.keypoints[i].position.x - noseX;
-      let y = pose.keypoints[i].position.y - noseY;
+      let x = pose.keypoints[i].position.x;
+      let y = pose.keypoints[i].position.y;
       // console.log(i + " x: " + x + " / y: " + y);
       inputs.push(x);
       inputs.push(y);
     }
 
     let target = [targetLabel];
-    // console.log(inputs, target)
+    console.log(inputs, target);
     PWClassifier.addData(inputs, target);
     console.log("Added");
     finished = true;

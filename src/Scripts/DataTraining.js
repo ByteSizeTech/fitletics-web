@@ -1,4 +1,4 @@
-let PWCLassifier;
+let PWClassifier;
 
 function setup() {
   let options = {
@@ -7,16 +7,24 @@ function setup() {
     task: "classification",
     debug: true,
   };
-  brain = ml5.neuralNetwork(options);
-  brain.loadData("ymca.json", dataReady);
+  PWClassifier = ml5.neuralNetwork(options);
+  PWClassifier.loadData("../../build/Dataset/PWData.json", dataReady);
 }
 
 function dataReady() {
-  brain.normalizeData();
-  brain.train({ epochs: 50 }, finished);
+  console.log(PWClassifier.data);
+  // PWClassifier.normalizeData();
+  const trainingOptions = {
+    epochs: 16,
+    batchSize: 16,
+    learningRate: 0.00011,
+  };
+  PWClassifier.train(trainingOptions, whileTraining, doneTraining);
 }
-
-function finished() {
+function whileTraining() {
+  console.log(`epoch: ${epoch}, loss:${loss}`);
+}
+function doneTraining() {
   console.log("model trained");
-  brain.save();
+  // PWClassifier.save();
 }

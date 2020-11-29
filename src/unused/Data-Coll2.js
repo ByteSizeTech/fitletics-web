@@ -27,7 +27,7 @@ function delay(time) {
   });
 }
 
-async function setup() {
+function setup() {
   let NNOpts = {
     inputs: 34,
     outputs: 1,

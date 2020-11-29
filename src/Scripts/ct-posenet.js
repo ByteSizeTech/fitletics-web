@@ -17,23 +17,23 @@ function setup() {
   video.size(canvasWidth, canvasHeight);
 
   var posenetOpts = {
-    // architecture: "ResNet50",
-    // imageScaleFactor: 0.3,
-    // outputStride: 16,
-    // flipHorizontal: false,
-    // minConfidence: 0.5,
-    // maxPoseDetections: 1,
-    // scoreThreshold: 0.5,
-    // nmsRadius: 20,
-    // detectionType: "single",
-    // inputResolution: 513,
-    // multiplier: 0.75,
-    // quantBytes: 2,
-
+    architecture: "ResNet50",
     imageScaleFactor: 0.3,
+    outputStride: 16,
+    flipHorizontal: false,
     minConfidence: 0.5,
+    maxPoseDetections: 1,
+    scoreThreshold: 0.5,
+    nmsRadius: 20,
+    detectionType: "single",
+    inputResolution: 513,
+    multiplier: 0.75,
+    quantBytes: 2,
+
+    // imageScaleFactor: 0.3,
+    // minConfidence: 0.5,
   };
-  poseNet = ml5.poseNet(video, posenetOpts, modelLoaded);
+  poseNet = ml5.poseNet(video, modelLoaded);
   poseNet.on("pose", gotResults);
   video.hide();
 }

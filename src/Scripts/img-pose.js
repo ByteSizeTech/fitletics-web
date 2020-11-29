@@ -8,7 +8,7 @@ function setup() {
   // create an image using the p5 dom library
   // call modelReady() when it is loaded
 
-  let path = "../build/Dataset/Wallsit/Wall Sit (1).jpg";
+  let path = "../build/Dataset/Plank/plank(10).jpg";
   img = createImg(path, imageReady);
   // set the image size to the size of the canvas
   img.size(width, height);
@@ -21,21 +21,18 @@ function setup() {
 function imageReady() {
   // set some options
   let options = {
+    architecture: "ResNet50",
     imageScaleFactor: 0.3,
+    outputStride: 16,
+    flipHorizontal: false,
     minConfidence: 0.5,
-
-    // architecture: "ResNet50",
-    // imageScaleFactor: 0.3,
-    // outputStride: 16,
-    // flipHorizontal: false,
-    // minConfidence: 0.5,
-    // maxPoseDetections: 1,
-    // scoreThreshold: 0.5,
-    // nmsRadius: 20,
-    // detectionType: "single",
-    // inputResolution: 513,
-    // multiplier: 0.75,
-    // quantBytes: 2,
+    maxPoseDetections: 1,
+    scoreThreshold: 0.5,
+    nmsRadius: 20,
+    detectionType: "single",
+    inputResolution: 513,
+    multiplier: 0.75,
+    quantBytes: 2,
   };
 
   // assign poseNet
