@@ -40,31 +40,35 @@
       .end-session-button {
         background-color: #d13737;
       }
+
       .capture-button {
         grid-area: capture-session;
-        background-color: #ff850d;
-        color: aliceblue;
         width: 226px;
         height: 35px;
         border-radius: 5px;
         border: none;
         font-weight: bolder;
         justify-self: center;
-        align-self: center;
-      }
-      .capture-button:hover {
-        background-color: white;
-        color: black;
-        font-weight: bolder;
-        border: none;
+        text-align: center;
+        line-height: 1.6;
+        color: #e3e3e3;
       }
       .Session {
-        grid-template-rows: 0.25fr 2fr 0.5fr 0.5fr 1fr;
+        grid-template-rows: 0.25fr 2fr 1.5fr 0.5fr 1fr;
       }
       .Exercise {
         text-align: center;
         letter-spacing: 3.5px;
         font-size: 400%;
+      }
+      span {
+        background-color: #ff850d;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        color: white;
+        border-radius: 5px;
       }
     </style>
   </head>
@@ -77,10 +81,15 @@
         <b style="color: white">Body Analysis</b>
       </div>
       <div class="capture-button">
-        <button id="capture" class="capture-button">Capture</button>
+        <div id="capture" class="capture-button">
+          <hr />
+          Click <span>CAPTURE</span> on your phone when your entire body is in
+          frame
+          <hr />
+        </div>
       </div>
       <div class="end-session-button">
-        <button class="end-session-button">Cancel</button>
+        <button id="cancel" class="end-session-button">Cancel</button>
       </div>
     </div>
     <div class="Live">
@@ -90,8 +99,32 @@
       <input type="range" min="200" max="800" value="50" id="4th" /> -->
       <video hidden id="video" width="640" height="480" autoplay></video>
       <canvas id="canvas" width="400"></canvas>
-      <canvas id="canvas2" width="400"></canvas>
+      <canvas id="canvas2" width="400" hidden></canvas>
     </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyCgm1h1-av1mb5VG7GJix-zyECzSGkJHFo",
+        authDomain: "fitletics-120620.firebaseapp.com",
+        databaseURL: "https://fitletics-120620.firebaseio.com",
+        projectId: "fitletics-120620",
+        storageBucket: "fitletics-120620.appspot.com",
+        messagingSenderId: "596945590001",
+        appId: "1:596945590001:web:21991689bf0cff4fab3b50",
+        measurementId: "G-8V4ZQ7H3N3",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
     <script src="../src/Scripts/BodyAnalysis.js"></script>
   </body>
 </html>

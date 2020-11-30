@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../src/styles/Dashboard-StyleSheet.css" />
-    <script src="../src/Scripts/sc_dashboard.js"></script>
     <title>Dashboard</title>
   </head>
 
@@ -33,25 +32,25 @@
               class="boxed-logo-image"
             />
           </div>
-          <div class="boxed-info-item boxed-heading">John Doe</div>
-          <div class="boxed-info-item boxed-subheading">Level 7</div>
+          <div id="user_name" class="boxed-info-item boxed-heading">John Doe</div>
+          <div id="user_level" class="boxed-info-item boxed-subheading">Level 7</div>
           <!-- progress bar -->
 
           <div class="boxed-info-item boxed-prog-bar">
             <div class="progress-bar">
-              <div class="progress-done" data-done:"70"></div>
+              <div id="user_xp_bar" class="progress-done" data-done:"70"></div>
             </div>
-            <div class="progress-info">70/100 XP</div>
+            <div id="user_xp_text" class="progress-info">70/100 XP</div>
           </div>
         </div>
       </div>
       <!-- tips section -->
       <div class="grid-item grid-item-tips">
-        <a href="SessionDescription.html">
+        <!-- <a href="SessionDescription.html">
         <h1 class="boxed-info-heading">
           No ongoing sessions...
         </h1>
-        </a>
+        </a> -->
         <div class="tips-container">
           <h1 class="tips-heading">Tip of the Day</h1>
 
@@ -78,5 +77,30 @@
         </div>
       </div>
     </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      var firebaseConfig = {
+        apiKey: "AIzaSyCgm1h1-av1mb5VG7GJix-zyECzSGkJHFo",
+        authDomain: "fitletics-120620.firebaseapp.com",
+        databaseURL: "https://fitletics-120620.firebaseio.com",
+        projectId: "fitletics-120620",
+        storageBucket: "fitletics-120620.appspot.com",
+        messagingSenderId: "596945590001",
+        appId: "1:596945590001:web:21991689bf0cff4fab3b50",
+        measurementId: "G-8V4ZQ7H3N3",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+    <script src="../src/Scripts/Dashboard.js"></script>
   </body>
 </html>

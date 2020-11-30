@@ -2,6 +2,7 @@ var defaultVals = {
   uid: null,
   active_task: null,
   task_state: null,
+  task_message: null,
 };
 
 window.onload = function init() {
@@ -58,7 +59,7 @@ function goToSession() {
   //Users's Task State Listener
   console.log("Going to session");
 
-  let uid = firebase.auth().currentUser;
+  uid = firebase.auth().currentUser;
 
   if (uid) {
     firebase
@@ -67,19 +68,25 @@ function goToSession() {
       .doc(firebase.auth().currentUser.uid)
       .onSnapshot(function (doc) {
         console.log("Current data: ", doc.data()["active_task"]);
-        let task = doc.data()["task"];
+        let task = doc.data()["active_task"];
         switch (task) {
           case "BA":
             console.log("going to Body analysis..");
-            // window.location.replace("../build/BodyAnalysis.html");
+            window.location.replace("../build/BodyAnalysis.html");
             break;
           case "DB":
             console.log("going to Dashboard..");
-            // window.location.replace("../build/Dashboard.html");
+            window.location.replace("../build/Dashboard.html");
             break;
           case "WO":
             console.log("going to Session Description..");
-            // window.location.replace("../build/SessionDescription.html");
+            window.location.replace("../build/SessionDescription.html");
+            break;
+          case null:
+            console.log(`Session has no app user signed in \n  
+            uid: ${doc.data()["uid"]} \n
+            active_task: ${doc.data()["active_task"]} \n
+            task_state: ${doc.data()["task_state"]}`);
             break;
         }
       });
