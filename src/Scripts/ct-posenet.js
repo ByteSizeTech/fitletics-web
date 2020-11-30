@@ -55,7 +55,7 @@ function draw() {
 }
 
 function gotResults(results) {
-  // console.log(results);
+  console.log(results);
 
   if (results.length > 0) {
     // console.log("result.length > than 0");

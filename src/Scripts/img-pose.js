@@ -3,15 +3,14 @@ let poseNet;
 let poses = [];
 
 function setup() {
-  createCanvas(640, 360);
-
   // create an image using the p5 dom library
   // call modelReady() when it is loaded
 
-  let path = "../build/Dataset/Plank/plank(10).jpg";
+  let path = "../build/Dataset/Wallsit/wallsit(0).jpg";
   img = createImg(path, imageReady);
   // set the image size to the size of the canvas
-  img.size(width, height);
+  // img.size(width, height);
+  createCanvas(img.width, img.height);
 
   img.hide(); // hide the image in the browser
   frameRate(1); // set the frameRate to 1 since we don't need it to be running quickly in this case
@@ -38,9 +37,21 @@ function imageReady() {
   // assign poseNet
   poseNet = ml5.poseNet(modelReady, options);
   // This sets up an event that listens to 'pose' events
-  poseNet.on("pose", function (results) {
-    poses = results;
-  });
+  poseNet.on("pose", onPoses);
+}
+
+function onPoses(results) {
+  poses = results;
+  let pose = poses[0].pose;
+  let noseX = pose.nose.x;
+  let noseY = pose.nose.y;
+  for (let i = 0; i < pose.keypoints.length; i++) {
+    console.log(pose.keypoints[i].part);
+
+    let x = pose.keypoints[i].position.x - noseX;
+    let y = pose.keypoints[i].position.y - noseY;
+    console.log(i + " x: " + x + " / y: " + y);
+  }
 }
 
 // when poseNet is ready, do the detection
