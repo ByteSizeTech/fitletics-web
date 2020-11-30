@@ -24,7 +24,7 @@ function startTimer(duration, display) {
 window.onload = function () {
   var thirtyMinutes = 60 * 30,
     display = document.querySelector("#time");
-  startTimer(thirtyMinutes, display);
+  // startTimer(thirtyMinutes, display);
 };
 
 // On this codelab, you will be streaming only video (video: true).

@@ -140,7 +140,7 @@ function setupCancelListeners() {
       .onSnapshot(function (doc) {
         let task = doc.data()["task_message"];
         switch (task) {
-          case "cancel":
+          case "cancelled":
             console.log("canceling body analysis..");
             cancelBodyAnalysis();
             break;
@@ -239,15 +239,15 @@ function updateUserBodyTypeinDB() {
     })
     .then(() => {
       console.log(`Body type successfully updated for app user as ${bodyType}`);
+      finishBodyAnalysis();
     })
     .catch((err) => {
       console.log(`Failed to update body type for app user`);
     });
-  //calls function to flag task as over
-  finishBodyAnalysis();
 }
 
 function finishBodyAnalysis() {
+  //calls function to flag task as over
   firebaseFirestore
     .collection("Sessions")
     .doc(uid)
