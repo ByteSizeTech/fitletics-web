@@ -3,7 +3,8 @@ let video;
 let poseNet;
 let pose;
 let skeleton;
-
+let exercise;
+let poseLabel = "none";
 function setup() {
   var canvasDiv = document.getElementById("videoElement");
   console.log(canvasDiv.offsetWidth + " and height " + canvasDiv.offsetHeight);
@@ -36,6 +37,51 @@ function setup() {
   poseNet = ml5.poseNet(video, modelLoaded);
   poseNet.on("pose", gotResults);
   video.hide();
+
+  let PWoptions = {
+    inputs: 34,
+    outputs: 3,
+    task: "classification",
+    debug: true,
+  };
+  PWCLassifier = ml5.neuralNetwork(PWoptions);
+  const modelInfo = {
+    model: "model/model.json",
+    metadata: "model/model_meta.json",
+    weights: "model/model.weights.bin",
+  };
+
+  PWCLassifier.load(modelInfo, PWLoaded);
+
+  //LOAD ANY OR ALL THE OTHER MODELS TO BE LOADED Like pushups? or squats here?
+}
+
+function PWLoaded() {
+  console.log("Pose classification ready!");
+  classifyPose();
+}
+
+function classifyPose() {
+  if (pose) {
+    let inputs = [];
+    for (let i = 0; i < pose.keypoints.length; i++) {
+      let x = pose.keypoints[i].position.x;
+      let y = pose.keypoints[i].position.y;
+      inputs.push(x);
+      inputs.push(y);
+    }
+    PWCLassifier.classify(inputs, gotClassificationResult);
+  } else {
+    setTimeout(classifyPose, 100);
+  }
+}
+
+function gotClassificationResult(error, results) {
+  if (results[0].confidence > 0.75) {
+    poseLabel = results[0].label.toUpperCase();
+  }
+  //console.log(results[0].confidence);
+  classifyPose();
 }
 
 function modelLoaded() {
@@ -43,6 +89,8 @@ function modelLoaded() {
 }
 
 function draw() {
+  push();
+
   translate(video.width, 0);
   scale(-1, 1);
   image(video, 0, 0, width, height);
@@ -52,6 +100,13 @@ function draw() {
     drawKeypoints();
     drawSkeleton();
   }
+  pop();
+
+  fill(255, 0, 255);
+  noStroke();
+  textSize(512);
+  textAlign(CENTER, CENTER);
+  text(poseLabel, width / 2, height / 2);
 }
 
 function gotResults(results) {

@@ -6,7 +6,7 @@ function setup() {
   // create an image using the p5 dom library
   // call modelReady() when it is loaded
 
-  let path = "../build/Dataset/Wallsit/wallsit(0).jpg";
+  let path = "../build/Dataset/Stand/stand(47).jpg";
   img = createImg(path, imageReady);
   // set the image size to the size of the canvas
   // img.size(width, height);
@@ -43,13 +43,12 @@ function imageReady() {
 function onPoses(results) {
   poses = results;
   let pose = poses[0].pose;
-  let noseX = pose.nose.x;
-  let noseY = pose.nose.y;
+
   for (let i = 0; i < pose.keypoints.length; i++) {
     console.log(pose.keypoints[i].part);
 
-    let x = pose.keypoints[i].position.x - noseX;
-    let y = pose.keypoints[i].position.y - noseY;
+    let x = pose.keypoints[i].position.x;
+    let y = pose.keypoints[i].position.y;
     console.log(i + " x: " + x + " / y: " + y);
   }
 }
@@ -65,11 +64,10 @@ function modelReady() {
 
 // draw() will not show anything until poses are found
 function draw() {
-  if (poses.length > 0) {
+  if (pose) {
     image(img, 0, 0, width, height);
     drawSkeleton(poses);
     drawKeypoints(poses);
-    noLoop(); // stop looping when the poses are estimated
   }
 }
 
