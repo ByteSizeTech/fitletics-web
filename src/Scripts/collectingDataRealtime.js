@@ -10,20 +10,18 @@ let state = "waiting";
 let targetLabel = "none";
 
 function keyPressed() {
-  if ((key = "p")) {
+  if (key == "p") {
     console.log("p pressed, 10 seconds to get in position, PLANK");
     targetLabel = "plank";
-  } else if ((key = "s")) {
+  } else if (key == "s") {
     console.log("s pressed, 10 seconds to get in position, STAND ");
-
     targetLabel = "stand";
-  } else if ((key = "w")) {
+  } else if (key == "w") {
     console.log("w pressed, 10 seconds to get in position, WALLSIT");
-
     targetLabel = "wallsit";
-  } else if ((key = "f")) {
+  } else if (key == "f") {
     console.log("f pressed, finishing");
-    PwClassifier.saveData();
+    PWClassifier.saveData();
   } else {
     console.log("RERUN, cuz invalid key pressed");
   }
@@ -38,7 +36,6 @@ function keyPressed() {
 }
 
 function setup() {
-  c;
   var canvasDiv = document.getElementById("videoElement");
   console.log(canvasDiv.offsetWidth + " and height " + canvasDiv.offsetHeight);
   var canvasWidth = canvasDiv.offsetWidth;
