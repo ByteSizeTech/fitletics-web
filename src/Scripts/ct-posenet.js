@@ -59,10 +59,6 @@ function draw() {
 }
 
 function gotResults(results) {
-<<<<<<< HEAD
-=======
-
->>>>>>> master
   console.log(results);
 
   if (results.length > 0) {
