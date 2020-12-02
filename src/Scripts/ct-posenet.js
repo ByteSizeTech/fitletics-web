@@ -19,10 +19,11 @@ function setup() {
   var posenetOpts = {
     architecture: "ResNet50",
     imageScaleFactor: 0.3,
-    outputStride: 16,
+    // outputStride: 32,
     flipHorizontal: false,
-    minConfidence: 0.5,
-    maxPoseDetections: 1,
+    minConfidence: 0.1,
+    minPartConfidence:0.5,
+    // maxPoseDetections: 1,
     scoreThreshold: 0.5,
     nmsRadius: 20,
     detectionType: "single",
@@ -30,10 +31,10 @@ function setup() {
     multiplier: 0.75,
     quantBytes: 2,
 
-    // imageScaleFactor: 0.3,
-    // minConfidence: 0.5,
+    // // imageScaleFactor: 0.3,
+    // // minConfidence: 0.5,
   };
-  poseNet = ml5.poseNet(video, modelLoaded);
+  poseNet = ml5.poseNet(video, posenetOpts,modelLoaded);
   poseNet.on("pose", gotResults);
   video.hide();
 }
@@ -55,17 +56,16 @@ function draw() {
 }
 
 function gotResults(results) {
-  // console.log(results);
+
+  console.log(results);
 
   if (results.length > 0) {
     // console.log("result.length > than 0");
-    for (let index = 0; index < results.length; index++) {
-      if (results[index].pose.score > 0.2) {
-        // console.log(pose);
-        pose = results[index].pose;
-        skeleton = results[index].skeleton;
-      }
-    }
+  
+        pose = results[0].pose;
+        skeleton = results[0].skeleton;
+      
+    
   }
   console.log(pose);
 }
@@ -78,7 +78,7 @@ function drawKeypoints() {
       let keypoint = pose.keypoints[j];
       // Only draw an ellipse is the pose probability is bigger than 0.2
       if (keypoint.score > 0.2) {
-        fill(255, 0, 0);
+        fill(255,0,0);
         noStroke();
         ellipse(keypoint.position.x, keypoint.position.y, 15, 15);
       }
@@ -92,7 +92,7 @@ function drawSkeleton() {
       let partA = skeleton[j][0];
       let partB = skeleton[j][1];
       strokeWeight(2);
-      stroke(255, 0, 0);
+      stroke(0,255,0);
       line(
         partA.position.x,
         partA.position.y,
