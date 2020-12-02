@@ -18,22 +18,24 @@ function setup() {
 
   var posenetOpts = {
     architecture: "ResNet50",
-    imageScaleFactor: 0.3,
-    outputStride: 16,
-    flipHorizontal: false,
+    // imageScaleFactor: 0.3,
+    outputStride: 32,
+    // flipHorizontal: false,
     minConfidence: 0.5,
     maxPoseDetections: 1,
+    minPartConfidence:0.5,
     scoreThreshold: 0.5,
     nmsRadius: 20,
     detectionType: "single",
-    inputResolution: 513,
+    inputResolution: 256,
     multiplier: 0.75,
     quantBytes: 2,
+    
 
     // imageScaleFactor: 0.3,
     // minConfidence: 0.5,
   };
-  poseNet = ml5.poseNet(video, modelLoaded);
+  poseNet = ml5.poseNet(video, posenetOpts,modelLoaded);
   poseNet.on("pose", gotResults);
   video.hide();
 
