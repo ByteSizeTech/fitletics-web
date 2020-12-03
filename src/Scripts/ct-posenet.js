@@ -4,6 +4,21 @@ let poseNet;
 let pose;
 let skeleton;
 
+//WE GET THE CURRENT EXWECISE FROM THE WORKOUT OBJECT
+let currentExercise = "Bodyweight Squat";
+let currentExerciseUNIT = "REPS";
+
+let poseClassifier;
+let poseLabel = "none";
+
+//REP COUNTING
+let squatSequence = ["squatup", "squatdown", "squatup"];
+let HistoryPoses = [];
+let currentReps = 0;
+let userGoal;
+let currPose;
+let prevPose;
+
 function setup() {
   //Create a canvas where the video will show
   var canvasDiv = document.getElementById("videoElement");
@@ -38,15 +53,51 @@ function setup() {
   poseNet = ml5.poseNet(video, posenetOpts, modelLoaded);
   poseNet.on("pose", gotResults);
   video.hide();
-
-  //LOAD ANY OR ALL THE OTHER MODELS TO BE LOADED Like pushups? or squats here?
 }
 
-function modelLoaded() {
-  console.log("Model Loaded");
+function classifyPose() {
+  if (pose) {
+    let inputs = [];
+    for (let i = 0; i < pose.keypoints.length; i++) {
+      let x = pose.keypoints[i].position.x;
+      let y = pose.keypoints[i].position.y;
+      inputs.push(x);
+      inputs.push(y);
+    }
+    if (currentExercise == "Bodyweight Squat") {
+      sClassifier.classify(inputs, gotClassificationResult);
+    } else if (currentExercise == "Push Up") {
+      pClassifier.classify(inputs, gotClassificationResult);
+    } else if (currentExercise == "Plank") {
+      pwClassifier.classify(inputs, gotClassificationResult);
+    } else {
+      console.log(currentExercise + "is not supported by Fitletics yet");
+      //moves on to the next exercise
+    }
+  }
+  //  else {
+  //   setTimeout(classifyPose, 100);
+  // }
+}
+
+function gotClassificationResult(error, results) {
+  if (error) {
+    console.log(error);
+  }
+  if (results[0].confidence > 0.75) {
+    poseLabel = results[0].label.toUpperCase();
+  }
+  console.log(results[0].confidence);
+
+  if (currentExerciseUNIT == "REPS") {
+    examineReps();
+  } else {
+    timerAlgorithm();
+  }
 }
 
 function draw() {
+  push();
   translate(video.width, 0);
   scale(-1, 1);
   image(video, 0, 0, width, height);
@@ -55,11 +106,19 @@ function draw() {
   if (pose) {
     drawKeypoints();
     drawSkeleton();
+    setTimeout(classifyPose, 10);
   }
+  pop();
+
+  fill(255, 0, 255);
+  noStroke();
+  textSize(100);
+  textAlign(CENTER, CENTER);
+  text(poseLabel, width / 2, height / 2);
 }
 
 function gotResults(results) {
-  console.log(results);
+  // console.log(results);
 
   if (results.length > 0) {
     // console.log("result.length > than 0");
@@ -67,7 +126,6 @@ function gotResults(results) {
     pose = results[0].pose;
     skeleton = results[0].skeleton;
   }
-  // console.log(pose);
 }
 
 // A function to draw ellipses over the detected keypoints
