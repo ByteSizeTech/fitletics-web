@@ -74,13 +74,12 @@ function getAppUserDetails() {
 function updateHTMLwithDetails() {
   userName = document.getElementById("user_name");
   userName.textContent = appUser.name;
+  document.getElementById("page-load").style.visibility = "hidden";
 }
 
 function goToSessionListener() {
   //Users's Task State Listener
   console.log("Going to session");
-
-  uid = firebase.auth().currentUser;
 
   if (uid) {
     firebase
@@ -93,14 +92,22 @@ function goToSessionListener() {
           let task = doc.data()["active_task"];
           switch (task) {
             case "BA":
+              document.getElementById("page-load").style.visibility = "visible";
               console.log("going to Body analysis..");
               window.location.replace("../build/BodyAnalysis.html");
               break;
-            case "WO":
+            case "SD":
+              document.getElementById("page-load").style.visibility = "visible";
+              console.log("going to Session Description..");
+              window.location.replace("../build/SessionDescription.html");
+              break;
+            case "AS":
+              document.getElementById("page-load").style.visibility = "visible";
               console.log("going to Session Description..");
               window.location.replace("../build/SessionDescription.html");
               break;
             case null:
+              document.getElementById("page-load").style.visibility = "visible";
               console.log("going to Session Index..");
               window.location.replace("../build/index.html");
               break;

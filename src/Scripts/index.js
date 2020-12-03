@@ -78,7 +78,7 @@ function goToSession() {
             console.log("going to Dashboard..");
             window.location.replace("../build/Dashboard.html");
             break;
-          case "WO":
+          case "SD":
             console.log("going to Session Description..");
             window.location.replace("../build/SessionDescription.html");
             break;

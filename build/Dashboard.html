@@ -7,7 +7,32 @@
     <title>Dashboard</title>
   </head>
 
+  <style>
+    #page-load{
+      position:fixed;
+    padding:0;
+    margin:0;
+
+    top:0;
+    left:0;
+
+    width: 100%;
+    height: 100%;
+    background:rgba(0,0,0);
+    }
+    #page-load-image {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+}
+  </style>
   <body>
+    <div id="page-load">
+      <div><img id="page-load-image" src="../build/Images/loading-gif.gif"></div>
+    </div>
     <!-- web structure of a CSS GRID w/ each grid item for a specific thing -->
     <div class="grid-container">
       <!-- Logo -->

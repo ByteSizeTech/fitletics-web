@@ -59,6 +59,7 @@ function startBodyAnalysis() {
         task_state: "ongoing",
       })
       .then(() => {
+        document.getElementById("page-load").style.visibility = "hidden";
         console.log(`Body analysis ongoing value updated in DB`);
       })
       .catch((err) => {
@@ -119,6 +120,7 @@ function setupCaptureListeners() {
         let task = doc.data()["task_message"];
         switch (task) {
           case "capture":
+            document.getElementById("page-load").style.visibility = "visible";
             console.log("capturing image..");
             preProcessImage();
             break;
@@ -159,6 +161,7 @@ function cancelBodyAnalysis() {
       task_message: "none",
     })
     .then(() => {
+      document.getElementById("page-load").style.visibility = "visible";
       console.log(`Body analysis cancelled!. Going to Db..`);
       window.location.replace("../build/Dashboard.html");
     })
