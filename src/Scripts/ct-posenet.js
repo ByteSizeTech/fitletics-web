@@ -5,6 +5,7 @@ let pose;
 let skeleton;
 
 function setup() {
+  //Create a canvas where the video will show
   var canvasDiv = document.getElementById("videoElement");
   console.log(canvasDiv.offsetWidth + " and height " + canvasDiv.offsetHeight);
   var canvasWidth = canvasDiv.offsetWidth;
@@ -66,7 +67,7 @@ function gotResults(results) {
     pose = results[0].pose;
     skeleton = results[0].skeleton;
   }
-  console.log(pose);
+  // console.log(pose);
 }
 
 // A function to draw ellipses over the detected keypoints
@@ -77,7 +78,7 @@ function drawKeypoints() {
       let keypoint = pose.keypoints[j];
       // Only draw an ellipse is the pose probability is bigger than 0.2
       if (keypoint.score > 0.2) {
-        fill(255, 0, 0);
+        fill(255, 117, 26);
         noStroke();
         ellipse(keypoint.position.x, keypoint.position.y, 15, 15);
       }
@@ -90,8 +91,8 @@ function drawSkeleton() {
     for (let j = 0; j < skeleton.length; j++) {
       let partA = skeleton[j][0];
       let partB = skeleton[j][1];
-      strokeWeight(2);
-      stroke(0, 255, 0);
+      strokeWeight(3);
+      stroke(255, 153, 153);
       line(
         partA.position.x,
         partA.position.y,
