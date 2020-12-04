@@ -84,6 +84,7 @@ e6 = new Exercise(
   "desc"
 );
 
-eList = [e1, e2, e3, e4, e5, e6];
+// eList = [e1, e2, e3, e4, e5, e6];
+eList = [e1];
 
 w = new Workout("ABS", eList, "Beginner", "Medium", "3000");

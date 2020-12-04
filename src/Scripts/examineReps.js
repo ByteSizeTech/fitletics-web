@@ -14,6 +14,12 @@ function examineReps() {
   //TODO @Nimra : time start and time end
   //START TIMER END TIMER HAVE TO MAKE SURE THATS THERE
 
+  //this condtition may increase with the addition rep-based of exercises
+  if (currentExercise == "Bodyweight Squat") {
+    currentSequence = squatSequence;
+  } else {
+    currentSequence = pushupSequence;
+  }
   currPose = poseLabel;
   var count = 0;
   if (currPose != prevPose) {
@@ -23,17 +29,17 @@ function examineReps() {
 
     // console.log("hist length: " + History.length);
     // console.log("squat length: " + squatSequence.length);
-    if (History.length >= squatSequence.length) {
-      var historyIndex = History.length - squatSequence.length;
-      console.log("history" + historyIndex);
+    if (History.length >= currentSequence.length) {
+      var historyIndex = History.length - currentSequence.length;
+      // console.log("history" + historyIndex);
 
       //now we will go over the last three in history matching with the squat sequence
-      for (var index = 0; index < squatSequence.length; index++) {
+      for (var index = 0; index < currentSequence.length; index++) {
         // console.log("squat Index" + index);
         // console.log("squat[index] : " + squatSequence[index]);
         // console.log("History[histind] : " + History[historyIndex]);
 
-        if (squatSequence[index] == History[historyIndex]) {
+        if (currentSequence[index] == History[historyIndex]) {
           // console.log(count);
           count++;
         } else {
@@ -43,16 +49,16 @@ function examineReps() {
       }
       if (count == 3) {
         currentReps++;
-        historyIndex = History.length - squatSequence.length;
-        History = [];
-        History.push(currentSequence[currentSequence.length - 1]);
+        historyIndex = History.length - currentSequence.length;
+        // History = [];
+        // History.push(currentSequence[currentSequence.length - 1]);
         updateProgress();
         if (currentReps == currentExerciseGoal) {
           //it changes the exercise and the variables associated with it
           alert("Exercise Completed! Moving on to the next one.");
           //TODO @Nimra end the timer
           //TODO #Nimra feed in the data in the CompletedStats object
-          nextExercise();
+          nextExercise(exerciseIndex);
         }
       }
     }

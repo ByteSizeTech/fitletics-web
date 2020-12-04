@@ -3,6 +3,7 @@ let video;
 let poseNet;
 let pose;
 let skeleton;
+let sessionComplete = false;
 // let currentReps = 0;
 
 //WE GET THE CURRENT EXWECISE FROM THE WORKOUT OBJECT -> workout object will be gotten by vishal sending in the parameter
@@ -115,7 +116,9 @@ function draw() {
   if (pose) {
     drawKeypoints();
     drawSkeleton();
-    classifyPose();
+    if (!sessionComplete) {
+      classifyPose();
+    }
   }
   pop();
 

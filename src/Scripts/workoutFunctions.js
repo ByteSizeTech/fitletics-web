@@ -48,7 +48,7 @@ function nextExercise(exerciseIndex) {
   if (exerciseIndex != exercises.length) {
     updateExerciseInfo(exercises[exerciseIndex]);
   } else {
-    alert("You have completed the session!");
+    sessionComplete = true;
     endSession();
   }
 }
