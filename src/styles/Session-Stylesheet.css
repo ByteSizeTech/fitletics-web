@@ -116,12 +116,12 @@ body {
   margin-left: 30px;
 }
 
-.currentRep {
+#currentRep {
   font-size: 50px;
   font-weight: 700;
 }
 
-.totalRep {
+#totalRep {
   font-size: 20px;
   color: gray;
 }

@@ -1,3 +1,0 @@
-function updateWorkoutInfo() {}
-
-function updateReps() {}

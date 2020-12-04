@@ -3,14 +3,17 @@ let video;
 let poseNet;
 let pose;
 let skeleton;
+// let currentReps = 0;
 
-//WE GET THE CURRENT EXWECISE FROM THE WORKOUT OBJECT
-let Workout;
-let currentExercise = "Bodyweight Squat";
-let currentExerciseUNIT = "REPS";
-
-let poseClassifier;
+//WE GET THE CURRENT EXWECISE FROM THE WORKOUT OBJECT -> workout object will be gotten by vishal sending in the parameter
+// let currentWorkout;
+// let currentExercise;
+// let currentExerciseUNIT;
+// let currentGoal;
 let poseLabel = "none";
+
+//for looping through the exercises
+let exerciseIndex = 0;
 
 function setup() {
   //Create a canvas where the video will show
@@ -47,10 +50,12 @@ function setup() {
   poseNet.on("pose", gotResults);
   video.hide();
 
-  //TODP: @VISHAL INITIALIZE THE WORKOUT OBJECT WE GET FROM VISHAL AS WORKOUT
+  // this function takes in a workout object and initialises currentWorkout to that object and all the variables related to it
+  initializeWorkout(w);
+  updateSessionInfo();
+  updateExerciseInfo(exercises[exerciseIndex]);
 
-  //then we call the function updateHTML
-  //updateHTML()
+  //TODO @Nimra INITIALIZATION OF THE SESSION OBJECT AS WE MOVE ON IN THE
 }
 
 function classifyPose() {
@@ -68,9 +73,14 @@ function classifyPose() {
       pClassifier.classify(inputs, gotClassificationResult);
     } else if (currentExercise == "Plank") {
       pwClassifier.classify(inputs, gotClassificationResult);
+    } else if (currentExercise == "Wallsit") {
+      pwClassifier.classify(inputs, gotClassificationResult);
     } else {
-      console.log(currentExercise + "is not supported by Fitletics yet");
-      //moves on to the next exercise
+      console.log(
+        currentExercise +
+          "is not supported by Fitletics yet, moving on to the next exercise: "
+      );
+      nextExercise(exerciseIndex);
     }
   }
   //  else {
@@ -83,6 +93,7 @@ function gotClassificationResult(error, results) {
     console.log(error);
   }
   if (results[0].confidence > 0.75) {
+    //TODO @Nimra check the touppercase thingie
     poseLabel = results[0].label.toUpperCase();
   }
   // console.log(results[0].confidence);
