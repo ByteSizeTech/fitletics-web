@@ -5,19 +5,12 @@ let pose;
 let skeleton;
 
 //WE GET THE CURRENT EXWECISE FROM THE WORKOUT OBJECT
+let Workout;
 let currentExercise = "Bodyweight Squat";
 let currentExerciseUNIT = "REPS";
 
 let poseClassifier;
 let poseLabel = "none";
-
-//REP COUNTING
-let squatSequence = ["squatup", "squatdown", "squatup"];
-let HistoryPoses = [];
-let currentReps = 0;
-let userGoal;
-let currPose;
-let prevPose;
 
 function setup() {
   //Create a canvas where the video will show
@@ -53,6 +46,11 @@ function setup() {
   poseNet = ml5.poseNet(video, posenetOpts, modelLoaded);
   poseNet.on("pose", gotResults);
   video.hide();
+
+  //TODP: @VISHAL INITIALIZE THE WORKOUT OBJECT WE GET FROM VISHAL AS WORKOUT
+
+  //then we call the function updateHTML
+  //updateHTML()
 }
 
 function classifyPose() {
@@ -87,12 +85,12 @@ function gotClassificationResult(error, results) {
   if (results[0].confidence > 0.75) {
     poseLabel = results[0].label.toUpperCase();
   }
-  console.log(results[0].confidence);
+  // console.log(results[0].confidence);
 
   if (currentExerciseUNIT == "REPS") {
     examineReps();
   } else {
-    timerAlgorithm();
+    examineTime();
   }
 }
 
@@ -106,15 +104,20 @@ function draw() {
   if (pose) {
     drawKeypoints();
     drawSkeleton();
-    setTimeout(classifyPose, 10);
+    classifyPose();
   }
   pop();
 
   fill(255, 0, 255);
   noStroke();
-  textSize(100);
-  textAlign(CENTER, CENTER);
+  textSize(70);
+  textAlign(CENTER, TOP);
   text(poseLabel, width / 2, height / 2);
+  fill(0, 255, 255);
+  noStroke();
+  textSize(70);
+  textAlign(CENTER, BOTTOM);
+  text(currentReps, width / 2, height / 2);
 }
 
 function gotResults(results) {
@@ -122,7 +125,6 @@ function gotResults(results) {
 
   if (results.length > 0) {
     // console.log("result.length > than 0");
-
     pose = results[0].pose;
     skeleton = results[0].skeleton;
   }
