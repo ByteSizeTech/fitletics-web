@@ -24,30 +24,37 @@
         <div class="Image">
           <img src="../build/Images/abs.png" class="Image" />
         </div>
-        <div class="workout-heading"><span>ABS</span></div>
+        <div class="workout-heading" id="workout-name">name</div>
       </div>
       <div class="timer">
         <span id="time"> 00:00.00 </span>
       </div>
       <div class="Exercise">
-        <b>LUNGES</b>
+        <span id="currentExercise">LUNGES</span>
         <img src="../build/Images/images.png" class="information" />
       </div>
       <div class="reps">
-        <span class="currentRep">5</span> <span class="totalRep">/7</span>
+        <span id="currentRep">5</span>
+        / <span id="totalRep">7</span>
       </div>
-      <div class="skip"><button class="skip-button">SKIP</button></div>
+      <div class="skip">
+        <button class="skip-button" id="skipBtn">SKIP</button>
+      </div>
       <div class="end-session-button">
-        <button class="end-session-button">End Session</button>
+        <button class="end-session-button" id="endSessionBtn">
+          End Session
+        </button>
       </div>
     </div>
     <div class="Live">
       <div id="videoElement"></div>
     </div>
+    <script src="../src/Scripts/classes.js"></script>
+    <script src="../src/Scripts/testData.js"></script>
     <script src="../src/Scripts/ct-posenet.js"></script>
     <script src="../src/Scripts/loadingModels.js"></script>
     <script src="../src/Scripts/examineReps.js"></script>
-
+    <script src="../src/Scripts/workoutFunctions.js"></script>
     <!-- <script src="../src/Scripts/eventHandler.js"></script> -->
     <!-- <script type="text/javascript" src="../JsonData/modelOptions.json"></script> -->
   </body>
