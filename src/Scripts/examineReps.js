@@ -8,7 +8,7 @@ let currentReps = 0;
 let currPose;
 let prevPose = "null";
 let timeStarted = false;
-let timeTaken;
+let timeTaken = 0;
 
 // function checkCountdown() {
 //   // console.log($("#seconds"));
@@ -67,10 +67,10 @@ function examineReps() {
           console.log("Exercise Completed! Moving on to the next one.");
           stopTimer();
           timeTaken = getSeconds();
-          console.log("timeTaken: " + timeTaken);
+          // console.log("timeTaken: " + timeTaken);
           //TODO @Vishal takeTaken should be sent to the database
           //TODO #Nimra feed in the data in the CompletedStats object
-          reset();
+
           nextExercise(exerciseIndex);
         }
       }
