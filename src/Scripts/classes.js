@@ -64,7 +64,7 @@ class Session {
     var userWeight = 69; //TODO: @Vishal replace this with DB call
     this.caloriesBurned = 0;
 
-    for (i = 0; i < this.workout.exerciseList.length; i++) {
+    for (var i = 0; i < this.workout.exerciseList.length; i++) {
       var exerciseDuration = 0;
       var MET;
 
