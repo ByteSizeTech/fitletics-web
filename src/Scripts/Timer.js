@@ -16,6 +16,20 @@ function reset() {
 function stopTimer() {
   clearTimeout(timex);
 }
+//getting the cumulating seconds
+function getSeconds() {
+  let totalSeconds = 0;
+  if (hours > 0) {
+    totalSeconds += hours * 60 * 60;
+  }
+  if (mins > 0) {
+    totalSeconds += mins * 60;
+  }
+  if (seconds > 0) {
+    totalSeconds += seconds;
+  }
+  return totalSeconds;
+}
 
 //startTimer()
 function startTimer() {
@@ -49,27 +63,7 @@ function startTimer() {
 
 //countdown
 
-function countdown(duration, display) {
-  var timer = duration,
-    minutes,
-    seconds;
-  setInterval(function () {
-    minutes = parseInt(timer / 60, 10);
-    seconds = parseInt(timer % 60, 10);
-
-    minutes = minutes < 10 ? "0" + minutes : minutes;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-
-    display.textContent = seconds;
-
-    if (--timer < 0) {
-      timer = 0;
-      display.textContent = 00;
-    }
-  }, 1000);
-}
-
-// function startTimer(duration, display) {
+// function countdown(duration, display) {
 //   var timer = duration,
 //     minutes,
 //     seconds;
@@ -80,29 +74,11 @@ function countdown(duration, display) {
 //     minutes = minutes < 10 ? "0" + minutes : minutes;
 //     seconds = seconds < 10 ? "0" + seconds : seconds;
 
-//     display.textContent = minutes + ":" + seconds;
+//     display.textContent = seconds;
 
 //     if (--timer < 0) {
-//       timer = duration;
+//       timer = 0;
+//       display.textContent = 00;
 //     }
 //   }, 1000);
-// }
-
-// window.onload = function () {
-//   var fiveMinutes = 60 * 5,
-//     display = document.querySelector("#time");
-//   startTimer(fiveMinutes, display);
-// };
-// var myTimer;
-// //c=10
-// function clock(c) {
-//   myTimer = setInterval(myClock, 1000);
-
-//   function myClock() {
-//     document.getElementById("time").innerHTML = --c;
-//     // if (c == 0) {
-//     //   clearInterval(myTimer);
-//     //   alert("Reached zero");
-//     // }
-//   }
 // }

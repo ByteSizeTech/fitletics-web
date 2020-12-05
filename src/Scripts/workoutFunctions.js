@@ -20,14 +20,9 @@ function updateSessionInfo() {
 //happens when the user moves from one exercise to another: takes in the parameter of exercise object that comes next in line
 //this func wont be called if all the exercises are completed, in that case endSession would be triggered
 function updateExerciseInfo(Exercise) {
-  //TETING
+  //countdown is going to come here
 
-  // var tenSeconds = 10 * 1,
-  //   display = document.querySelector("#seconds");
-  // countdown(tenSeconds, display);
-  //TODO @Nimra startTimer()
-  //we can start the timer and then subtract 10 seconds fom it from the initia; prepare period
-
+  reset();
   document.getElementById("currentExercise").innerHTML = Exercise.name;
   document.getElementById("totalRep").innerHTML = Exercise.value;
   currentExercise = Exercise.name;
