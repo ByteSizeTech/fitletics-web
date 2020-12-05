@@ -96,7 +96,6 @@ function gotClassificationResult(error, results) {
     console.log(error);
   }
   if (results[0].confidence > 0.75) {
-    //TODO @Nimra check the touppercase thingie
     poseLabel = results[0].label.toUpperCase();
   }
   // console.log(results[0].confidence);
