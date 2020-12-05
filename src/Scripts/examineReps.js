@@ -7,14 +7,17 @@ let History = [];
 let currentReps = 0;
 let currPose;
 let prevPose = "null";
+let timeStarted = false;
 
+// function checkCountdown() {
+//   // console.log($("#seconds"));
+//   if (document.getElementById("seconds").innerHTML == "00") {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
 function examineReps() {
-  //TODO @Nimra we cneed to check for the 10 seconds countdown
-
-  //TODO @Nimra : time start and time end
-  //START TIMER END TIMER HAVE TO MAKE SURE THATS THERE
-
-  //this condtition may increase with the addition rep-based of exercises
   if (currentExercise == "Bodyweight Squat") {
     currentSequence = squatSequence;
   } else {
@@ -55,8 +58,9 @@ function examineReps() {
         updateProgress();
         if (currentReps == currentExerciseGoal) {
           //it changes the exercise and the variables associated with it
-          alert("Exercise Completed! Moving on to the next one.");
-          //TODO @Nimra end the timer
+          console.log("Exercise Completed! Moving on to the next one.");
+          //TODO @Nimra endTimer()
+          stopTimer();
           //TODO #Nimra feed in the data in the CompletedStats object
           nextExercise(exerciseIndex);
         }
