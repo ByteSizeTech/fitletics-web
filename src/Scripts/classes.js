@@ -1,8 +1,8 @@
 class Muscle {
-  constructor(name) {
+  constructor(name, maleIntensity, femaleIntensity) {
     this.name = name;
-    this.maleIntensity = null;
-    this.femaleIntensity = null;
+    this.maleIntensity = maleIntensity;
+    this.femaleIntensity = femaleIntensity;
   }
 }
 
@@ -12,23 +12,23 @@ class Exercise {
     unit,
     value,
     difficulty,
-    description,
     link,
     targetMuscles,
     harderExercise,
     easierExercise,
-    timePerRep
+    timePerRep,
+    description
   ) {
     this.name = name;
     this.unit = unit;
     this.value = value;
     this.difficulty = difficulty;
-    this.description = description;
     this.link = link;
     this.targetMuscles = targetMuscles;
     this.harderExercise = harderExercise;
     this.easierExercise = easierExercise;
     this.timePerRep = timePerRep;
+    this.description = description;
   }
 }
 
@@ -58,7 +58,45 @@ class Session {
     this.completedStats = completedStats;
     this.caloriesBurned = null;
   }
+
   calculateCaloriesBurned() {
-    this.caloriesBurned = 1;
+    //TODO: @Aadi test this once workouts are added in the DB
+
+    var userWeight = 69; //TODO: @Vishal replace this with DB call
+    this.caloriesBurned = 0;
+
+    for (var i = 0; i < this.workout.exerciseList.length; i++) {
+      var exerciseDuration = 0;
+      var MET;
+
+      switch (this.workout.exerciseList[i].difficulty) {
+        case "Easy":
+          MET = 5;
+          break;
+        case "Medium":
+          MET = 8;
+          break;
+        case "Hard":
+          MET = 10;
+          break;
+        default:
+          MET = 6;
+          break;
+      }
+
+      if (this.workout.exerciseList[i].unit === "SECS") {
+        exerciseDuration = this.completedStats[i].timeTaken;
+      } else {
+        exerciseDuration =
+          this.completedStats[i].repsDone *
+          this.workout.exerciseList[i].timePerRep;
+      }
+
+      this.caloriesBurned += Math.floor(
+        ((exerciseDuration / 60) * (MET * 3.5 * userWeight)) / 200
+      );
+    }
+
+    return this.caloriesBurned;
   }
 }
