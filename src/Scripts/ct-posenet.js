@@ -7,7 +7,7 @@ let skeleton;
 //SESSION RELATED INFO
 let session = new Session();
 let currentWorkout; // initialised in setup as session.work = currWork
-let totalSessionTime; //valculated as we move on, after EACH EXERCISE is done
+let totalSessionTime = 0; //valculated as we move on, after EACH EXERCISE is done
 let dateCompleted = "dd/mm/yy"; // done in setup
 let completedStats = []; //updated as we move along
 let sessionComplete = false; //TODO @Nimra think about this CONFUSION?????
