@@ -8,7 +8,8 @@ let skeleton;
 let session = new Session();
 let currentWorkout; // initialised in setup as session.work = currWork
 let totalSessionTime = 0; //valculated as we move on, after EACH EXERCISE is done
-let dateCompleted = "dd/mm/yy"; // done in setup
+//TODO @nimra date function in setup
+let dateCompleted = "dd/mm/yyyy"; // done in setup
 let completedStats = []; //updated as we move along
 let sessionComplete = false; //TODO @Nimra think about this CONFUSION?????
 let exerciseIndex = 0; //used to loop thru elist in a workout
@@ -58,6 +59,7 @@ function setup() {
 
   //INITIALIZATION OF THE SESSION OBJECT AS WE MOVE ON IN THE
   session.workout = currentWorkout;
+  //TODO DATE of sessionnn
 }
 
 function classifyPose() {

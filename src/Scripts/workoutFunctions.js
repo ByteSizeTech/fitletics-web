@@ -23,6 +23,7 @@ function endSession() {
   session.completedStats = completedStats;
   session.caloriesBurned = session.calculateCaloriesBurned();
   console.log(session);
+  sessionComplete = true;
 }
 //happens only at the start
 function updateSessionInfo() {

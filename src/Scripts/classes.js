@@ -43,7 +43,7 @@ class Workout {
 }
 
 class ExerciseStat {
-  constructor(exerciseName, timeTaken, repsDone) {
+  constructor(exerciseName, timeTaken = 0, repsDone = 0) {
     this.exerciseName = exerciseName;
     this.timeTaken = timeTaken;
     this.repsDone = repsDone;

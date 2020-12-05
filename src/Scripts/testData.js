@@ -19,7 +19,7 @@ e1 = new Exercise(
   [c2, u2, l2],
   null,
   null,
-  null,
+  1.2,
   "desc"
 );
 e2 = new Exercise(
@@ -31,7 +31,7 @@ e2 = new Exercise(
   [c1, u1, l1],
   null,
   null,
-  null,
+  3,
   "desc"
 );
 
@@ -44,7 +44,7 @@ e3 = new Exercise(
   [c3, u3, l3],
   e1,
   e2,
-  null,
+  4,
   "desc"
 );
 e4 = new Exercise(
