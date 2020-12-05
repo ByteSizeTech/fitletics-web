@@ -3,10 +3,11 @@ class Muscle {
     this.name = name;
     this.maleIntensity = maleIntensity;
     this.femaleIntensity = femaleIntensity;
+  }
   constructor(name) {
     this.name = name;
-    this.maleIntensity = null;
-    this.femaleIntensity = null;
+    this.maleIntensity = maleIntensity;
+    this.femaleIntensity = femaleIntensity;
   }
 }
 
@@ -16,23 +17,23 @@ class Exercise {
     unit,
     value,
     difficulty,
-    description,
     link,
     targetMuscles,
     harderExercise,
     easierExercise,
-    timePerRep
+    timePerRep,
+    description
   ) {
     this.name = name;
     this.unit = unit;
     this.value = value;
     this.difficulty = difficulty;
-    this.description = description;
     this.link = link;
     this.targetMuscles = targetMuscles;
     this.harderExercise = harderExercise;
     this.easierExercise = easierExercise;
     this.timePerRep = timePerRep;
+    this.description = description;
   }
 }
 
@@ -62,6 +63,7 @@ class Session {
     this.completedStats = completedStats;
     this.caloriesBurned = null;
   }
+
   calculateCaloriesBurned() {
     //TODO: @Aadi test this once workouts are added in the DB
 
