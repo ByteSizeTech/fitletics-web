@@ -176,10 +176,6 @@ body {
   /* width: 60vw;
   height: 87vh; */
 }
-#videoElement {
-  /* background-color: blanchedalmond; */
-  height: 54rem;
-}
 @media (max-width: 1200px) {
   body {
     margin: 0;
