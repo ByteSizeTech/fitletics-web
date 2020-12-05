@@ -34,8 +34,6 @@ function updateExerciseInfo(Exercise) {
 
   currentExerciseUNIT = Exercise.unit;
   updateProgress();
-
-  //TODO @Nimra initialize the timer thing to 10 seconds that will be counted down
 }
 //happens during the workout after every rep is counted or every second is passed
 function updateProgress() {
@@ -43,7 +41,8 @@ function updateProgress() {
   if (currentExerciseUNIT == "REPS") {
     document.getElementById("currentRep").innerHTML = currentReps;
   } else {
-    //TODO @Nimra if the exercise is for time, how will we increase the timer
+    let s = getsecond();
+    document.getElementById("currentRep").innerHTML = s;
   }
 }
 
@@ -51,6 +50,9 @@ function nextExercise(exerciseIndex) {
   exerciseIndex++;
   if (exerciseIndex != exercises.length) {
     updateExerciseInfo(exercises[exerciseIndex]);
+    reset();
+    timeStarted = false;
+    timeTaken = 0;
   } else {
     sessionComplete = true;
     endSession();
