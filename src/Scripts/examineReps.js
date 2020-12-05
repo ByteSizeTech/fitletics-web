@@ -8,6 +8,7 @@ let currentReps = 0;
 let currPose;
 let prevPose = "null";
 let timeStarted = false;
+let timeTaken;
 
 // function checkCountdown() {
 //   // console.log($("#seconds"));
@@ -18,6 +19,11 @@ let timeStarted = false;
 //   }
 // }
 function examineReps() {
+  if (timeStarted == false) {
+    startTimer();
+    timeStarted = true;
+  }
+
   if (currentExercise == "Bodyweight Squat") {
     currentSequence = squatSequence;
   } else {
@@ -59,9 +65,12 @@ function examineReps() {
         if (currentReps == currentExerciseGoal) {
           //it changes the exercise and the variables associated with it
           console.log("Exercise Completed! Moving on to the next one.");
-          //TODO @Nimra endTimer()
           stopTimer();
+          timeTaken = getSeconds();
+          console.log("timeTaken: " + timeTaken);
+          //TODO @Vishal takeTaken should be sent to the database
           //TODO #Nimra feed in the data in the CompletedStats object
+          reset();
           nextExercise(exerciseIndex);
         }
       }
