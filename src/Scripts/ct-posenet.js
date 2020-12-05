@@ -3,20 +3,18 @@ let video;
 let poseNet;
 let pose;
 let skeleton;
-let sessionComplete = false;
 
-let timerDone;
-// let currentReps = 0;
+//SESSION RELATED INFO
+let session = new Session();
+let currentWorkout; // initialised in setup as session.work = currWork
+let totalSessionTime; //valculated as we move on, after EACH EXERCISE is done
+let dateCompleted = "dd/mm/yy"; // done in setup
+let completedStats = []; //updated as we move along
+let sessionComplete = false; //TODO @Nimra think about this CONFUSION?????
+let exerciseIndex = 0; //used to loop thru elist in a workout
 
-//WE GET THE CURRENT EXWECISE FROM THE WORKOUT OBJECT -> workout object will be gotten by vishal sending in the parameter
-// let currentWorkout;
-// let currentExercise;
-// let currentExerciseUNIT;
-// let currentGoal;
 let poseLabel = "none";
-
 //for looping through the exercises
-let exerciseIndex = 0;
 
 function setup() {
   //Create a canvas where the video will show
@@ -58,7 +56,8 @@ function setup() {
   updateSessionInfo();
   updateExerciseInfo(exercises[exerciseIndex]);
 
-  //TODO @Nimra INITIALIZATION OF THE SESSION OBJECT AS WE MOVE ON IN THE
+  //INITIALIZATION OF THE SESSION OBJECT AS WE MOVE ON IN THE
+  session.workout = currentWorkout;
 }
 
 function classifyPose() {
@@ -72,18 +71,18 @@ function classifyPose() {
     }
     if (currentExercise == "Bodyweight Squat") {
       sClassifier.classify(inputs, gotClassificationResult);
-    } else if (currentExercise == "Push Up") {
+    } else if (currentExercise == "Push up") {
       pClassifier.classify(inputs, gotClassificationResult);
     } else if (currentExercise == "Plank") {
       pwClassifier.classify(inputs, gotClassificationResult);
     } else if (currentExercise == "Wallsit") {
       pwClassifier.classify(inputs, gotClassificationResult);
     } else {
-      console.log(
+      alert(
         currentExercise +
           "is not supported by Fitletics yet, moving on to the next exercise: "
       );
-      nextExercise(exerciseIndex);
+      nextExercise();
     }
   }
   //  else {

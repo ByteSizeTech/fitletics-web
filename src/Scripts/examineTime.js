@@ -4,9 +4,10 @@ let state;
 function examineTime() {
   //TODO we cneed to check for the 10 seconds countdown
 
+  currentReps = 1;
   let s = getSeconds();
   if (s != currentExerciseGoal) {
-    if (poseLabel == currentExercise.toupper()) {
+    if (poseLabel == currentExercise.toUpperCase()) {
       state = "inpose";
       if (timeStarted == false) {
         startTimer();
@@ -26,7 +27,9 @@ function examineTime() {
     console.log("timeTaken: " + timeTaken);
     //TODO @Vishal takeTaken should be sent to the database
     //TODO #Nimra feed in the data in the CompletedStats object
+    reset();
+    countdownTimerStarted = false;
 
-    nextExercise(exerciseIndex);
+    nextExercise();
   }
 }

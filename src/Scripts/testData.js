@@ -13,7 +13,7 @@ l3 = new Muscle("Lower", 10, 10);
 e1 = new Exercise(
   "Bodyweight Squat",
   "REPS",
-  10,
+  3,
   "Easy",
   "www.youtube.com",
   [c2, u2, l2],
@@ -25,7 +25,7 @@ e1 = new Exercise(
 e2 = new Exercise(
   "Plank",
   "SECS",
-  20,
+  10,
   "Easy",
   "www.youtube.com",
   [c1, u1, l1],
@@ -38,7 +38,7 @@ e2 = new Exercise(
 e3 = new Exercise(
   "Wallsit",
   "SECS",
-  20,
+  5,
   "Easy",
   "www.youtube.com",
   [c3, u3, l3],

@@ -4,20 +4,9 @@ let pushupSequence = ["PUSHUP", "PUSHDOWN", "PUSHUP"];
 
 let currentSequence;
 let History = [];
-let currentReps = 0;
 let currPose;
 let prevPose = "null";
-let timeStarted = false;
-let timeTaken = 0;
 
-// function checkCountdown() {
-//   // console.log($("#seconds"));
-//   if (document.getElementById("seconds").innerHTML == "00") {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// }
 function examineReps() {
   if (timeStarted == false) {
     startTimer();
@@ -28,7 +17,8 @@ function examineReps() {
     currentSequence = squatSequence;
   } else {
     currentSequence = pushupSequence;
-  }
+  } //we can add more sequences depending on the increase in exercise
+
   currPose = poseLabel;
   var count = 0;
   if (currPose != prevPose) {
@@ -64,14 +54,14 @@ function examineReps() {
         updateProgress();
         if (currentReps == currentExerciseGoal) {
           //it changes the exercise and the variables associated with it
-          console.log("Exercise Completed! Moving on to the next one.");
+          console.log(
+            currentExercise + " Completed! Moving on to the next one."
+          );
           stopTimer();
-          timeTaken = getSeconds();
           // console.log("timeTaken: " + timeTaken);
           //TODO @Vishal takeTaken should be sent to the database
           //TODO #Nimra feed in the data in the CompletedStats object
-
-          nextExercise(exerciseIndex);
+          nextExercise();
         }
       }
     }
