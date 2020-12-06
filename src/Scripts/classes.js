@@ -4,11 +4,11 @@ class Muscle {
     this.maleIntensity = maleIntensity;
     this.femaleIntensity = femaleIntensity;
   }
-  constructor(name) {
-    this.name = name;
-    this.maleIntensity = maleIntensity;
-    this.femaleIntensity = femaleIntensity;
-  }
+  // constructor(name) {
+  //   this.name = name;
+  //   this.maleIntensity = maleIntensity;
+  //   this.femaleIntensity = femaleIntensity;
+  // }
 }
 
 class Exercise {
