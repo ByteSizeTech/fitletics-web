@@ -130,16 +130,16 @@ function draw() {
     pop();
   }
 
-  // fill(255, 0, 255);
-  // noStroke();
-  // textSize(70);
-  // textAlign(CENTER, TOP);
-  // text(poseLabel, width / 2, height / 2);
-  // fill(0, 255, 255);
-  // noStroke();
-  // textSize(70);
-  // textAlign(CENTER, BOTTOM);
-  // text(currentReps, width / 2, height / 2);
+  fill(255, 0, 255);
+  noStroke();
+  textSize(70);
+  textAlign(CENTER, TOP);
+  text(poseLabel, width / 2, height / 2);
+  fill(0, 255, 255);
+  noStroke();
+  textSize(70);
+  textAlign(CENTER, BOTTOM);
+  text(currentReps, width / 2, height / 2);
 }
 
 function gotResults(results) {

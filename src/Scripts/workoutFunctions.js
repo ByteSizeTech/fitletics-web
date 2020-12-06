@@ -5,7 +5,7 @@ let currentExercise;
 let currentExerciseUNIT;
 let currentExerciseGoal;
 
-let currentExerciseStat = null;
+// let currentExerciseStat = null;
 let currentExerciseStatJSON = {};
 //for each exercise
 let timeTaken = 0;
@@ -23,7 +23,25 @@ function initializeWorkout(workout) {
   exercises = currentWorkout.exerciseList;
 }
 
+function initializeCompletedStat() {
+  for (let index = 0; index < exercises.length; index++) {
+    let name = exercises[index].name;
+    //TODO Add check for time based exercise. Init as repsdone = 1
+    completedStats[index] = new ExerciseStat(name, 0, 0);
+
+    //Initializing currentExcrciseStatJSON objects for database
+    currentExerciseStatJSON = {};
+    currentExerciseStatJSON.exerciseName = name;
+    currentExerciseStatJSON.timeTaken = 0;
+    currentExerciseStatJSON.repsDone = 0;
+    completedStatsJSON[`ex${index}`] = currentExerciseStatJSON;
+  }
+  console.log("Completed stats initialized as", completedStatsJSON);
+}
+
 function endSession() {
+  // sessionComplete = true;
+  reset();
   session.workout = currentWorkout;
   sessionJSON.workout = workoutJSON;
 
@@ -41,7 +59,6 @@ function endSession() {
 
   console.log(session);
   console.log(sessionJSON);
-  sessionComplete = true;
 }
 //happens only at the start
 function updateSessionInfo() {
@@ -52,9 +69,9 @@ function updateSessionInfo() {
 //this func wont be called if all the exercises are completed, in that case endSession would be triggered
 function updateExerciseInfo(ExerciseParam) {
   //CREATING a new EXERCISE STAT FOR EACH Exercise
-  currentExerciseStat = null;
-  currentExerciseStatJSON = {};
-  currentExerciseStat = new ExerciseStat();
+  // currentExerciseStat = null;
+  // currentExerciseStatJSON = {};
+  // currentExerciseStat = new ExerciseStat();
   console.log(ExerciseParam);
 
   //RESETTING THINGS FOR A NEW EXERCISE
@@ -82,6 +99,7 @@ function updateExerciseInfo(ExerciseParam) {
   updateProgress();
 }
 
+let prevSecond = null;
 //happens during the workout after every rep is counted or every second is passed
 function updateProgress() {
   //TODO @Vishal send the var 'currentReps' to the database
@@ -91,7 +109,10 @@ function updateProgress() {
   } else {
     let s = getSeconds();
     document.getElementById("currentRep").innerHTML = s;
-    //TODO @vishal if you want secs then this can be done here by sending s
+    if (prevSecond != s) {
+      updatecurrExerciseNameProgress(s.toString());
+    }
+    prevSecond = s;
   }
 }
 
@@ -99,25 +120,51 @@ function nextExercise() {
   //TODO BEFORE MOVING ON TO THE NEXT EXERCISE
   //we may need to add things here like initialising teh completed stat for the prev exercise
   timeTaken = getSeconds();
-  currentExerciseStat = new ExerciseStat(
-    currentExercise,
-    timeTaken,
-    currentReps
-  );
-  currentExerciseStatJSON.exerciseName = currentExercise;
-  currentExerciseStatJSON.timeTaken = timeTaken;
-  currentExerciseStatJSON.repsDone = currentReps;
+  console.log("Completed stat:", completedStats[exerciseIndex]);
+  console.log("exercise index:", exerciseIndex);
 
-  completedStats.push(currentExerciseStat);
-  completedStatsJSON[`ex${exerciseIndex}`] = currentExerciseStatJSON;
+  completedStats[exerciseIndex].time = timeTaken;
+  completedStats[exerciseIndex].repsDone = currentReps;
+  // currentExerciseStatJSON.exerciseName = currentExercise;
+  // currentExerciseStatJSON.timeTaken = timeTaken;
+  // currentExerciseStatJSON.repsDone = currentReps;
+
+  // completedStats.push(currentExerciseStat);
+  console.log(
+    "in next: before ex",
+    exerciseIndex,
+    "csj=",
+    completedStatsJSON[`ex${exerciseIndex}`]
+  );
+
+  completedStatsJSON[`ex${exerciseIndex}`].timeTaken = timeTaken;
+  completedStatsJSON[`ex${exerciseIndex}`].repsDone = currentReps;
+
+  console.log(
+    "in next: after ex",
+    exerciseIndex,
+    "csj=",
+    completedStatsJSON[`ex${exerciseIndex}`]
+  );
 
   //1) push currentExerciseStat to completed stat
   //2) totalSessionTime+=timeTaken;
   totalSessionTime += timeTaken;
 
   console.log("NEXTING THE EXERCISE");
-  exerciseIndex++;
   // console.log(exerciseIndex);
+
+  // ex.length = 2
+  //
+  // if (exerciseIndex < exercises.length - 1) {
+  // exerciseIndex++;
+  // }
+
+  //ex index=0
+
+  exerciseIndex++;
+  //exindes=1
+  //1!=2
   if (exerciseIndex != exercises.length) {
     updateExerciseInfo(exercises[exerciseIndex]);
   } else {

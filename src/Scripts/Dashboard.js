@@ -4,7 +4,9 @@ var uid;
 
 var appUser = {
   name: null,
+  percentage: null,
   xp: null,
+  level: null,
 };
 
 window.onload = () => {

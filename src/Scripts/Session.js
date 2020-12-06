@@ -131,9 +131,11 @@ function initializeActiveSession() {
         document.getElementById("page-load").style.visibility = "hidden";
         console.log(`Active Sesh ongoing value updated in DB`);
         setupCancelListeners();
+        setupSkipListener();
         canStart = true;
 
         initializeWorkout(workoutClassObject);
+        initializeCompletedStat();
 
         console.log("exercList", exercises);
         console.log("workout after func", currentWorkout);
@@ -152,10 +154,10 @@ function initializeActiveSession() {
 }
 
 function setupCancelListeners() {
-  endSessionButton.addEventListener("click", () => {
-    console.log("End session clicked");
-    createSessionObject();
-  });
+  // endSessionButton.addEventListener("click", () => {
+  //   console.log("End session clicked");
+  //   createSessionObject();
+  // });
 
   firebaseFirestore
     .collection("Sessions")
@@ -166,6 +168,36 @@ function setupCancelListeners() {
         createSessionObject();
       }
     });
+}
+
+function setupSkipListener() {
+  // endSessionButton.addEventListener("click", () => {
+  //   console.log("End session clicked");
+  //   createSessionObject();
+  // });
+
+  firebaseFirestore
+    .collection("Sessions")
+    .doc(uid)
+    .onSnapshot((doc) => {
+      let task = doc.data()["task_message"]["active_session_listeners"][
+        "skip_request"
+      ];
+      if (task == "requested") {
+        console.log("task", task);
+        handleSkip();
+      }
+    });
+}
+
+function handleSkip() {
+  firebaseFirestore
+    .collection("Sessions")
+    .doc(uid)
+    .update({
+      "task_message.active_session_listeners.skip_request": "skipped",
+    })
+    .then(nextExercise);
 }
 
 function updatecurrExerciseNameListener(exName) {
@@ -190,12 +222,9 @@ function updatecurrExerciseNameUnit(exUnit) {
 }
 
 function updatecurrExerciseNameProgress(exProgress) {
-  firebaseFirestore
-    .collection("Sessions")
-    .doc(uid)
-    .update({
-      "task_message.active_session_listeners.curr_ex_progress": exProgress,
-    });
+  firebaseFirestore.collection("Sessions").doc(uid).update({
+    "task_message.active_session_listeners.curr_ex_progress": exProgress,
+  });
 }
 
 function createSessionObject() {}
