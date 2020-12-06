@@ -1,0 +1,34 @@
+{
+  "Push up": {
+    "Options": {
+      "inputs": 34,
+      "outputs": 2,
+      "task": "classification",
+      "debug": true
+    }
+  },
+  "Bodyweight squats": {
+    "Options": {
+      "inputs": 34,
+      "outputs": 2,
+      "task": "classification",
+      "debug": true
+    }
+  },
+  "Plank": {
+    "Options": {
+      "inputs": 34,
+      "outputs": 3,
+      "task": "classification",
+      "debug": true
+    }
+  },
+  "Wallsit": {
+    "Options": {
+      "inputs": 34,
+      "outputs": 2,
+      "task": "classification",
+      "debug": true
+    }
+  }
+}
