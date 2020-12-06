@@ -78,7 +78,7 @@ body {
   border-radius: 40px;
   height: 390px;
   width: 350px;
-  margin-left: 30px;
+  /* margin-left: 30px; */
 
   margin-bottom: 5%;
   justify-self: center;
@@ -156,13 +156,14 @@ body {
 }
 
 /* Exercise div is grid */
-.exercises {
+.exercise-container {
   grid-area: exercises;
   display: grid;
   height: 150px;
-  width: auto;
+  width: 100%;
+  overflow: scroll;
   margin-left: 60px;
-  grid-template-columns: 1fr;
+  /* grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas:
     "Rep-1"
@@ -170,10 +171,29 @@ body {
     "Rep-3"
     "Rep-4"
     "Rep-5"
-    "Rep-6";
+    "Rep-6"; */
 }
 
-.Rep-1 {
+.exercise-item {
+  margin: 10px;
+}
+
+.exercise-value{
+  float: left;
+  width: 20%;
+}
+
+.exercise-name{
+  float: left;
+  width: 60%;
+}
+
+.exercise-info-icon{
+  float: right;
+  width: 20%;
+}
+
+/* .Rep-1 {
   grid-area: Rep-1;
 }
 
@@ -195,7 +215,7 @@ body {
 
 .Rep-6 {
   grid-area: Rep-6;
-}
+} */
 
 .information-symbol {
   width: 16px;

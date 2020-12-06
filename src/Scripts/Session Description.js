@@ -178,3 +178,25 @@ function cancelSessionDesc() {
       console.log(`SessionDesc task cancelled update failed`);
     });
 }
+
+// Functions to open and close the exercise info modal
+
+var infoIcons = document.getElementsByClassName('info-icon')
+var modal = document.getElementsByClassName('modal')[0]
+var cancelButton = document.getElementById("modal-cancel")
+
+for (var i = 0; i<infoIcons.length; i++){
+  infoIcons[i].onclick = function() {
+    modal.style.display = "block";
+  }
+}
+
+cancelButton.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}

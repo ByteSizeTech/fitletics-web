@@ -40,11 +40,12 @@
       }
     </style>
   </head>
-  <div id="page-load">
+  <!-- TODO: uncomment this div -->
+  <!-- <div id="page-load">
     <div>
       <img id="page-load-image" src="../build/Images/loading-gif.gif" />
     </div>
-  </div>
+  </div> -->
   <body>
     <div class="Logo">
       <img src="Images/logo.png" class="fitletics-logo" />
@@ -68,8 +69,8 @@
         </div>
       </div>
 
-      <div class="exercises">
-        <div class="Rep-1">
+      <div class="exercise-container">
+        <!-- <div class="Rep-1">
           5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
           <img
             src="../build/Images/information symbol.png"
@@ -82,10 +83,58 @@
             src="../build/Images/information symbol.png"
             class="information-symbol"
           />
+        </div> -->
+        <div class = "exercise-item">
+          <div class="exercise-value">50s</div>
+          <div class="exercise-name">Exercise 1</div>
+          <div class="exercise-info-icon">
+            <img
+            src="../build/Images/information symbol.png"
+            class="information-symbol"
+          />
+          </div>
         </div>
-        <div class="Rep-3">
+        
+        <div class="rep">
           <rep>5x</rep> &nbsp; &nbsp;<exercise-name>Crunches</exercise-name>
           &nbsp; &nbsp;
+          <img
+            src="../build/Images/information symbol.png"
+            class="information-symbol"
+          />
+        </div>
+        <div class="rep">
+          <rep>5x</rep> &nbsp; &nbsp;<exercise-name>sdvbvfvfnvejsfv</exercise-name>
+          &nbsp; &nbsp;
+          <img
+            src="../build/Images/information symbol.png"
+            class="information-symbol"
+          />
+        </div>
+        <div class="rep">
+          <rep>50s</rep> &nbsp; &nbsp;<exercise-name>devkjwdnvkjwv</exercise-name>
+          &nbsp; &nbsp;
+          <img
+            src="../build/Images/information symbol.png"
+            class="information-symbol"
+          />
+        </div>
+        <!-- <div class="Rep-4">
+          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
+          <img
+            src="../build/Images/information symbol.png"
+            class="information-symbol"
+          />
+        </div>
+        <div class="Rep-4">
+          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
+          <img
+            src="../build/Images/information symbol.png"
+            class="information-symbol"
+          />
+        </div>
+        <div class="Rep-4">
+          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
           <img
             src="../build/Images/information symbol.png"
             class="information-symbol"
@@ -112,6 +161,70 @@
             class="information-symbol"
           />
         </div>
+        <div class="Rep-6">
+          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
+          <img
+            src="../build/Images/information symbol.png"
+            class="information-symbol"
+          />
+        </div>
+        <div class="Rep-6">
+          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
+          <img
+            src="../build/Images/information symbol.png"
+            class="information-symbol"
+          />
+        </div>
+        <div class="Rep-6">
+          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
+          <img
+            src="../build/Images/information symbol.png"
+            class="information-symbol"
+          />
+        </div>
+        <div class="Rep-6">
+          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
+          <img
+            src="../build/Images/information symbol.png"
+            class="information-symbol"
+          />
+        </div>
+        <div class="Rep-6">
+          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
+          <img
+            src="../build/Images/information symbol.png"
+            class="information-symbol"
+          />
+        </div>
+        <div class="Rep-6">
+          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
+          <img
+            src="../build/Images/information symbol.png"
+            class="information-symbol"
+          />
+        </div>
+        <div class="Rep-6">
+          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
+          <img
+            src="../build/Images/information symbol.png"
+            class="information-symbol"
+          />
+        </div>
+        <div class="Rep-6">
+          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
+          <img
+            src="../build/Images/information symbol.png"
+            class="information-symbol"
+          />
+        </div>
+        <div class="Rep-6">
+          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
+          <img
+            src="../build/Images/information symbol.png"
+            class="information-symbol"
+          />
+        </div> -->
+
       </div>
       <div class="line-two"></div>
       <div class="line"></div>
@@ -132,14 +245,15 @@
       />
       </div>
     </div>
+    <!-- TODO: uncomment the firebase stuff -->
     <!-- =============== FIREBASE STUFF =============== -->
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script> -->
 
     <!-- Add Firebase products that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
     <script>
       // Your web app's Firebase configuration
@@ -157,7 +271,7 @@
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
-    </script>
+    </script> -->
     <script src="../src/Scripts/classes.js"></script>
     <script src="../src/Scripts/Session Description.js"></script>
   </body>
