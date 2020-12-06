@@ -4,13 +4,18 @@ let poseNet;
 let pose;
 let skeleton;
 
-//WE GET THE CURRENT EXWECISE FROM THE WORKOUT OBJECT
-let Workout;
-let currentExercise = "Bodyweight Squat";
-let currentExerciseUNIT = "REPS";
+//SESSION RELATED INFO
+let session = new Session();
+let currentWorkout; // initialised in setup as session.work = currWork
+let totalSessionTime = 0; //valculated as we move on, after EACH EXERCISE is done
+//TODO @nimra date function in setup
+let dateCompleted = "dd/mm/yyyy"; // done in setup
+let completedStats = []; //updated as we move along
+let sessionComplete = false; //TODO @Nimra think about this CONFUSION?????
+let exerciseIndex = 0; //used to loop thru elist in a workout
 
-let poseClassifier;
 let poseLabel = "none";
+//for looping through the exercises
 
 function setup() {
   //Create a canvas where the video will show
@@ -47,10 +52,14 @@ function setup() {
   poseNet.on("pose", gotResults);
   video.hide();
 
-  //TODP: @VISHAL INITIALIZE THE WORKOUT OBJECT WE GET FROM VISHAL AS WORKOUT
+  // this function takes in a workout object and initialises currentWorkout to that object and all the variables related to it
+  initializeWorkout(w);
+  updateSessionInfo();
+  updateExerciseInfo(exercises[exerciseIndex]);
 
-  //then we call the function updateHTML
-  //updateHTML()
+  //INITIALIZATION OF THE SESSION OBJECT AS WE MOVE ON IN THE
+  session.workout = currentWorkout;
+  //TODO DATE of sessionnn
 }
 
 function classifyPose() {
@@ -64,13 +73,18 @@ function classifyPose() {
     }
     if (currentExercise == "Bodyweight Squat") {
       sClassifier.classify(inputs, gotClassificationResult);
-    } else if (currentExercise == "Push Up") {
+    } else if (currentExercise == "Push up") {
       pClassifier.classify(inputs, gotClassificationResult);
     } else if (currentExercise == "Plank") {
       pwClassifier.classify(inputs, gotClassificationResult);
+    } else if (currentExercise == "Wallsit") {
+      pwClassifier.classify(inputs, gotClassificationResult);
     } else {
-      console.log(currentExercise + "is not supported by Fitletics yet");
-      //moves on to the next exercise
+      alert(
+        currentExercise +
+          "is not supported by Fitletics yet, moving on to the next exercise: "
+      );
+      nextExercise();
     }
   }
   //  else {
@@ -104,7 +118,9 @@ function draw() {
   if (pose) {
     drawKeypoints();
     drawSkeleton();
-    classifyPose();
+    if (!sessionComplete) {
+      classifyPose();
+    }
   }
   pop();
 

@@ -116,12 +116,12 @@ body {
   margin-left: 30px;
 }
 
-.currentRep {
+#currentRep {
   font-size: 50px;
   font-weight: 700;
 }
 
-.totalRep {
+#totalRep {
   font-size: 20px;
   color: gray;
 }
@@ -175,10 +175,6 @@ body {
   margin: 4%;
   /* width: 60vw;
   height: 87vh; */
-}
-#videoElement {
-  /* background-color: blanchedalmond; */
-  height: 54rem;
 }
 @media (max-width: 1200px) {
   body {

@@ -7,7 +7,7 @@ function setup() {
   var canvasDiv = document.getElementById("videoElement");
   console.log(canvasDiv.offsetWidth + " and height " + canvasDiv.offsetHeight);
   var canvasWidth = canvasDiv.offsetWidth;
-  var canvasHeight = canvasDiv.offsetHeight;
+  var canvasHeight = canvasWidth * (10 / 15);
   const canvas = createCanvas(canvasWidth, canvasHeight);
   canvas.parent(canvasDiv);
 
@@ -17,16 +17,17 @@ function setup() {
 
   var posenetOpts = {
     architecture: "ResNet50",
-    imageScaleFactor: 0.3,
-    outputStride: 16,
-    flipHorizontal: false,
-    minConfidence: 0.5,
+//    imageScaleFactor: 0.3,
+    outputStride: 32,
+//    flipHorizontal: false,
+    minConfidence: 0.1,
     maxPoseDetections: 1,
-    scoreThreshold: 0.5,
-    nmsRadius: 20,
+    minPartConfidence:0.75,
+//    scoreThreshold: 0.5,
+//    nmsRadius: 20,
     detectionType: "single",
-    inputResolution: 513,
-    multiplier: 0.75,
+    inputResolution: 512,
+    multiplier: 1.0,
     quantBytes: 2,
   };
   poseNet = ml5.poseNet(video, posenetOpts, modelLoaded);
@@ -50,7 +51,6 @@ function modelLoaded() {
 }
 function gotPose(results) {
   poses = results;
-
   //console.log(poses);
 }
 
