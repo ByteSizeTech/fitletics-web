@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Start Session</title>
+
+	<link href="../src/styles/NewSessionDescStylesheet.css" rel="stylesheet" />
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+
+	<style>
+		#page-load {
+			position: fixed;
+			padding: 0;
+			margin: 0;
+	
+			top: 0;
+			left: 0;
+	
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0);
+		}
+		#page-load-image {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+		}
+	</style>
+
+</head>
+<body>
+	<div class="left-side">
+		<div class="logo">
+			<!-- Logo -->
+			<img src="Images/logo.png" class="fitletics-logo" />
+		</div>
+	
+		<div class="workout-details">
+			<!-- Details -->
+			<div class="detail-box">
+
+				<div class="category-wrapper">
+					Upper Body
+				</div>
+
+				<div class="general-info">
+					<div class="duration-wrapper">
+						<div id="duration-wrapper">
+							<img src="../build/Images/stopwatch.png" alt="clock-icon" class="clockIcon">
+							<p class="duration"><b>30 minutes</b></p>
+						</div>
+					</div>
+	
+					<div class="difficulty-wrapper">
+						<div id="difficulty-wrapper">
+							<p class="difficultyHeading">Difficulty:</p>
+							<p class="difficulty"><b>EASY</b></p>
+						</div>
+					</div>
+				</div>
+
+				<div class="line"></div>
+
+				<div class="exercise-list">
+
+					<div class = "exercise-item">
+						<div class="exercise-value">50s</div>
+						<div class="exercise-name">Exercise 1 very long name that takes space</div>
+						<div class="exercise-info-icon">
+							<img src="../build/Images/information.png" 
+							alt="" 
+							class="info-icon"/>
+						</div>
+					</div>
+					<div class = "exercise-item">
+						<div class="exercise-value">50s</div>
+						<div class="exercise-name">Exercise 1</div>
+						<div class="exercise-info-icon">
+							<img src="../build/Images/information.png" 
+							alt="" 
+							class="info-icon"/>
+						</div>
+					</div>
+					<div class = "exercise-item">
+						<div class="exercise-value">50s</div>
+						<div class="exercise-name">Exercise 1 very long name that takes space</div>
+						<div class="exercise-info-icon">
+							<img src="../build/Images/information.png" 
+							alt="" 
+							class="info-icon"/>
+						</div>
+					</div>
+					<div class = "exercise-item">
+						<div class="exercise-value">50s</div>
+						<div class="exercise-name">Exercise 1 very long name that takes space</div>
+						<div class="exercise-info-icon">
+							<img src="../build/Images/information.png" 
+							alt="" 
+							class="info-icon"/>
+						</div>
+					</div>
+					<div class = "exercise-item">
+						<div class="exercise-value">50s</div>
+						<div class="exercise-name">Exercise 1 very long name that takes space</div>
+						<div class="exercise-info-icon">
+							<img src="../build/Images/information.png" 
+							alt="" 
+							class="info-icon"/>
+						</div>
+					</div>
+					<div class = "exercise-item">
+						<div class="exercise-value">50s</div>
+						<div class="exercise-name">Exercise 1 very long name that takes space</div>
+						<div class="exercise-info-icon">
+							<img src="../build/Images/information.png" 
+							alt="" 
+							class="info-icon"/>
+						</div>
+					</div>
+					<div class = "exercise-item">
+						<div class="exercise-value">50s</div>
+						<div class="exercise-name">Exercise 1 very long name that takes space</div>
+						<div class="exercise-info-icon">
+							<img src="../build/Images/information.png" 
+							alt="" 
+							class="info-icon"/>
+						</div>
+					</div>
+					<div class = "exercise-item">
+						<div class="exercise-value">50s</div>
+						<div class="exercise-name">Exercise 1 very long name that takes space</div>
+						<div class="exercise-info-icon">
+							<img src="../build/Images/information.png" 
+							alt="" 
+							class="info-icon"/>
+						</div>
+					</div>
+					<div class = "exercise-item">
+						<div class="exercise-value">50s</div>
+						<div class="exercise-name">Exercise 1 very long name that takes space</div>
+						<div class="exercise-info-icon">
+							<img src="../build/Images/information.png" 
+							alt="" 
+							class="info-icon"/>
+						</div>
+					</div>
+
+
+				</div>
+
+				<div class="line" style="margin-top: 5%;"></div>
+
+				<div class="button" id="session-button">
+					<a href="Session.html">
+						<button id="start_session_button" class="button">
+							<b>Start Session</b>
+						</button>
+					</a>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+	<div class="video-feed">
+		<video autoplay="true" class="video">
+		</video>
+	</div>
+
+	<div class="modal">
+		<div class="modal-content">
+			<div class="modal-heading">
+				Crunch
+			</div>
+			<div class="modal-body">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa consequatur, reprehenderit dolore eos esse exercitationem error, sit deleniti natus rem iusto facilis hic nostrum illo id quae quia animi recusandae.
+			</div>
+			<div class="modal-buttons">
+				<form class="modal-CTA" action="https://www.youtube.com/" method="get" target="_blank">
+					<button id="modal-CTA" class = "button" type="submit">
+						Watch Video
+					</button>
+				</form>
+				<button id="modal-cancel" class="button">
+					Cancel
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="../src/Scripts/classes.js"></script>
+	<script src="../src/Scripts/Session Description.js"></script>
+	
+	<script>
+		var video = document.querySelector(".video");
+		video.msHorizontalMirror = true;
+
+		if (navigator.mediaDevices.getUserMedia) {
+			navigator.mediaDevices.getUserMedia({ video: true })
+			.then(function (stream) {
+				video.srcObject = stream;
+			})
+			.catch(function (err0r) {
+				console.log("Something went wrong!");
+			});
+		}
+	</script>
+
+</body>
+</html>
