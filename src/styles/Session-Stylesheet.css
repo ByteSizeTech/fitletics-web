@@ -170,11 +170,11 @@ body {
   border: none;
 }
 .Live {
-  /* background-color: lightgray; */
+  background-color: lightgray;
   grid-area: live;
   margin: 4%;
-  /* width: 60vw;
-  height: 87vh; */
+  /* width: 60vw; */
+  /* height: 54rem; */
 }
 @media (max-width: 1200px) {
   body {

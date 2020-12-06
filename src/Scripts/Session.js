@@ -4,15 +4,9 @@ var uid;
 
 var endSessionButton;
 
-window.onload = function () {
-  firebaseAuth = firebase.auth();
-  firebaseFirestore = firebase.firestore();
-
-  endSessionButton = document.getElementById("end-session-button");
-  getSessionUID();
-};
-
 function getSessionUID() {
+  console.log("entered getSessionUID");
+
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       uid = firebase.auth().currentUser.uid;
@@ -25,7 +19,7 @@ function getSessionUID() {
 }
 
 var appUserUID;
-var workout = new Workout();
+var workoutClassObject = new Workout();
 var workoutJSON = {
   name: null,
   exerciseList: null,
@@ -45,13 +39,13 @@ function getAppUserUID() {
         var dbExList = dbWorkoutObj["exlist"];
         var exlistSize = dbWorkoutObj["exlist_size"];
         //workout details
-        workout.name = dbWorkoutObj["name"];
+        workoutClassObject.name = dbWorkoutObj["name"];
         workoutJSON.name = dbWorkoutObj["name"];
 
-        workout.difficulty = dbWorkoutObj["difficulty"];
+        workoutClassObject.difficulty = dbWorkoutObj["difficulty"];
         workoutJSON.difficulty = dbWorkoutObj["difficulty"];
 
-        workout.time = dbWorkoutObj["time"];
+        workoutClassObject.time = dbWorkoutObj["time"];
         workoutJSON.time = dbWorkoutObj["time"];
         //exercise details
         var exlist = [];
@@ -109,11 +103,11 @@ function getAppUserUID() {
           exJSONlist[exerciseIndex] = exerciseJSON;
           exlist.push(exerciseObj);
         }
-        workout.exerciseList = exlist;
+        workoutClassObject.exerciseList = exlist;
         workoutJSON.exerciseList = exJSONlist;
 
-        console.log(`workout Class:`, workout);
-        console.log(`workout OBJ:`, workoutJSON);
+        // console.log(`workout Class:`, workoutClassObject);
+        // console.log(`workout OBJ:`, workoutJSON);
 
         initializeActiveSession();
       } else {
@@ -137,6 +131,17 @@ function initializeActiveSession() {
         document.getElementById("page-load").style.visibility = "hidden";
         console.log(`Active Sesh ongoing value updated in DB`);
         setupCancelListeners();
+        canStart = true;
+
+        initializeWorkout(workoutClassObject);
+
+        console.log("exercList", exercises);
+        console.log("workout after func", currentWorkout);
+
+        updateSessionInfo();
+        console.log("Initial exercise index", exerciseIndex);
+
+        updateExerciseInfo(workoutClassObject.exerciseList[0]);
       })
       .catch((err) => {
         console.log(`Active Sesh ongoing update failed`);
@@ -163,61 +168,39 @@ function setupCancelListeners() {
     });
 }
 
-var completedSessionJSON = {};
-function createSessionObject() {
-  var completedSession = new Session();
-
-  completedSession.workout = workout;
-  completedSessionJSON.workout = workoutJSON;
-
-  completedSession.timeTaken = 1.0;
-  completedSessionJSON.timeTaken = 1.0;
-
-  completedSession.dateCompleted = "04/12/20";
-  completedSessionJSON.dateCompleted = "04/12/20";
-
-  completedSession.completedStats = [];
-  completedSessionJSON.completedStats = {};
-  for (let i = 0; i < workout.exerciseList.length; i++) {
-    let name = workout.exerciseList[i].name;
-
-    let repsdone;
-    let timetaken;
-    if (workout.exerciseList[i].unit == "REPS") {
-      repsdone = workout.exerciseList[i].value;
-      timetaken = workout.exerciseList[i].timePerRep * repsdone;
-    } else {
-      repsdone = 1;
-      timetaken = workout.exerciseList[i].value;
-    }
-
-    tempCompletedStat = new ExerciseStat(name, timetaken, repsdone);
-    completedSession.completedStats.push(tempCompletedStat);
-
-    tempCompletedStatJSON = {
-      name: name,
-      timeTaken: timetaken,
-      repsdone: repsdone,
-    };
-    completedStatIndex = "cs" + i;
-    completedSessionJSON.completedStats[
-      completedStatIndex
-    ] = tempCompletedStatJSON;
-  }
-  completedSessionJSON.caloriesBurned = completedSession.calculateCaloriesBurned();
-  completedSessionJSON.caloriesBurned = completedSession.calculateCaloriesBurned();
-
-  console.log("Session Class: ", completedSession);
-  console.log("Session Obj: ", completedSessionJSON);
-
-  endSession(completedSessionJSON);
+function updatecurrExerciseNameListener(exName) {
+  firebaseFirestore
+    .collection("Sessions")
+    .doc(uid)
+    .update({ "task_message.active_session_listeners.curr_ex_name": exName });
 }
 
-function endSession(sessionObject) {
-  populateDB(completedSessionJSON);
+function updatecurrExerciseNameGoal(exGoal) {
+  firebaseFirestore
+    .collection("Sessions")
+    .doc(uid)
+    .update({ "task_message.active_session_listeners.curr_ex_goal": exGoal });
 }
 
-function populateDB(sessionObject) {
+function updatecurrExerciseNameUnit(exUnit) {
+  firebaseFirestore
+    .collection("Sessions")
+    .doc(uid)
+    .update({ "task_message.active_session_listeners.curr_ex_unit": exUnit });
+}
+
+function updatecurrExerciseNameProgress(exProgress) {
+  firebaseFirestore
+    .collection("Sessions")
+    .doc(uid)
+    .update({
+      "task_message.active_session_listeners.curr_ex_progress": exProgress,
+    });
+}
+
+function createSessionObject() {}
+
+function populateSessioninUser(sessionObject) {
   firebaseFirestore
     .collection("Users")
     .doc(appUserUID)

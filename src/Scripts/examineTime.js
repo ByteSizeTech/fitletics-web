@@ -12,12 +12,14 @@ function examineTime() {
       if (timeStarted == false) {
         startTimer();
         timeStarted = true;
+        updatecurrExerciseNameProgress(state);
       }
       updateProgress();
     } else {
       state = "notinpose";
       stopTimer();
       timeStarted = false;
+      updatecurrExerciseNameProgress(state);
       //TODO @Vishal send the state to the database RT.
     }
   } else {

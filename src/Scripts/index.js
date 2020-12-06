@@ -82,6 +82,9 @@ function goToSession() {
             console.log("going to Session Description..");
             window.location.replace("../build/SessionDescription.html");
             break;
+          case "AS":
+            console.log("going to Active Session..");
+            window.location.replace("../build/Session.html");
           case null:
             console.log(`Session has no app user signed in \n  
             uid: ${doc.data()["uid"]} \n
