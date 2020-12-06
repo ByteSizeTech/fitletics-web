@@ -197,13 +197,13 @@ async function getPrediction() {
 
   switch (indexOfMax(results)) {
     case 0:
-      bodyType = "ECTOMORPHIC";
+      bodyType = "Ectomorph";
       break;
     case 1:
-      bodyType = "ENDOMORPHIC";
+      bodyType = "Endomorph";
       break;
     case 2:
-      bodyType = "MESOMORPHIC";
+      bodyType = "Mesomorph";
       break;
   }
 

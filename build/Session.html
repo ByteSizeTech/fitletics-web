@@ -10,6 +10,14 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>
     <!-- load ml5.js -->
+    <script
+      src="https://unpkg.com/ml5@0.6.0/dist/ml5.min.js"
+      type="text/javascript"
+    ></script>
+
+    <!-- Loading jquery -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/jquery-ui.js"></script>
     <!-- <script src="https://unpkg.com/ml5@0.6.0/dist/ml5.min.js"></script> -->
     -->
     <style>
@@ -52,26 +60,40 @@
         <div class="Image">
           <img src="../build/Images/abs.png" class="Image" />
         </div>
-        <div class="workout-heading"><span>ABS</span></div>
+        <div class="workout-heading" id="workout-name">name</div>
       </div>
       <div class="timer">
-        <span id="time"> 00:00.00 </span>
+        <span id="hours">00:</span>
+        <span id="mins">00:</span>
+        <span id="seconds">00</span>
       </div>
       <div class="Exercise">
-        <b>LUNGES</b>
+        <span id="currentExercise">LUNGES</span>
         <img src="../build/Images/images.png" class="information" />
       </div>
       <div class="reps">
-        <span class="currentRep">5</span> <span class="totalRep">/7</span>
+        <span id="currentRep">5</span>
+        / <span id="totalRep">7</span>
       </div>
-      <div class="skip"><button class="skip-button">SKIP</button></div>
+      <div class="skip">
+        <button class="skip-button" id="skipBtn" onclick="nextExercise()">
+          SKIP
+        </button>
+      </div>
       <div class="end-session-button">
-        <button class="end-session-button">End Session</button>
+        <button
+          id="end-session-button"
+          class="end-session-button"
+          onclick="endSession()"
+        >
+          End Session
+        </button>
       </div>
     </div>
     <div class="Live">
       <div id="videoElement"></div>
     </div>
+
     <!-- =============== FIREBASE STUFF =============== -->
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -100,6 +122,15 @@
     </script>
     <script src="../src/Scripts/classes.js"></script>
     <script src="../src/Scripts/Session.js"></script>
+    <script src="../src/Scripts/classes.js"></script>
+    <script src="../src/Scripts/testData.js"></script>
+    <script src="../src/Scripts/ct-posenet.js"></script>
+    <script src="../src/Scripts/loadingModels.js"></script>
+    <script src="../src/Scripts/Timer.js"></script>
+    <script src="../src/Scripts/examineReps.js"></script>
+
+    <script src="../src/Scripts/examineTime.js"></script>
+    <script src="../src/Scripts/workoutFunctions.js"></script>
     <!-- <script src="../src/Scripts/posenet-multiple.js"></script> -->
   </body>
 </html>

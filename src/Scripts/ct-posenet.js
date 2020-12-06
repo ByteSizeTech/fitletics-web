@@ -4,7 +4,21 @@ let poseNet;
 let pose;
 let skeleton;
 
+//SESSION RELATED INFO
+let session = new Session();
+let currentWorkout; // initialised in setup as session.work = currWork
+let totalSessionTime = 0; //valculated as we move on, after EACH EXERCISE is done
+//TODO @nimra date function in setup
+let dateCompleted = "dd/mm/yyyy"; // done in setup
+let completedStats = []; //updated as we move along
+let sessionComplete = false; //TODO @Nimra think about this CONFUSION?????
+let exerciseIndex = 0; //used to loop thru elist in a workout
+
+let poseLabel = "none";
+//for looping through the exercises
+
 function setup() {
+  //Create a canvas where the video will show
   var canvasDiv = document.getElementById("videoElement");
   console.log(canvasDiv.offsetWidth + " and height " + canvasDiv.offsetHeight);
   var canvasWidth = canvasDiv.offsetWidth;
@@ -18,17 +32,17 @@ function setup() {
 
   var posenetOpts = {
     architecture: "ResNet50",
-    imageScaleFactor: 0.3,
+    // imageScaleFactor: 0.3,
     outputStride: 32,
     // flipHorizontal: false,
-    minConfidence: 0.1,
+    minConfidence: 0.5,
+    maxPoseDetections: 1,
     minPartConfidence: 0.5,
-    // maxPoseDetections: 1,
     scoreThreshold: 0.5,
     nmsRadius: 20,
     detectionType: "single",
-    inputResolution: 513,
-    multiplier: 1,
+    inputResolution: 256,
+    multiplier: 0.75,
     quantBytes: 2,
 
     // // imageScaleFactor: 0.3,
@@ -37,13 +51,65 @@ function setup() {
   poseNet = ml5.poseNet(video, posenetOpts, modelLoaded);
   poseNet.on("pose", gotResults);
   video.hide();
+
+  // this function takes in a workout object and initialises currentWorkout to that object and all the variables related to it
+  initializeWorkout(w);
+  updateSessionInfo();
+  updateExerciseInfo(exercises[exerciseIndex]);
+
+  //INITIALIZATION OF THE SESSION OBJECT AS WE MOVE ON IN THE
+  session.workout = currentWorkout;
+  //TODO DATE of sessionnn
 }
 
-function modelLoaded() {
-  console.log("Model Loaded");
+function classifyPose() {
+  if (pose) {
+    let inputs = [];
+    for (let i = 0; i < pose.keypoints.length; i++) {
+      let x = pose.keypoints[i].position.x;
+      let y = pose.keypoints[i].position.y;
+      inputs.push(x);
+      inputs.push(y);
+    }
+    if (currentExercise == "Bodyweight Squat") {
+      sClassifier.classify(inputs, gotClassificationResult);
+    } else if (currentExercise == "Push up") {
+      pClassifier.classify(inputs, gotClassificationResult);
+    } else if (currentExercise == "Plank") {
+      pwClassifier.classify(inputs, gotClassificationResult);
+    } else if (currentExercise == "Wallsit") {
+      pwClassifier.classify(inputs, gotClassificationResult);
+    } else {
+      alert(
+        currentExercise +
+          "is not supported by Fitletics yet, moving on to the next exercise: "
+      );
+      nextExercise();
+    }
+  }
+  //  else {
+  //   setTimeout(classifyPose, 100);
+  // }
+}
+
+function gotClassificationResult(error, results) {
+  if (error) {
+    console.log(error);
+  }
+  if (results[0].confidence > 0.75) {
+    poseLabel = results[0].label.toUpperCase();
+  }
+  // console.log(results[0].confidence);
+
+  if (currentExerciseUNIT == "REPS") {
+    examineReps();
+  } else {
+    examineTime();
+  }
 }
 
 function draw() {
+  push();
   translate(video.width, 0);
   scale(-1, 1);
   image(video, 0, 0, width, height);
@@ -52,19 +118,32 @@ function draw() {
   if (pose) {
     drawKeypoints();
     drawSkeleton();
+    if (!sessionComplete) {
+      classifyPose();
+    }
   }
+  pop();
+
+  fill(255, 0, 255);
+  noStroke();
+  textSize(70);
+  textAlign(CENTER, TOP);
+  text(poseLabel, width / 2, height / 2);
+  fill(0, 255, 255);
+  noStroke();
+  textSize(70);
+  textAlign(CENTER, BOTTOM);
+  text(currentReps, width / 2, height / 2);
 }
 
 function gotResults(results) {
-  console.log(results);
+  // console.log(results);
 
   if (results.length > 0) {
     // console.log("result.length > than 0");
-
     pose = results[0].pose;
     skeleton = results[0].skeleton;
   }
-  console.log(pose);
 }
 
 // A function to draw ellipses over the detected keypoints
@@ -75,7 +154,7 @@ function drawKeypoints() {
       let keypoint = pose.keypoints[j];
       // Only draw an ellipse is the pose probability is bigger than 0.2
       if (keypoint.score > 0.2) {
-        fill(255, 0, 0);
+        fill(255, 117, 26);
         noStroke();
         ellipse(keypoint.position.x, keypoint.position.y, 15, 15);
       }
@@ -88,8 +167,8 @@ function drawSkeleton() {
     for (let j = 0; j < skeleton.length; j++) {
       let partA = skeleton[j][0];
       let partB = skeleton[j][1];
-      strokeWeight(2);
-      stroke(0, 255, 0);
+      strokeWeight(3);
+      stroke(255, 153, 153);
       line(
         partA.position.x,
         partA.position.y,
