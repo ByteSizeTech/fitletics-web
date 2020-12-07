@@ -108,6 +108,10 @@ body {
     width: 20%;
 }
 
+#duration{
+    font-weight: bold;
+}
+
 .difficulty-wrapper{
     /* grid-area: difficulty; */
     margin:auto;
@@ -121,6 +125,7 @@ body {
 
 .difficulty{
     font-size: 1.25vw;
+    font-weight: bold;
 }
 
 .line{
