@@ -4,11 +4,6 @@ class Muscle {
     this.maleIntensity = maleIntensity;
     this.femaleIntensity = femaleIntensity;
   }
-  // constructor(name) {
-  //   this.name = name;
-  //   this.maleIntensity = maleIntensity;
-  //   this.femaleIntensity = femaleIntensity;
-  // }
 }
 
 class Exercise {
@@ -48,9 +43,9 @@ class Workout {
 }
 
 class ExerciseStat {
-  constructor(exerciseName, timeTaken = 0, repsDone = 0) {
+  constructor(exerciseName, time, repsDone) {
     this.exerciseName = exerciseName;
-    this.timeTaken = timeTaken;
+    this.time = time;
     this.repsDone = repsDone;
   }
 }
@@ -90,7 +85,7 @@ class Session {
       }
 
       if (this.workout.exerciseList[i].unit === "SECS") {
-        exerciseDuration = this.completedStats[i].timeTaken;
+        exerciseDuration = this.completedStats[i].time;
       } else {
         exerciseDuration =
           this.completedStats[i].repsDone *

@@ -3,21 +3,29 @@ let video;
 let poseNet;
 let pose;
 let skeleton;
+let canStart = false;
 
-//SESSION RELATED INFO
 let session = new Session();
+let sessionJSON = {};
+
 let currentWorkout; // initialised in setup as session.work = currWork
 let totalSessionTime = 0; //valculated as we move on, after EACH EXERCISE is done
 //TODO @nimra date function in setup
 let dateCompleted = "dd/mm/yyyy"; // done in setup
 let completedStats = []; //updated as we move along
+var completedStatsJSON = {};
 let sessionComplete = false; //TODO @Nimra think about this CONFUSION?????
 let exerciseIndex = 0; //used to loop thru elist in a workout
 
 let poseLabel = "none";
-//for looping through the exercises
 
 function setup() {
+  //firebase setup
+  firebaseAuth = firebase.auth();
+  firebaseFirestore = firebase.firestore();
+  endSessionButton = document.getElementById("end-session-button");
+  getSessionUID();
+
   //Create a canvas where the video will show
   var canvasDiv = document.getElementById("videoElement");
   console.log(canvasDiv.offsetWidth + " and height " + canvasDiv.offsetHeight);
@@ -53,12 +61,11 @@ function setup() {
   video.hide();
 
   // this function takes in a workout object and initialises currentWorkout to that object and all the variables related to it
-  initializeWorkout(w);
-  updateSessionInfo();
-  updateExerciseInfo(exercises[exerciseIndex]);
+
+  // updateExerciseInfo(exercises[exerciseIndex]);
 
   //INITIALIZATION OF THE SESSION OBJECT AS WE MOVE ON IN THE
-  session.workout = currentWorkout;
+  // session.workout = currentWorkout;
   //TODO DATE of sessionnn
 }
 
@@ -73,7 +80,7 @@ function classifyPose() {
     }
     if (currentExercise == "Bodyweight Squat") {
       sClassifier.classify(inputs, gotClassificationResult);
-    } else if (currentExercise == "Push up") {
+    } else if (currentExercise == "Push Up") {
       pClassifier.classify(inputs, gotClassificationResult);
     } else if (currentExercise == "Plank") {
       pwClassifier.classify(inputs, gotClassificationResult);
@@ -82,14 +89,11 @@ function classifyPose() {
     } else {
       alert(
         currentExercise +
-          "is not supported by Fitletics yet, moving on to the next exercise: "
+          " is not supported by Fitletics yet, moving on to the next exercise: "
       );
       nextExercise();
     }
   }
-  //  else {
-  //   setTimeout(classifyPose, 100);
-  // }
 }
 
 function gotClassificationResult(error, results) {
@@ -109,20 +113,22 @@ function gotClassificationResult(error, results) {
 }
 
 function draw() {
-  push();
-  translate(video.width, 0);
-  scale(-1, 1);
-  image(video, 0, 0, width, height);
+  if (canStart) {
+    push();
+    translate(video.width, 0);
+    scale(-1, 1);
+    image(video, 0, 0, width, height);
 
-  // We can call both functions to draw all keypoints and the skeletons
-  if (pose) {
-    drawKeypoints();
-    drawSkeleton();
-    if (!sessionComplete) {
-      classifyPose();
+    // We can call both functions to draw all keypoints and the skeletons
+    if (pose) {
+      drawKeypoints();
+      drawSkeleton();
+      if (!sessionComplete) {
+        classifyPose();
+      }
     }
+    pop();
   }
-  pop();
 
   fill(255, 0, 255);
   noStroke();

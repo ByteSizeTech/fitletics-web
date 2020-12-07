@@ -1,4 +1,5 @@
 function findMainTargetMuscle(exercise) {
+  console.log("CALC_FITNESS_FUNC: exers obj passed in fmtm", exercise);
   var affectedMuscles = exercise.targetMuscles;
   var mainTargetMuscle;
   var topIntensity = 0;
@@ -8,6 +9,10 @@ function findMainTargetMuscle(exercise) {
       topIntensity = affectedMuscles[i].maleIntensity;
     }
   }
+  console.log(
+    "CALC_FITNESS_FUNC: main targ musc before return",
+    mainTargetMuscle
+  );
   return mainTargetMuscle;
 }
 
@@ -25,6 +30,14 @@ function calculateFitnessScore(
     lowerCount = 0,
     coreCount = 0;
 
+  console.log(
+    "CALC_FITNESS_FUNC: values in start of func",
+    currentUpperScore,
+    currentCoreScore,
+    currentLowerScore,
+    session
+  );
+
   for (let i = 0; i < session.workout.exerciseList.length; i++) {
     var exercise = session.workout.exerciseList[i];
     var completedStat = session.completedStats[i];
@@ -35,12 +48,12 @@ function calculateFitnessScore(
     var difference;
 
     switch (targetMuscle) {
-      case "Upper":
+      case "upper":
         upperCount++;
         switch (difficulty) {
-          case "Easy":
+          case "easy":
             if (exercise.unit == "SECS") {
-              difference = exercise.value - completedStat.timeTaken;
+              difference = exercise.value - completedStat.time;
               if (difference >= 0) upperScore += 3 / 10;
               else {
                 upperScore += (difference * 3) / exercise.value / 10;
@@ -53,9 +66,9 @@ function calculateFitnessScore(
               }
             }
             break;
-          case "Medium":
+          case "medium":
             if (exercise.unit == "SECS") {
-              difference = exercise.value - completedStat.timeTaken;
+              difference = exercise.value - completedStat.time;
               if (difference >= 0) upperScore += 7 / 10;
               else {
                 upperScore += (3 + (difference * 4) / exercise.value) / 10;
@@ -68,9 +81,9 @@ function calculateFitnessScore(
               }
             }
             break;
-          case "Hard":
+          case "hard":
             if (exercise.unit == "SECS") {
-              difference = exercise.value - completedStat.timeTaken;
+              difference = exercise.value - completedStat.time;
               if (difference >= 0) upperScore += 10 / 10;
               else {
                 upperScore += (7 + (difference * 3) / exercise.value) / 10;
@@ -85,12 +98,12 @@ function calculateFitnessScore(
             break;
         }
         break;
-      case "Core":
+      case "core":
         coreCount++;
         switch (difficulty) {
-          case "Easy":
+          case "easy":
             if (exercise.unit == "SECS") {
-              difference = exercise.value - completedStat.timeTaken;
+              difference = exercise.value - completedStat.time;
               if (difference >= 0) coreScore += 3 / 10;
               else {
                 coreScore += (difference * 3) / exercise.value / 10;
@@ -103,9 +116,9 @@ function calculateFitnessScore(
               }
             }
             break;
-          case "Medium":
+          case "medium":
             if (exercise.unit == "SECS") {
-              difference = exercise.value - completedStat.timeTaken;
+              difference = exercise.value - completedStat.time;
               if (difference >= 0) coreScore += 7 / 10;
               else {
                 coreScore += (3 + (difference * 4) / exercise.value) / 10;
@@ -118,9 +131,9 @@ function calculateFitnessScore(
               }
             }
             break;
-          case "Hard":
+          case "hard":
             if (exercise.unit == "SECS") {
-              difference = exercise.value - completedStat.timeTaken;
+              difference = exercise.value - completedStat.time;
               if (difference >= 0) coreScore += 10 / 10;
               else {
                 coreScore += (7 + (difference * 3) / exercise.value) / 10;
@@ -137,12 +150,12 @@ function calculateFitnessScore(
             break;
         }
         break;
-      case "Lower":
+      case "lower":
         lowerCount++;
         switch (difficulty) {
-          case "Easy":
+          case "easy":
             if (exercise.unit == "SECS") {
-              difference = exercise.value - completedStat.timeTaken;
+              difference = exercise.value - completedStat.time;
               if (difference >= 0) lowerScore += 3 / 10;
               else {
                 lowerScore += (difference * 3) / exercise.value / 10;
@@ -155,9 +168,9 @@ function calculateFitnessScore(
               }
             }
             break;
-          case "Medium":
+          case "medium":
             if (exercise.unit == "SECS") {
-              difference = exercise.value - completedStat.timeTaken;
+              difference = exercise.value - completedStat.time;
               if (difference >= 0) lowerScore += 7 / 10;
               else {
                 lowerScore += (3 + (difference * 4) / exercise.value) / 10;
@@ -170,9 +183,9 @@ function calculateFitnessScore(
               }
             }
             break;
-          case "Hard":
+          case "hard":
             if (exercise.unit == "SECS") {
-              difference = exercise.value - completedStat.timeTaken;
+              difference = exercise.value - completedStat.time;
               if (difference >= 0) lowerScore += 10 / 10;
               else {
                 lowerScore += (7 + (difference * 3) / exercise.value) / 10;
@@ -190,6 +203,16 @@ function calculateFitnessScore(
     }
   }
 
+  if (upperCount == 0) {
+    upperCount = 1;
+  }
+  if (coreCount == 0) {
+    coreCount = 1;
+  }
+  if (lowerCount == 0) {
+    lowerCount = 1;
+  }
+
   upperScore /= upperCount;
   lowerScore /= lowerCount;
   coreScore /= coreCount;
@@ -199,6 +222,13 @@ function calculateFitnessScore(
   upperScore = (currentUpperScore + upperScore) / 2;
   coreScore = (currentCoreScore + coreScore) / 2;
   lowerScore = (currentLowerScore + lowerScore) / 2;
+
+  console.log(
+    "CALC_FITNESS_FUNC: values returning func",
+    upperScore,
+    coreScore,
+    lowerScore
+  );
 
   return [upperScore, coreScore, lowerScore];
 }

@@ -2,32 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-    />
-    <title>Session Description</title>
-    <link href="../src/styles/Session-Desc-Stylesheet.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Start Session</title>
 
-    <!-- load p5.js -->
+    <link href="../src/styles/NewSessionDescStylesheet.css" rel="stylesheet" />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
-     <!-- load ml5.js -->
-     <script
-     src="https://unpkg.com/ml5@0.6.0/dist/ml5.min.js"
-     type="text/javascript"
-   ></script>
-  </head>
-    <!-- load ml5.js -->
-    <!-- <script
-      src="https://unpkg.com/ml5@latest/dist/ml5.min.js"
-      type="text/javascript">
-    </script> -->
+
     <style>
       #page-load {
         position: fixed;
         padding: 0;
         margin: 0;
+        z-index: 1;
 
         top: 0;
         left: 0;
@@ -46,218 +34,232 @@
       }
     </style>
   </head>
-  <!-- TODO: uncomment this div -->
-  <!-- <div id="page-load">
-    <div>
-      <img id="page-load-image" src="../build/Images/loading-gif.gif" />
-    </div>
-  </div> -->
   <body>
-    <div class="Logo">
-      <img src="Images/logo.png" class="fitletics-logo" />
+    <div id="page-load">
+      <div>
+        <img id="page-load-image" src="../build/Images/loading-gif.gif" />
+      </div>
     </div>
-
-    <div class="Details">
-      <div class="Heading">
-        <div class="Image">
-          <img src="../build/Images/abs.png" class="Image" />
-        </div>
-        <div class="workout-heading"><span>ABS</span></div>
+    <div class="left-side">
+      <div class="logo">
+        <!-- Logo -->
+        <img src="Images/logo.png" class="fitletics-logo" />
       </div>
 
-      <div class="one">
-        <div class="difficulty">Difficulty :</div>
-        <div class="levels">Easy</div>
-        <div class="time-taken"><span>30 mins</span></div>
+      <div class="workout-details">
+        <!-- Details -->
+        <div class="detail-box">
+          <div class="category-wrapper">Upper Body</div>
 
-        <div class="timer">
-          <img src="../build/Images/clock.jpg" class="clockimage" />
-        </div>
-      </div>
+          <div class="general-info">
+            <div class="duration-wrapper">
+              <div id="duration-wrapper">
+                <img
+                  src="../build/Images/stopwatch.png"
+                  alt="clock-icon"
+                  class="clockIcon"
+                />
+                <p class="duration"><b>30 minutes</b></p>
+              </div>
+            </div>
 
-      <div class="exercise-container">
-        <!-- <div class="Rep-1">
-          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
-          <img
-            src="../build/Images/information symbol.png"
-            class="information-symbol"
-          />
-        </div>
-        <div class="Rep-2">
-          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
-          <img
-            src="../build/Images/information symbol.png"
-            class="information-symbol"
-          />
-        </div> -->
-        <div class = "exercise-item">
-          <div class="exercise-value">50s</div>
-          <div class="exercise-name">Exercise 1</div>
-          <div class="exercise-info-icon">
-            <img
-            src="../build/Images/information symbol.png"
-            class="information-symbol"
-          />
+            <div class="difficulty-wrapper">
+              <div id="difficulty-wrapper">
+                <p class="difficultyHeading">Difficulty:</p>
+                <p class="difficulty"><b>EASY</b></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="line"></div>
+
+          <div class="exercise-list">
+            <div class="exercise-item">
+              <div class="exercise-value">50s</div>
+              <div class="exercise-name">
+                Exercise 1 very long name that takes space
+              </div>
+              <div class="exercise-info-icon">
+                <img
+                  src="../build/Images/information.png"
+                  alt=""
+                  class="info-icon"
+                />
+              </div>
+            </div>
+            <div class="exercise-item">
+              <div class="exercise-value">50s</div>
+              <div class="exercise-name">Exercise 1</div>
+              <div class="exercise-info-icon">
+                <img
+                  src="../build/Images/information.png"
+                  alt=""
+                  class="info-icon"
+                />
+              </div>
+            </div>
+            <div class="exercise-item">
+              <div class="exercise-value">50s</div>
+              <div class="exercise-name">
+                Exercise 1 very long name that takes space
+              </div>
+              <div class="exercise-info-icon">
+                <img
+                  src="../build/Images/information.png"
+                  alt=""
+                  class="info-icon"
+                />
+              </div>
+            </div>
+            <div class="exercise-item">
+              <div class="exercise-value">50s</div>
+              <div class="exercise-name">
+                Exercise 1 very long name that takes space
+              </div>
+              <div class="exercise-info-icon">
+                <img
+                  src="../build/Images/information.png"
+                  alt=""
+                  class="info-icon"
+                />
+              </div>
+            </div>
+            <div class="exercise-item">
+              <div class="exercise-value">50s</div>
+              <div class="exercise-name">
+                Exercise 1 very long name that takes space
+              </div>
+              <div class="exercise-info-icon">
+                <img
+                  src="../build/Images/information.png"
+                  alt=""
+                  class="info-icon"
+                />
+              </div>
+            </div>
+            <div class="exercise-item">
+              <div class="exercise-value">50s</div>
+              <div class="exercise-name">
+                Exercise 1 very long name that takes space
+              </div>
+              <div class="exercise-info-icon">
+                <img
+                  src="../build/Images/information.png"
+                  alt=""
+                  class="info-icon"
+                />
+              </div>
+            </div>
+            <div class="exercise-item">
+              <div class="exercise-value">50s</div>
+              <div class="exercise-name">
+                Exercise 1 very long name that takes space
+              </div>
+              <div class="exercise-info-icon">
+                <img
+                  src="../build/Images/information.png"
+                  alt=""
+                  class="info-icon"
+                />
+              </div>
+            </div>
+            <div class="exercise-item">
+              <div class="exercise-value">50s</div>
+              <div class="exercise-name">
+                Exercise 1 very long name that takes space
+              </div>
+              <div class="exercise-info-icon">
+                <img
+                  src="../build/Images/information.png"
+                  alt=""
+                  class="info-icon"
+                />
+              </div>
+            </div>
+            <div class="exercise-item">
+              <div class="exercise-value">50s</div>
+              <div class="exercise-name">
+                Exercise 1 very long name that takes space
+              </div>
+              <div class="exercise-info-icon">
+                <img
+                  src="../build/Images/information.png"
+                  alt=""
+                  class="info-icon"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="line" style="margin-top: 5%"></div>
+
+          <div class="button" id="session-button">
+            <a href="Session.html">
+              <button id="start_session_button" class="button">
+                <b>Start Session</b>
+              </button>
+            </a>
           </div>
         </div>
-        
-        <div class="rep">
-          <rep>5x</rep> &nbsp; &nbsp;<exercise-name>Crunches</exercise-name>
-          &nbsp; &nbsp;
-          <img
-            src="../build/Images/information symbol.png"
-            class="information-symbol"
-          />
-        </div>
-        <div class="rep">
-          <rep>5x</rep> &nbsp; &nbsp;<exercise-name>sdvbvfvfnvejsfv</exercise-name>
-          &nbsp; &nbsp;
-          <img
-            src="../build/Images/information symbol.png"
-            class="information-symbol"
-          />
-        </div>
-        <div class="rep">
-          <rep>50s</rep> &nbsp; &nbsp;<exercise-name>devkjwdnvkjwv</exercise-name>
-          &nbsp; &nbsp;
-          <img
-            src="../build/Images/information symbol.png"
-            class="information-symbol"
-          />
-        </div>
-        <!-- <div class="Rep-4">
-          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
-          <img
-            src="../build/Images/information symbol.png"
-            class="information-symbol"
-          />
-        </div>
-        <div class="Rep-4">
-          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
-          <img
-            src="../build/Images/information symbol.png"
-            class="information-symbol"
-          />
-        </div>
-        <div class="Rep-4">
-          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
-          <img
-            src="../build/Images/information symbol.png"
-            class="information-symbol"
-          />
-        </div>
-        <div class="Rep-4">
-          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
-          <img
-            src="../build/Images/information symbol.png"
-            class="information-symbol"
-          />
-        </div>
-        <div class="Rep-5">
-          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
-          <img
-            src="../build/Images/information symbol.png"
-            class="information-symbol"
-          />
-        </div>
-        <div class="Rep-6">
-          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
-          <img
-            src="../build/Images/information symbol.png"
-            class="information-symbol"
-          />
-        </div>
-        <div class="Rep-6">
-          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
-          <img
-            src="../build/Images/information symbol.png"
-            class="information-symbol"
-          />
-        </div>
-        <div class="Rep-6">
-          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
-          <img
-            src="../build/Images/information symbol.png"
-            class="information-symbol"
-          />
-        </div>
-        <div class="Rep-6">
-          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
-          <img
-            src="../build/Images/information symbol.png"
-            class="information-symbol"
-          />
-        </div>
-        <div class="Rep-6">
-          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
-          <img
-            src="../build/Images/information symbol.png"
-            class="information-symbol"
-          />
-        </div>
-        <div class="Rep-6">
-          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
-          <img
-            src="../build/Images/information symbol.png"
-            class="information-symbol"
-          />
-        </div>
-        <div class="Rep-6">
-          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
-          <img
-            src="../build/Images/information symbol.png"
-            class="information-symbol"
-          />
-        </div>
-        <div class="Rep-6">
-          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
-          <img
-            src="../build/Images/information symbol.png"
-            class="information-symbol"
-          />
-        </div>
-        <div class="Rep-6">
-          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
-          <img
-            src="../build/Images/information symbol.png"
-            class="information-symbol"
-          />
-        </div>
-        <div class="Rep-6">
-          5x &nbsp; &nbsp;Crunches &nbsp; &nbsp;
-          <img
-            src="../build/Images/information symbol.png"
-            class="information-symbol"
-          />
-        </div> -->
-
-      </div>
-      <div class="line-two"></div>
-      <div class="line"></div>
-
-      <div class="button">
-        <a href="Session.html">
-          <button id="start_session_button" class="button">
-            <b>Start Session</b>
-          </button>
-        </a>
       </div>
     </div>
 
-    <div class="Live">
-      <div id="videoElement"></div>
+    <div class="video-feed">
+      <video autoplay="true" class="video"></video>
+    </div>
 
+    <div class="modal">
+      <div class="modal-content">
+        <div class="modal-heading">Crunch</div>
+        <div class="modal-body">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
+          consequatur, reprehenderit dolore eos esse exercitationem error, sit
+          deleniti natus rem iusto facilis hic nostrum illo id quae quia animi
+          recusandae.
+        </div>
+        <div class="modal-buttons">
+          <form
+            class="modal-CTA"
+            action="https://www.youtube.com/"
+            method="get"
+            target="_blank"
+          >
+            <button id="modal-CTA" class="button" type="submit">
+              Watch Video
+            </button>
+          </form>
+          <button id="modal-cancel" class="button">Cancel</button>
+        </div>
       </div>
     </div>
+
+    <script src="../src/Scripts/classes.js"></script>
+    <script src="../src/Scripts/Session Description.js"></script>
+
+    <script>
+      var video = document.querySelector(".video");
+      video.msHorizontalMirror = true;
+
+      if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices
+          .getUserMedia({ video: true })
+          .then(function (stream) {
+            video.srcObject = stream;
+          })
+          .catch(function (err0r) {
+            console.log("Something went wrong!");
+          });
+      }
+    </script>
     <!-- TODO: uncomment the firebase stuff -->
     <!-- =============== FIREBASE STUFF =============== -->
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
 
     <!-- Add Firebase products that you want to use -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
     <script>
       // Your web app's Firebase configuration

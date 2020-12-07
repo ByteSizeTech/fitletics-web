@@ -4,15 +4,9 @@ var uid;
 
 var endSessionButton;
 
-window.onload = function () {
-  firebaseAuth = firebase.auth();
-  firebaseFirestore = firebase.firestore();
-
-  endSessionButton = document.getElementById("end-session-button");
-  getSessionUID();
-};
-
 function getSessionUID() {
+  console.log("entered getSessionUID");
+
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       uid = firebase.auth().currentUser.uid;
@@ -25,7 +19,7 @@ function getSessionUID() {
 }
 
 var appUserUID;
-var workout = new Workout();
+var workoutClassObject = new Workout();
 var workoutJSON = {
   name: null,
   exerciseList: null,
@@ -45,14 +39,20 @@ function getAppUserUID() {
         var dbExList = dbWorkoutObj["exlist"];
         var exlistSize = dbWorkoutObj["exlist_size"];
         //workout details
-        workout.name = dbWorkoutObj["name"];
+        workoutClassObject.name = dbWorkoutObj["name"];
         workoutJSON.name = dbWorkoutObj["name"];
 
-        workout.difficulty = dbWorkoutObj["difficulty"];
+        workoutClassObject.difficulty = dbWorkoutObj["difficulty"];
         workoutJSON.difficulty = dbWorkoutObj["difficulty"];
 
-        workout.time = dbWorkoutObj["time"];
+        workoutClassObject.time = dbWorkoutObj["time"];
         workoutJSON.time = dbWorkoutObj["time"];
+
+        workoutClassObject.level = dbWorkoutObj["level"];
+        workoutJSON.level = dbWorkoutObj["level"];
+
+        workoutClassObject.time = dbWorkoutObj["link"];
+        workoutJSON.time = dbWorkoutObj["link"];
         //exercise details
         var exlist = [];
         var exJSONlist = {};
@@ -109,13 +109,14 @@ function getAppUserUID() {
           exJSONlist[exerciseIndex] = exerciseJSON;
           exlist.push(exerciseObj);
         }
-        workout.exerciseList = exlist;
+        workoutClassObject.exerciseList = exlist;
         workoutJSON.exerciseList = exJSONlist;
 
-        console.log(`workout Class:`, workout);
-        console.log(`workout OBJ:`, workoutJSON);
+        // console.log(`workout Class:`, workoutClassObject);
+        // console.log(`workout OBJ:`, workoutJSON);
 
-        initializeActiveSession();
+        getAppUserDetails();
+        // initializeActiveSession();
       } else {
         console.log("No document found from Session uid");
       }
@@ -123,6 +124,42 @@ function getAppUserUID() {
     .catch((err) => {
       console.log("There was an error", err);
     });
+}
+
+var appUser = {
+  upper: null,
+  core: null,
+  lower: null,
+  xp: null,
+};
+function getAppUserDetails() {
+  firebaseFirestore
+    .collection("Users")
+    .doc(appUserUID)
+    .onSnapshot(
+      (doc) => {
+        if (doc.exists) {
+          appUser.name = doc.data()["name"];
+          let upperScore = doc.data()["upperScore"];
+          let coreScore = doc.data()["coreScore"];
+          let lowerScore = doc.data()["lowerScore"];
+          let xp = doc.data()["xp"];
+          if (upperScore != null && coreScore != null && lowerScore != null) {
+            appUser.upper = upperScore;
+            appUser.core = coreScore;
+            appUser.lower = lowerScore;
+            appUser.xp = xp;
+          }
+          console.log("CALC_FITNESS_FUNC: appUser initialized with()", appUser);
+          initializeActiveSession();
+        } else {
+          console.log("Document did not exist!");
+        }
+      },
+      function (err) {
+        console.log("Error in getting user details");
+      }
+    );
 }
 
 function initializeActiveSession() {
@@ -137,6 +174,19 @@ function initializeActiveSession() {
         document.getElementById("page-load").style.visibility = "hidden";
         console.log(`Active Sesh ongoing value updated in DB`);
         setupCancelListeners();
+        setupSkipListener();
+        canStart = true;
+
+        initializeWorkout(workoutClassObject);
+        initializeCompletedStat();
+
+        console.log("exercList", exercises);
+        console.log("workout after func", currentWorkout);
+
+        updateSessionInfo();
+        console.log("Initial exercise index", exerciseIndex);
+
+        updateExerciseInfo(workoutClassObject.exerciseList[0]);
       })
       .catch((err) => {
         console.log(`Active Sesh ongoing update failed`);
@@ -145,79 +195,83 @@ function initializeActiveSession() {
     console.log("uid not there :C (from startActive Sesh)");
   }
 }
-
+var userNewScoreObject = {
+  upperScore: null,
+  coreScore: null,
+  lowerScore: null,
+  xp: null,
+};
 function setupCancelListeners() {
-  endSessionButton.addEventListener("click", () => {
-    console.log("End session clicked");
-    createSessionObject();
-  });
-
   firebaseFirestore
     .collection("Sessions")
     .doc(uid)
     .onSnapshot((doc) => {
       let task = doc.data()["task_state"];
       if (task == "endrequest") {
-        createSessionObject();
+        document.getElementById("page-load").style.visibility = "visible";
+        endSession();
       }
     });
 }
 
-var completedSessionJSON = {};
-function createSessionObject() {
-  var completedSession = new Session();
-
-  completedSession.workout = workout;
-  completedSessionJSON.workout = workoutJSON;
-
-  completedSession.timeTaken = 1.0;
-  completedSessionJSON.timeTaken = 1.0;
-
-  completedSession.dateCompleted = "04/12/20";
-  completedSessionJSON.dateCompleted = "04/12/20";
-
-  completedSession.completedStats = [];
-  completedSessionJSON.completedStats = {};
-  for (let i = 0; i < workout.exerciseList.length; i++) {
-    let name = workout.exerciseList[i].name;
-
-    let repsdone;
-    let timetaken;
-    if (workout.exerciseList[i].unit == "REPS") {
-      repsdone = workout.exerciseList[i].value;
-      timetaken = workout.exerciseList[i].timePerRep * repsdone;
-    } else {
-      repsdone = 1;
-      timetaken = workout.exerciseList[i].value;
-    }
-
-    tempCompletedStat = new ExerciseStat(name, timetaken, repsdone);
-    completedSession.completedStats.push(tempCompletedStat);
-
-    tempCompletedStatJSON = {
-      name: name,
-      timeTaken: timetaken,
-      repsdone: repsdone,
-    };
-    completedStatIndex = "cs" + i;
-    completedSessionJSON.completedStats[
-      completedStatIndex
-    ] = tempCompletedStatJSON;
-  }
-  completedSessionJSON.caloriesBurned = completedSession.calculateCaloriesBurned();
-  completedSessionJSON.caloriesBurned = completedSession.calculateCaloriesBurned();
-
-  console.log("Session Class: ", completedSession);
-  console.log("Session Obj: ", completedSessionJSON);
-
-  endSession(completedSessionJSON);
+function setupSkipListener() {
+  firebaseFirestore
+    .collection("Sessions")
+    .doc(uid)
+    .onSnapshot((doc) => {
+      if (
+        doc.data()["active_task"] == "AS" &&
+        doc.data()["task_state"]["ongoing"]
+      ) {
+        let task = doc.data()["task_message"]["active_session_listeners"][
+          "skip_request"
+        ];
+        if (task == "requested") {
+          console.log("task", task);
+          handleSkip();
+        }
+      }
+    });
 }
 
-function endSession(sessionObject) {
-  populateDB(completedSessionJSON);
+function handleSkip() {
+  firebaseFirestore
+    .collection("Sessions")
+    .doc(uid)
+    .update({
+      "task_message.active_session_listeners.skip_request": "skipped",
+    })
+    .then(nextExercise);
 }
 
-function populateDB(sessionObject) {
+function updatecurrExerciseNameListener(exName) {
+  firebaseFirestore
+    .collection("Sessions")
+    .doc(uid)
+    .update({ "task_message.active_session_listeners.curr_ex_name": exName });
+}
+
+function updatecurrExerciseNameGoal(exGoal) {
+  firebaseFirestore
+    .collection("Sessions")
+    .doc(uid)
+    .update({ "task_message.active_session_listeners.curr_ex_goal": exGoal });
+}
+
+function updatecurrExerciseNameUnit(exUnit) {
+  firebaseFirestore
+    .collection("Sessions")
+    .doc(uid)
+    .update({ "task_message.active_session_listeners.curr_ex_unit": exUnit });
+}
+
+function updatecurrExerciseNameProgress(exProgress) {
+  firebaseFirestore.collection("Sessions").doc(uid).update({
+    "task_message.active_session_listeners.curr_ex_progress": exProgress,
+  });
+}
+
+function populateSessioninUser(sessionObject) {
   firebaseFirestore
     .collection("Users")
     .doc(appUserUID)
@@ -226,11 +280,36 @@ function populateDB(sessionObject) {
     .set(sessionObject)
     .then(() => {
       console.log("Something happened ");
-      endSessionInDB();
+      let userNewXP = appUser.xp + sessionObject.timeTaken;
+      let userNewScore = calculateFitnessScore(
+        session,
+        appUser.upper,
+        appUser.core,
+        appUser.lower
+      );
+      userNewScoreObject.upperScore = userNewScore[0];
+      userNewScoreObject.coreScore = userNewScore[1];
+      userNewScoreObject.lowerScore = userNewScore[2];
+      userNewScoreObject.xp = userNewXP;
+      console.log(
+        "CALC_FITNESS_FUNC: userNewScoreObject before being passed to populatUserNewScore()",
+        userNewScoreObject
+      );
+
+      populatUserNewScore();
+      // endSessionInDB();
     })
     .catch((err) => {
       console.log(`error: ${err}`);
     });
+}
+
+function populatUserNewScore() {
+  firebaseFirestore
+    .collection("Users")
+    .doc(appUserUID)
+    .set(userNewScoreObject, { merge: true })
+    .then(endSessionInDB);
 }
 
 function endSessionInDB() {

@@ -2,7 +2,7 @@
 var hours = 0;
 var mins = 0;
 var seconds = 0;
-// let timex;
+let timex;
 //RESET TIMER
 function reset() {
   hours = 0;

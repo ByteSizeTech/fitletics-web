@@ -181,22 +181,39 @@ function cancelSessionDesc() {
 
 // Functions to open and close the exercise info modal
 
-var infoIcons = document.getElementsByClassName('info-icon')
-var modal = document.getElementsByClassName('modal')[0]
-var cancelButton = document.getElementById("modal-cancel")
+var infoIcons = document.getElementsByClassName("info-icon");
+var modal = document.getElementsByClassName("modal")[0];
+var cancelButton = document.getElementById("modal-cancel");
 
-for (var i = 0; i<infoIcons.length; i++){
-  infoIcons[i].onclick = function() {
+for (var i = 0; i < infoIcons.length; i++) {
+  infoIcons[i].onclick = function () {
     modal.style.display = "block";
-  }
+  };
 }
 
-cancelButton.onclick = function() {
+// function createExerciseDOMElement(){
+//   return `
+//         <div class="exercise-item">
+//         <div class="exercise-value">50s</div>
+//         <div class="exercise-name">
+//           Exercise 1 very long name that takes space
+//         </div>
+//         <div class="exercise-info-icon">
+//           <img
+//             src="../build/Images/information.png"
+//             alt=""
+//             class="info-icon"
+//           />
+//         </div>
+//       </div>`
+// }
+
+cancelButton.onclick = function () {
   modal.style.display = "none";
-}
+};
 
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
-}
+};
