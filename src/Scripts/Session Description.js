@@ -20,7 +20,10 @@ function getSessionUID() {
     }
   });
 }
-
+var request_task = {
+  active_task: "AS",
+  task_state: "requested",
+};
 function setupStartSessionListener() {
   document
     .getElementById("start_session_button")
@@ -35,13 +38,15 @@ function setupStartSessionListener() {
       .collection("Sessions")
       .doc(firebase.auth().currentUser.uid)
       .onSnapshot(function (doc) {
+        let state = doc.data()["task_state"];
         let task = doc.data()["active_task"];
-        switch (task) {
-          case "AS":
-            console.log("going to Active Session..");
-            console.log(`Active sesssion request value updated in DB`);
-            window.location.replace("../build/Session.html");
-            break;
+        if ((task == "BLT" || task == "SD") && state == "ongoing") {
+          if (task == "BLT") {
+            request_task.active_task = "BLT";
+          }
+          console.log("going to Active Session..");
+          console.log(`Active sesssion request value updated in DB`);
+          window.location.replace("../build/Session.html");
         }
       });
   }
@@ -190,23 +195,6 @@ for (var i = 0; i < infoIcons.length; i++) {
     modal.style.display = "block";
   };
 }
-
-// function createExerciseDOMElement(){
-//   return `
-//         <div class="exercise-item">
-//         <div class="exercise-value">50s</div>
-//         <div class="exercise-name">
-//           Exercise 1 very long name that takes space
-//         </div>
-//         <div class="exercise-info-icon">
-//           <img
-//             src="../build/Images/information.png"
-//             alt=""
-//             class="info-icon"
-//           />
-//         </div>
-//       </div>`
-// }
 
 cancelButton.onclick = function () {
   modal.style.display = "none";

@@ -98,6 +98,7 @@ function goToSessionListener() {
               console.log("going to Body analysis..");
               window.location.replace("../build/BodyAnalysis.html");
               break;
+            case "BLT":
             case "SD":
               document.getElementById("page-load").style.visibility = "visible";
               console.log("going to Session Description..");

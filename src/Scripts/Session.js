@@ -2,6 +2,8 @@ var firebaseAuth;
 var firebaseFirestore;
 var uid;
 
+var isBLT = false;
+
 var endSessionButton;
 
 function getSessionUID() {
@@ -26,6 +28,8 @@ var workoutJSON = {
   difficulty: null,
   time: null,
   level: null,
+  link: null,
+  description: null,
 };
 function getAppUserUID() {
   firebaseFirestore
@@ -34,6 +38,9 @@ function getAppUserUID() {
     .get()
     .then((doc) => {
       if (doc.exists) {
+        if (doc.data()["active_task"] == "BLT") {
+          isBLT = true;
+        }
         appUserUID = doc.data()["uid"];
         var dbWorkoutObj = doc.data()["task_message"]["workout_obj"];
         var dbExList = dbWorkoutObj["exlist"];
@@ -51,8 +58,6 @@ function getAppUserUID() {
         workoutClassObject.level = dbWorkoutObj["level"];
         workoutJSON.level = dbWorkoutObj["level"];
 
-        workoutClassObject.time = dbWorkoutObj["link"];
-        workoutJSON.time = dbWorkoutObj["link"];
         //exercise details
         var exlist = [];
         var exJSONlist = {};
@@ -77,6 +82,12 @@ function getAppUserUID() {
 
           exerciseObj.unit = dbExList[`ex${i}`]["unit"];
           exerciseJSON.unit = dbExList[`ex${i}`]["unit"];
+
+          exerciseObj.link = dbExList[`ex${i}`]["link"];
+          exerciseJSON.link = dbExList[`ex${i}`]["link"];
+
+          exerciseObj.description = dbExList[`ex${i}`]["description"];
+          exerciseJSON.description = dbExList[`ex${i}`]["description"];
 
           var muscleList = [];
           var muscleJSONlist = {};
@@ -195,12 +206,7 @@ function initializeActiveSession() {
     console.log("uid not there :C (from startActive Sesh)");
   }
 }
-var userNewScoreObject = {
-  upperScore: null,
-  coreScore: null,
-  lowerScore: null,
-  xp: null,
-};
+
 function setupCancelListeners() {
   firebaseFirestore
     .collection("Sessions")
@@ -220,8 +226,9 @@ function setupSkipListener() {
     .doc(uid)
     .onSnapshot((doc) => {
       if (
-        doc.data()["active_task"] == "AS" &&
-        doc.data()["task_state"]["ongoing"]
+        doc.data()["active_task"] == "AS" ||
+        (doc.data()["active_task"] == "BLT" &&
+          doc.data()["task_state"]["ongoing"])
       ) {
         let task = doc.data()["task_message"]["active_session_listeners"][
           "skip_request"
@@ -271,37 +278,41 @@ function updatecurrExerciseNameProgress(exProgress) {
   });
 }
 
+var userNewScoreObject = {};
 function populateSessioninUser(sessionObject) {
-  firebaseFirestore
-    .collection("Users")
-    .doc(appUserUID)
-    .collection("WorkoutSession")
-    .doc()
-    .set(sessionObject)
-    .then(() => {
-      console.log("Something happened ");
-      let userNewXP = appUser.xp + sessionObject.timeTaken;
-      let userNewScore = calculateFitnessScore(
-        session,
-        appUser.upper,
-        appUser.core,
-        appUser.lower
-      );
-      userNewScoreObject.upperScore = userNewScore[0];
-      userNewScoreObject.coreScore = userNewScore[1];
-      userNewScoreObject.lowerScore = userNewScore[2];
-      userNewScoreObject.xp = userNewXP;
-      console.log(
-        "CALC_FITNESS_FUNC: userNewScoreObject before being passed to populatUserNewScore()",
-        userNewScoreObject
-      );
-
-      populatUserNewScore();
-      // endSessionInDB();
-    })
-    .catch((err) => {
-      console.log(`error: ${err}`);
-    });
+  let userNewScore = calculateFitnessScore(
+    session,
+    appUser.upper,
+    appUser.core,
+    appUser.lower
+  );
+  userNewScoreObject.upperScore = userNewScore[0];
+  userNewScoreObject.coreScore = userNewScore[1];
+  userNewScoreObject.lowerScore = userNewScore[2];
+  console.log(
+    "CALC_FITNESS_FUNC: userNewScoreObject before being passed to populatUserNewScore()",
+    userNewScoreObject
+  );
+  if (!isBLT) {
+    firebaseFirestore
+      .collection("Users")
+      .doc(appUserUID)
+      .collection("WorkoutSession")
+      .doc()
+      .set(sessionObject)
+      .then(() => {
+        console.log("Something happened ");
+        let userNewXP = appUser.xp + sessionObject.timeTaken;
+        userNewScoreObject.xp = userNewXP;
+        populatUserNewScore();
+        // endSessionInDB();
+      })
+      .catch((err) => {
+        console.log(`error: ${err}`);
+      });
+  } else {
+    populatUserNewScore();
+  }
 }
 
 function populatUserNewScore() {
@@ -323,7 +334,7 @@ function endSessionInDB() {
     })
     .then(() => {
       console.log(`Active Task complete! Going to Db..`);
-      window.location.replace("../build/Dashboard.html");
+      // window.location.replace("../build/Dashboard.html");
     })
     .catch((err) => {
       console.log(`Active Task complete update failed`);
