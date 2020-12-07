@@ -274,7 +274,7 @@ function loadWorkout(){
       
       document.getElementsByClassName("modal-heading")[0].innerHTML = `${workout.exerciseList[exID].name}`;
       document.getElementsByClassName("modal-body")[0].innerHTML = `${workout.exerciseList[exID].description}`;
-      document.getElementsByClassName("modal-CTA")[0].setAttribute('action', `${workout.exerciseList[exID].link}`);
+      document.getElementById("watch-vid").setAttribute('href', `${workout.exerciseList[exID].link}`);
     };
   }
 

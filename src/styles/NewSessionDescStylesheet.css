@@ -309,6 +309,11 @@ body {
     margin-left: 7%;
 }
 
+#watch-vid{
+    text-decoration: none;
+    color: white;
+}
+
 #modal-cancel{
     grid-area: cancel;
     color: black;
