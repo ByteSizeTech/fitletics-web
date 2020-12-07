@@ -45,20 +45,20 @@
     </style>
   </head>
   <body>
-    <div id="page-load">
+    <!-- <div id="page-load">
       <div>
         <img id="page-load-image" src="../build/Images/loading-gif.gif" />
       </div>
-    </div>
+    </div> -->
     <div class="Logo">
       <img src="images/logo.png" alt="Logo" class="fitletics-logo" />
     </div>
     <div class="Session">
       <div class="Heading">
-        <div class="Image">
+        <!-- <div class="Image">
           <img src="../build/Images/abs.png" class="Image" />
-        </div>
-        <div class="workout-heading" id="workout-name">name</div>
+        </div> -->
+        <div class="workout-heading" id="workout-name">Workout Name</div>
       </div>
       <div class="timer">
         <span id="hours">00:</span>
@@ -67,7 +67,7 @@
       </div>
       <div class="Exercise">
         <span id="currentExercise">LUNGES</span>
-        <img src="../build/Images/images.png" class="information" />
+        <img src="../build/Images/information.png" class="information" />
       </div>
       <div class="reps">
         <span id="currentRep">5</span>
@@ -91,6 +91,31 @@
 
     <div class="Live">
       <div style="width: 640px; height: 480px" id="videoElement"></div>
+    </div>
+
+    <div class="modal">
+      <div class="modal-content">
+        <div class="modal-heading">Crunch</div>
+        <div class="modal-body">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
+          consequatur, reprehenderit dolore eos esse exercitationem error, sit
+          deleniti natus rem iusto facilis hic nostrum illo id quae quia animi
+          recusandae.
+        </div>
+        <div class="modal-buttons">
+          <form
+            class="modal-CTA"
+            action="https://www.youtube.com/"
+            method="get"
+            target="_blank"
+          >
+            <button id="modal-CTA" class="button" type="submit">
+              Watch Video
+            </button>
+          </form>
+          <button id="modal-cancel" class="button">Cancel</button>
+        </div>
+      </div>
     </div>
     <!-- <div class="Live">
       <div id="videoElement"></div>
