@@ -1,32 +1,19 @@
 //LOAD ANY OR ALL THE OTHER MODELS TO BE LOADED Like pushups? or squats here?
 
 //SQUAT CLASSIFICATIOJ
-let SCOptions = {
+let squatModelOpts = {
   inputs: 34, //17 pairs, single pose
   outputs: 2, //since the 2 labels- wallsit and plankl
   task: "classification",
   debug: true,
 };
-sClassifier = ml5.neuralNetwork(SCOptions);
+let squatClassifier = ml5.neuralNetwork(squatModelOpts);
 const sModelInfo = {
-  model: `../build/squatModel/model.json`,
-  metadata: "../build/squatModel/model_meta.json",
-  weights: "../build/squatModel/model.weights.bin",
+  model: "../Models/squatModel-final/model.json",
+  metadata: "../Models/squatModel-final/model_meta.json",
+  weights: "../Models/squatModel-final/model.weights.bin",
 };
-
-sClassifier.load(sModelInfo, SCLoaded);
-function modelLoaded() {
-  console.log("PoseNet Model Loaded");
-}
-function SCLoaded() {
-  console.log(" squat classification ready!");
-}
-function PCLoaded() {
-  console.log(" pushup classification ready!");
-}
-function PWCLoaded() {
-  console.log(" plank/wallsit classification ready!");
-}
+squatClassifier.load(sModelInfo, SCLoaded);
 
 //PUSHUP CLASSIFICATION
 let PCOptions = {
@@ -35,26 +22,57 @@ let PCOptions = {
   task: "classification",
   debug: true,
 };
-pClassifier = ml5.neuralNetwork(PCOptions);
-const pModelInfo = {
-  model: "../build/puModel/model.json",
-  metadata: "../build/puModel/model_meta.json",
-  weights: "../build/puModel/model.weights.bin",
+let pushupClassifier = ml5.neuralNetwork(PCOptions);
+const pushupModelInfo = {
+  model: "../Models/pushupsModel-final/model.json",
+  metadata: "../Models/pushupsModel-final/model_meta.json",
+  weights: "../Models/pushupsModel-final/model.weights.bin",
 };
-pClassifier.load(pModelInfo, PCLoaded);
+pushupClassifier.load(pushupModelInfo, PCLoaded);
 
-//PLANKWALL CLASSIFICATION
-let PWCOptions = {
+//PLANK CLASSIFICATION
+let plankOpts = {
   inputs: 34, //17 pairs, single pose
-  outputs: 3, //since the 2 labels- wallsit and plankl
+  outputs: 2, //since the 2 labels- wallsit and plankl
   task: "classification",
   debug: true,
 };
-pwClassifier = ml5.neuralNetwork(PWCOptions);
-const pwModelInfo = {
-  model: "../build/pwsModel/model.json",
-  metadata: "../build/pwsModel/model_meta.json",
-  weights: "../build/pwsModel/model.weights.bin",
+let plankClassifier = ml5.neuralNetwork(plankOpts);
+const pModelInfo = {
+  model: "../Models/plankModel-final/model.json",
+  metadata: "../Models/plankModel-final/model_meta.json",
+  weights: "../Models/plankModel-final/model.weights.bin",
 };
 
-pwClassifier.load(pwModelInfo, PWCLoaded);
+plankClassifier.load(pModelInfo, PWCLoaded);
+
+//WALLSIT CLASSIFICATION
+
+let wallsitOpts = {
+  inputs: 34, //17 pairs, single pose
+  outputs: 2, //since the 2 labels- wallsit and plankl
+  task: "classification",
+  debug: true,
+};
+let wallsitClassifier = ml5.neuralNetwork(wallsitOpts);
+const wModelInfo = {
+  model: "../Models/wallsitModel-final/model.json",
+  metadata: "../Models/wallsitModel-final/model_meta.json",
+  weights: "../Models/wallsitModel-final/model.weights.bin",
+};
+s;
+
+plankClassifier.load(pwModelInfo, WCLoaded);
+
+function SCLoaded() {
+  console.log(" squat classification ready!");
+}
+function PCLoaded() {
+  console.log(" pushup classification ready!");
+}
+function PWCLoaded() {
+  console.log(" plank classification ready!");
+}
+function WCLoaded() {
+  console.log(" wallsit classification ready!");
+}

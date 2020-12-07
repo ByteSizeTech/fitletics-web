@@ -68,7 +68,9 @@ function setup() {
   // session.workout = currentWorkout;
   //TODO DATE of sessionnn
 }
-
+function modelLoaded() {
+  console.log("PoseNet Model Loaded");
+}
 function classifyPose() {
   if (pose) {
     let inputs = [];
@@ -79,13 +81,13 @@ function classifyPose() {
       inputs.push(y);
     }
     if (currentExercise == "Bodyweight Squat") {
-      sClassifier.classify(inputs, gotClassificationResult);
+      squatClassifier.classify(inputs, gotClassificationResult);
     } else if (currentExercise == "Push Up") {
-      pClassifier.classify(inputs, gotClassificationResult);
+      pushupClassifier.classify(inputs, gotClassificationResult);
     } else if (currentExercise == "Plank") {
-      pwClassifier.classify(inputs, gotClassificationResult);
+      plankClassifier.classify(inputs, gotClassificationResult);
     } else if (currentExercise == "Wallsit") {
-      pwClassifier.classify(inputs, gotClassificationResult);
+      wallsitClassifier.classify(inputs, gotClassificationResult);
     } else {
       alert(
         currentExercise +
