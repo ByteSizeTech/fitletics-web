@@ -1,285 +1,283 @@
-html, body{
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
 
 body {
-    margin: 0;
-    background-color: black;
-    color: aliceblue;
-    font-family: Roboto;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    grid-template-areas:
-      "detail-area video-feed";
+  margin: 0;
+  background-color: black;
+  color: aliceblue;
+  font-family: Roboto;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas: "detail-area video-feed";
 }
 
-.left-side{
-    display: grid;
-    grid-template-rows: 1fr 3fr;
-    grid-template-areas: "logo" "workout-details";
-    grid-area: detail-area;
+.left-side {
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  grid-template-areas: "logo" "workout-details";
+  grid-area: detail-area;
 }
 
-.logo{
-    grid-area: logo;
-    /* background-color: aqua; */
-    height: 100%;
-    align-content: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.logo {
+  grid-area: logo;
+  /* background-color: aqua; */
+  height: 100%;
+  align-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.fitletics-logo{
-    width: 65%;
-    /* margin: auto; */
+.fitletics-logo {
+  width: 65%;
+  /* margin: auto; */
 }
 
-.workout-details{
-    grid-area: workout-details;
-    /* background-color: beige; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+.workout-details {
+  grid-area: workout-details;
+  /* background-color: beige; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
-.detail-box{
-    background-color: #4f4f4f;
-    width: 80%;
-    max-height: 90%;
-    min-height: 30%;
-    border-radius: 40px;
-    /* display: grid; */
-    /* grid-template-areas: 
+.detail-box {
+  background-color: #4f4f4f;
+  width: 80%;
+  max-height: 90%;
+  min-height: 30%;
+  border-radius: 40px;
+  /* display: grid; */
+  /* grid-template-areas: 
     "category"
     "general-info"
     "line"
     "exercise-list"
     "line"
     "start-button"; */
-    align-items: center;
-    position: absolute;
-    top: 0;
-    margin-top: 6%;
-
+  align-items: center;
+  position: absolute;
+  top: 0;
+  margin-top: 6%;
 }
 
-.category-wrapper{
-    background-color: white;
-    border-radius: 100px;
-    font-size: 1.25vw;
-    font-weight: bold;
-    color: black;
-    padding: 2%;
-    text-align: center;
-    margin: 5%;
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-bottom: 7%;
-    position: relative;
-    max-height: 10%;
-    /* padding-top: 1.25%; */
+.category-wrapper {
+  background-color: white;
+  border-radius: 100px;
+  font-size: 1.25vw;
+  font-weight: bold;
+  color: black;
+  padding: 2%;
+  text-align: center;
+  margin: 5%;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 7%;
+  position: relative;
+  max-height: 10%;
+  /* padding-top: 1.25%; */
 }
 
-.general-info{
-    display: grid;
-    /* grid-area: general-info; */
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "duration difficulty";
-    text-align: center;
-    max-height: 25%;
-    /* background-color: blue; */
-    font-size: 1vw;
+.general-info {
+  display: grid;
+  /* grid-area: general-info; */
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "duration difficulty";
+  text-align: center;
+  max-height: 25%;
+  /* background-color: blue; */
+  font-size: 1vw;
 }
 
-.duration-wrapper{
-    /* grid-area: duration; */
-    margin:auto;
-    /* background-color: lawngreen; */
-    width: 100%;
+.duration-wrapper {
+  /* grid-area: duration; */
+  margin: auto;
+  /* background-color: lawngreen; */
+  width: 100%;
 }
 
-#duration-wrapper{
-    margin-left: 30%;
+#duration-wrapper {
+  margin-left: 30%;
 }
 
-.clockIcon{
-    width: 20%;
+.clockIcon {
+  width: 20%;
 }
 
-#duration{
-    font-weight: bold;
+#duration {
+  font-weight: bold;
 }
 
-.difficulty-wrapper{
-    /* grid-area: difficulty; */
-    margin:auto;
-    /* background-color: lightcoral; */
-    width: 100%;
+.difficulty-wrapper {
+  /* grid-area: difficulty; */
+  margin: auto;
+  /* background-color: lightcoral; */
+  width: 100%;
 }
 
-#difficulty-wrapper{
-    margin-right: 30%;
+#difficulty-wrapper {
+  margin-right: 30%;
 }
 
-.difficulty{
-    font-size: 1.25vw;
-    font-weight: bold;
+.difficulty {
+  font-size: 1.25vw;
+  font-weight: bold;
 }
 
-.line{
-    width: 75%;
-    border-bottom: 0.5px solid white;
-    justify-self: center;
-    margin: 3% auto;
+.line {
+  width: 75%;
+  border-bottom: 0.5px solid white;
+  justify-self: center;
+  margin: 3% auto;
 }
 
-.exercise-list{
-    grid-area: exercise-list;
-    align-items: center;
-    /* background-color: turquoise; */
-    width: 80%;
-    max-height: 30vh;
-    overflow: scroll;
-    margin: auto;
-    font-size: 1vw;
+.exercise-list {
+  grid-area: exercise-list;
+  align-items: center;
+  /* background-color: turquoise; */
+  width: 80%;
+  max-height: 30vh;
+  overflow: scroll;
+  margin: auto;
+  font-size: 1vw;
 }
 
-.exercise-item{
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-areas: "value name info-icon";
-    margin: 4% 0%;
-    /* background-color: tomato; */
-    /* margin:auto */
+.exercise-item {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-areas: "value name info-icon";
+  margin: 4% 0%;
+  /* background-color: tomato; */
+  /* margin:auto */
 }
 
-.exercise-value{
-    grid-area: value;
-    margin:auto;
-    align-self: center;
-    /* background-color: yellow; */
-    width: 100%;
-    text-align: center;
+.exercise-value {
+  grid-area: value;
+  margin: auto;
+  align-self: center;
+  /* background-color: yellow; */
+  width: 100%;
+  text-align: center;
 }
 
-.exercise-name{
-    grid-area: name;
-    margin:auto;
-    align-self: center;
-    /* background-color: yellowgreen; */
-    width: 100%;
-    text-align: center;
+.exercise-name {
+  grid-area: name;
+  margin: auto;
+  align-self: center;
+  /* background-color: yellowgreen; */
+  width: 100%;
+  text-align: center;
 }
 
-.exercise-info-icon{
-    grid-area: info-icon;
-    /* margin:auto; */
-    /* background-color: violet; */
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
+.exercise-info-icon {
+  grid-area: info-icon;
+  /* margin:auto; */
+  /* background-color: violet; */
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-.info-icon{
-    max-width: auto;
-    max-height: 1.75vw;
-    margin: 10%;
+.info-icon {
+  max-width: auto;
+  max-height: 1.75vw;
+  margin: 10%;
 }
 
 .info-icon:hover,
-.info-icon:focus{
-    cursor: pointer;
+.info-icon:focus {
+  cursor: pointer;
 }
 
 .button {
-    grid-area: button;
-    background-color: #ff850d;
-    color: aliceblue;
-    width: 80%;
-    height: 4vh;
-    border-radius: 10px;
-    border: none;
-    margin:auto;
-    /* margin-bottom: 5%; */
-    font-size: 1.25vw;
-    text-align: center;
+  grid-area: button;
+  background-color: #ff850d;
+  color: aliceblue;
+  width: 80%;
+  height: 4vh;
+  border-radius: 10px;
+  border: none;
+  margin: auto;
+  /* margin-bottom: 5%; */
+  font-size: 1.25vw;
+  text-align: center;
 }
 
 .button:hover,
-.button:focus{
-    cursor: pointer;
+.button:focus {
+  cursor: pointer;
 }
 
-#session-button{
-    margin-bottom: 5%;
+#session-button {
+  margin-bottom: 5%;
 }
 
-.video-feed{
-    grid-area: video-feed;
-    /* background-color: brown; */
-    display: flex;
-    align-content: center;
-    justify-content: center;
+.video-feed {
+  grid-area: video-feed;
+  /* background-color: brown; */
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }
 
-.video{
-    background-color: black;
-    width: 100%;
-    height: 100%;
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
+.video {
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
 }
 
-.modal{
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 
-    /* display: flex; */
-    justify-content: center;
-    align-items: center;
-
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
 }
 
-.modal-content{
-    background-color: white;
-    width: 25%;
-    min-height: 10%;
-    height: auto;
-    margin: auto;
-    border-radius: 20px;
-    padding: 1.5%;
+.modal-content {
+  background-color: white;
+  width: 25%;
+  min-height: 10%;
+  height: auto;
+  margin: auto;
+  border-radius: 20px;
+  padding: 1.5%;
 
-    position: fixed;
+  position: fixed;
 
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.modal-heading{
-    font-weight: bold;
-    font-size: 1.5vw;
-    color: black;
-    padding-bottom: 10px;
+.modal-heading {
+  font-weight: bold;
+  font-size: 1.5vw;
+  color: black;
+  padding-bottom: 10px;
 }
 
-.modal-body{
-    font-size: 1vw;
-    color: grey;
+.modal-body {
+  font-size: 1vw;
+  color: grey;
 }
 
-.modal-buttons{
-    margin-top: 5%;
+.modal-buttons {
+  margin-top: 5%;
 }
 
 /* .modal-CTA{
@@ -297,36 +295,45 @@ body {
     color:white;
 } */
 
-#modal-CTA{
-    grid-area: CTA;
-    align-self: right;
-    float: right;
-    width:30%;
-    /* background-color: black; */
-    /* padding: 3%; */
-    font-size: 1vw;
-    font-weight: bold;
-    margin-left: 7%;
+#modal-CTA {
+  grid-area: CTA;
+  align-self: right;
+  float: right;
+  width: 30%;
+  /* background-color: black; */
+  /* padding: 3%; */
+  font-size: 1vw;
+  font-weight: bold;
+  margin-left: 7%;
 }
 
-#watch-vid{
-    text-decoration: none;
-    color: white;
-}
-
-#modal-cancel{
-    grid-area: cancel;
-    color: black;
-    align-self: right;
-    float: right;
-    width:30%;
-    background-color: transparent;
-    width: auto;
-    font-size: 0.9vw;
-    text-decoration: underline;
+#modal-cancel {
+  grid-area: cancel;
+  color: black;
+  align-self: right;
+  float: right;
+  width: 30%;
+  background-color: transparent;
+  width: auto;
+  font-size: 0.9vw;
+  text-decoration: underline;
 }
 
 #modal-cancel:hover,
-#modal-cancel:focus{
-    color: red;
+#modal-cancel:focus {
+  color: red;
+}
+
+#watch-vid {
+  text-decoration: none;
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #ff0000;
 }
