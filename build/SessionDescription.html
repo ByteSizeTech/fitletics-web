@@ -10,7 +10,7 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script> -->
 
-    <!-- <style>
+    <style>
       #page-load {
         position: fixed;
         padding: 0;
@@ -32,14 +32,14 @@
         bottom: 0;
         margin: auto;
       }
-    </style> -->
+    </style>
   </head>
   <body>
-    <!-- <div id="page-load">
+    <div id="page-load">
       <div>
         <img id="page-load-image" src="../build/Images/loading-gif.gif" />
       </div>
-    </div> -->
+    </div>
     <div class="left-side">
       <div class="logo">
         <!-- Logo -->
@@ -49,9 +49,7 @@
       <div class="workout-details">
         <!-- Details -->
         <div class="detail-box">
-          <div class="category-wrapper" id = "workout-category">
-            Category
-          </div>
+          <div class="category-wrapper" id="workout-category">Category</div>
 
           <div class="general-info">
             <div class="duration-wrapper">
@@ -76,7 +74,6 @@
           <div class="line"></div>
 
           <div class="exercise-list">
-            
             <!-- <div class="exercise-item">
               <div class="exercise-value">50s</div>
               <div class="exercise-name">
@@ -90,7 +87,6 @@
                 />
               </div>
             </div> -->
-
           </div>
 
           <div class="line" style="margin-top: 5%"></div>
@@ -120,23 +116,16 @@
           recusandae.
         </div>
         <div class="modal-buttons">
-          <form
-            class="modal-CTA"
-            action="https://www.youtube.com/"
-            method="get"
-            target="_blank"
-          >
-            <button id="modal-CTA" class="button" type="submit">
-              Watch Video
-            </button>
-          </form>
+          <button id="modal-CTA" class="button" type="submit">
+            <a target="_blank" id="watch-vid" href="">Watch Video</a>
+          </button>
           <button id="modal-cancel" class="button">Cancel</button>
         </div>
       </div>
     </div>
 
-    <script src="../src/Scripts/classes.js"></script>
-    <script src="../src/Scripts/Session Description.js"></script>
+    <!-- <script src="../src/Scripts/classes.js"></script>
+    <script src="../src/Scripts/Session Description.js"></script> -->
 
     <script>
       var video = document.querySelector(".video");
@@ -157,31 +146,31 @@
     <!-- =============== FIREBASE STUFF =============== -->
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
 
     <!-- Add Firebase products that you want to use -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
-    <script> -->
-      <!-- // Your web app's Firebase configuration
+    <script>
+      // Your web app's Firebase configuration
       // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      // var firebaseConfig = {
-      //   apiKey: "AIzaSyCgm1h1-av1mb5VG7GJix-zyECzSGkJHFo",
-      //   authDomain: "fitletics-120620.firebaseapp.com",
-      //   databaseURL: "https://fitletics-120620.firebaseio.com",
-      //   projectId: "fitletics-120620",
-      //   storageBucket: "fitletics-120620.appspot.com",
-      //   messagingSenderId: "596945590001",
-      //   appId: "1:596945590001:web:21991689bf0cff4fab3b50",
-      //   measurementId: "G-8V4ZQ7H3N3",
-      // };
+      var firebaseConfig = {
+        apiKey: "AIzaSyCgm1h1-av1mb5VG7GJix-zyECzSGkJHFo",
+        authDomain: "fitletics-120620.firebaseapp.com",
+        databaseURL: "https://fitletics-120620.firebaseio.com",
+        projectId: "fitletics-120620",
+        storageBucket: "fitletics-120620.appspot.com",
+        messagingSenderId: "596945590001",
+        appId: "1:596945590001:web:21991689bf0cff4fab3b50",
+        measurementId: "G-8V4ZQ7H3N3",
+      };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
-    </script> -->
+    </script>
     <!-- <script src="../src/Scripts/videofeedEnable.js"></script> -->
-    <!-- <script src="../src/Scripts/classes.js"></script> -->
-    <!-- <script src="../src/Scripts/Session Description.js"></script> -->
+    <script src="../src/Scripts/classes.js"></script>
+    <script src="../src/Scripts/Session Description.js"></script>
   </body>
 </html>
