@@ -48,8 +48,11 @@ function endSession() {
   session.timeTaken = totalSessionTime;
   sessionJSON.timeTaken = totalSessionTime;
   //TODO DATE COMPLETED FUNCTION?
-  session.dateCompleted = "dd/mm/yy";
-  sessionJSON.dateCompleted = "dd/mm/yy";
+  var today = new Date();
+  var date =
+    today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
+  session.dateCompleted = date;
+  sessionJSON.dateCompleted = date;
 
   session.completedStats = completedStats;
   sessionJSON.completedStats = completedStatsJSON;
@@ -59,6 +62,8 @@ function endSession() {
 
   console.log(session);
   console.log(sessionJSON);
+
+  populateSessioninUser(sessionJSON);
 }
 //happens only at the start
 function updateSessionInfo() {
