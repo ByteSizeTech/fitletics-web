@@ -9,9 +9,9 @@ let SCOptions = {
 };
 sClassifier = ml5.neuralNetwork(SCOptions);
 const sModelInfo = {
-  model: `../build/squatModel/model.json`,
-  metadata: "../build/squatModel/model_meta.json",
-  weights: "../build/squatModel/model.weights.bin",
+  model: "../build/squatModel-final/model.json",
+  metadata: "../build/squatModel-final/model_meta.json",
+  weights: "../build/squatModel-final/model.weights.bin",
 };
 
 sClassifier.load(sModelInfo, SCLoaded);
@@ -37,9 +37,9 @@ let PCOptions = {
 };
 pClassifier = ml5.neuralNetwork(PCOptions);
 const pModelInfo = {
-  model: "../build/puModel/model.json",
-  metadata: "../build/puModel/model_meta.json",
-  weights: "../build/puModel/model.weights.bin",
+  model: "../build/pushupsModel-final/model.json",
+  metadata: "../build/pushupsModel-final/model_meta.json",
+  weights: "../build/pushupsModel-final/model.weights.bin",
 };
 pClassifier.load(pModelInfo, PCLoaded);
 
