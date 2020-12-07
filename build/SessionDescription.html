@@ -7,10 +7,10 @@
 
     <link href="../src/styles/NewSessionDescStylesheet.css" rel="stylesheet" />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script> -->
 
-    <style>
+    <!-- <style>
       #page-load {
         position: fixed;
         padding: 0;
@@ -32,14 +32,14 @@
         bottom: 0;
         margin: auto;
       }
-    </style>
+    </style> -->
   </head>
   <body>
-    <div id="page-load">
+    <!-- <div id="page-load">
       <div>
         <img id="page-load-image" src="../build/Images/loading-gif.gif" />
       </div>
-    </div>
+    </div> -->
     <div class="left-side">
       <div class="logo">
         <!-- Logo -->
@@ -49,7 +49,9 @@
       <div class="workout-details">
         <!-- Details -->
         <div class="detail-box">
-          <div class="category-wrapper">Upper Body</div>
+          <div class="category-wrapper" id = "workout-category">
+            Category
+          </div>
 
           <div class="general-info">
             <div class="duration-wrapper">
@@ -59,14 +61,14 @@
                   alt="clock-icon"
                   class="clockIcon"
                 />
-                <p class="duration"><b>30 minutes</b></p>
+                <p class="duration" id="duration"><b>30 minutes</b></p>
               </div>
             </div>
 
             <div class="difficulty-wrapper">
               <div id="difficulty-wrapper">
                 <p class="difficultyHeading">Difficulty:</p>
-                <p class="difficulty"><b>EASY</b></p>
+                <p class="difficulty" id="difficulty"><b>EASY</b></p>
               </div>
             </div>
           </div>
@@ -74,7 +76,8 @@
           <div class="line"></div>
 
           <div class="exercise-list">
-            <div class="exercise-item">
+            
+            <!-- <div class="exercise-item">
               <div class="exercise-value">50s</div>
               <div class="exercise-name">
                 Exercise 1 very long name that takes space
@@ -86,109 +89,8 @@
                   class="info-icon"
                 />
               </div>
-            </div>
-            <div class="exercise-item">
-              <div class="exercise-value">50s</div>
-              <div class="exercise-name">Exercise 1</div>
-              <div class="exercise-info-icon">
-                <img
-                  src="../build/Images/information.png"
-                  alt=""
-                  class="info-icon"
-                />
-              </div>
-            </div>
-            <div class="exercise-item">
-              <div class="exercise-value">50s</div>
-              <div class="exercise-name">
-                Exercise 1 very long name that takes space
-              </div>
-              <div class="exercise-info-icon">
-                <img
-                  src="../build/Images/information.png"
-                  alt=""
-                  class="info-icon"
-                />
-              </div>
-            </div>
-            <div class="exercise-item">
-              <div class="exercise-value">50s</div>
-              <div class="exercise-name">
-                Exercise 1 very long name that takes space
-              </div>
-              <div class="exercise-info-icon">
-                <img
-                  src="../build/Images/information.png"
-                  alt=""
-                  class="info-icon"
-                />
-              </div>
-            </div>
-            <div class="exercise-item">
-              <div class="exercise-value">50s</div>
-              <div class="exercise-name">
-                Exercise 1 very long name that takes space
-              </div>
-              <div class="exercise-info-icon">
-                <img
-                  src="../build/Images/information.png"
-                  alt=""
-                  class="info-icon"
-                />
-              </div>
-            </div>
-            <div class="exercise-item">
-              <div class="exercise-value">50s</div>
-              <div class="exercise-name">
-                Exercise 1 very long name that takes space
-              </div>
-              <div class="exercise-info-icon">
-                <img
-                  src="../build/Images/information.png"
-                  alt=""
-                  class="info-icon"
-                />
-              </div>
-            </div>
-            <div class="exercise-item">
-              <div class="exercise-value">50s</div>
-              <div class="exercise-name">
-                Exercise 1 very long name that takes space
-              </div>
-              <div class="exercise-info-icon">
-                <img
-                  src="../build/Images/information.png"
-                  alt=""
-                  class="info-icon"
-                />
-              </div>
-            </div>
-            <div class="exercise-item">
-              <div class="exercise-value">50s</div>
-              <div class="exercise-name">
-                Exercise 1 very long name that takes space
-              </div>
-              <div class="exercise-info-icon">
-                <img
-                  src="../build/Images/information.png"
-                  alt=""
-                  class="info-icon"
-                />
-              </div>
-            </div>
-            <div class="exercise-item">
-              <div class="exercise-value">50s</div>
-              <div class="exercise-name">
-                Exercise 1 very long name that takes space
-              </div>
-              <div class="exercise-info-icon">
-                <img
-                  src="../build/Images/information.png"
-                  alt=""
-                  class="info-icon"
-                />
-              </div>
-            </div>
+            </div> -->
+
           </div>
 
           <div class="line" style="margin-top: 5%"></div>
@@ -246,7 +148,7 @@
           .then(function (stream) {
             video.srcObject = stream;
           })
-          .catch(function (err0r) {
+          .catch(function (error) {
             console.log("Something went wrong!");
           });
       }
@@ -255,31 +157,31 @@
     <!-- =============== FIREBASE STUFF =============== -->
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script> -->
 
     <!-- Add Firebase products that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
-    <script>
-      // Your web app's Firebase configuration
+    <script> -->
+      <!-- // Your web app's Firebase configuration
       // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      var firebaseConfig = {
-        apiKey: "AIzaSyCgm1h1-av1mb5VG7GJix-zyECzSGkJHFo",
-        authDomain: "fitletics-120620.firebaseapp.com",
-        databaseURL: "https://fitletics-120620.firebaseio.com",
-        projectId: "fitletics-120620",
-        storageBucket: "fitletics-120620.appspot.com",
-        messagingSenderId: "596945590001",
-        appId: "1:596945590001:web:21991689bf0cff4fab3b50",
-        measurementId: "G-8V4ZQ7H3N3",
-      };
+      // var firebaseConfig = {
+      //   apiKey: "AIzaSyCgm1h1-av1mb5VG7GJix-zyECzSGkJHFo",
+      //   authDomain: "fitletics-120620.firebaseapp.com",
+      //   databaseURL: "https://fitletics-120620.firebaseio.com",
+      //   projectId: "fitletics-120620",
+      //   storageBucket: "fitletics-120620.appspot.com",
+      //   messagingSenderId: "596945590001",
+      //   appId: "1:596945590001:web:21991689bf0cff4fab3b50",
+      //   measurementId: "G-8V4ZQ7H3N3",
+      // };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
       firebase.analytics();
-    </script>
-    <script src="../src/Scripts/videofeedEnable.js"></script>
-    <script src="../src/Scripts/classes.js"></script>
-    <script src="../src/Scripts/Session Description.js"></script>
+    </script> -->
+    <!-- <script src="../src/Scripts/videofeedEnable.js"></script> -->
+    <!-- <script src="../src/Scripts/classes.js"></script> -->
+    <!-- <script src="../src/Scripts/Session Description.js"></script> -->
   </body>
 </html>

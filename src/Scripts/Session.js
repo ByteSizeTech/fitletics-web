@@ -340,3 +340,25 @@ function endSessionInDB() {
       console.log(`Active Task complete update failed`);
     });
 }
+
+
+var informationIcon = document.getElementsByClassName('information')[0]
+var modal = document.getElementsByClassName("modal")[0];
+
+informationIcon.onclick = function(){
+  modal.style.display = "block";
+  document.getElementsByClassName("modal-heading")[0].innerHTML = `${workoutClassObject.exerciseList[exerciseIndex].name}`;
+  document.getElementsByClassName("modal-body")[0].innerHTML = `${workoutClassObject.exerciseList[exerciseIndex].description}`;
+  document.getElementsByClassName("modal-CTA")[0].setAttribute('action', `${workoutClassObject.exerciseList[exerciseIndex].link}`);
+} 
+
+var cancelButton = document.getElementById("modal-cancel");
+cancelButton.onclick = function () {
+  modal.style.display = "none";
+};
+
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
