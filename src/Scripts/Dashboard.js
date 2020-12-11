@@ -74,6 +74,20 @@ function getAppUserDetails() {
 }
 
 function updateHTMLwithDetails() {
+  console.log("XP:", returnExperienceProgress(appUser.xp));
+
+  let xpfunc = returnExperienceProgress(appUser.xp);
+
+  document.getElementById("user_level").textContent = `Level ${xpfunc.get(
+    "Level"
+  )}`;
+  document.getElementById("user_xp_text").textContent = `Level ${xpfunc.get(
+    "XP"
+  )}`;
+  console.log("XP return:", xpfunc.get("Level"));
+  let percentage = xpfunc.get("Percentage");
+  document.getElementById("user_xp_bar").style.width = `${percentage}%`;
+
   userName = document.getElementById("user_name");
   userName.textContent = appUser.name;
   document.getElementById("page-load").style.visibility = "hidden";

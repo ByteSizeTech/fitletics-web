@@ -123,9 +123,6 @@ function getAppUserUID() {
         workoutClassObject.exerciseList = exlist;
         workoutJSON.exerciseList = exJSONlist;
 
-        // console.log(`workout Class:`, workoutClassObject);
-        // console.log(`workout OBJ:`, workoutJSON);
-
         getAppUserDetails();
         // initializeActiveSession();
       } else {
@@ -226,7 +223,7 @@ function setupSkipListener() {
     .doc(uid)
     .onSnapshot((doc) => {
       if (
-        doc.data()["active_task"] == "AS" ||
+        doc.data()["active_task"] == "SD" ||
         (doc.data()["active_task"] == "BLT" &&
           doc.data()["task_state"]["ongoing"])
       ) {

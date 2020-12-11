@@ -217,8 +217,6 @@ function calculateFitnessScore(
   lowerScore /= lowerCount;
   coreScore /= coreCount;
 
-  //TODO: @Vishal replace the zeroes with DB calls for the scores for each user
-
   upperScore = (currentUpperScore + upperScore) / 2;
   coreScore = (currentCoreScore + coreScore) / 2;
   lowerScore = (currentLowerScore + lowerScore) / 2;
@@ -235,26 +233,92 @@ function calculateFitnessScore(
 
 //FOR TESTING
 
-c1 = new Muscle('Core', 10, 10)
-u1 = new Muscle('Upper', 15, 10)
-l1 = new Muscle('Lower', 20, 10)
-c2 = new Muscle('Core', 35, 10)
-u2 = new Muscle('Upper', 30, 10)
-l2 = new Muscle('Lower', 25, 10)
-c3 = new Muscle('Core', 35, 10)
-u3 = new Muscle('Upper', 40, 10)
-l3 = new Muscle('Lower', 10, 10)
+c1 = new Muscle("Core", 10, 10);
+u1 = new Muscle("Upper", 15, 10);
+l1 = new Muscle("Lower", 20, 10);
+c2 = new Muscle("Core", 35, 10);
+u2 = new Muscle("Upper", 30, 10);
+l2 = new Muscle("Lower", 25, 10);
+c3 = new Muscle("Core", 35, 10);
+u3 = new Muscle("Upper", 40, 10);
+l3 = new Muscle("Lower", 10, 10);
 
-e1 = new Exercise('e1', 'SECS', 10, 'Easy', 'www.youtube.com', [c1, u1, l1], null, null, null, 'desc');
-e2 = new Exercise('e2', 'REPS', 10, 'Easy', 'www.youtube.com', [c2, u2, l2], e1, e1, null, 'desc');
-e3 = new Exercise('e3', 'SECS', 20, 'Easy', 'www.youtube.com', [c3, u3, l3], e1, e2, null, 'desc');
-e4 = new Exercise('e4', 'REPS', 10, 'Easy', 'www.youtube.com', [c2, u1, l3], e2, e3, 2, 'desc');
-e5 = new Exercise('e5', 'SECS', 30, 'Easy', 'www.youtube.com', [c1, u2, l3], e3, e1, null, 'desc');
-e6 = new Exercise('e6', 'REPS', 10, 'Easy', 'www.youtube.com', [c3, u2, l3], e4, e2, 3, 'desc');
+e1 = new Exercise(
+  "e1",
+  "SECS",
+  10,
+  "Easy",
+  "www.youtube.com",
+  [c1, u1, l1],
+  null,
+  null,
+  null,
+  "desc"
+);
+e2 = new Exercise(
+  "e2",
+  "REPS",
+  10,
+  "Easy",
+  "www.youtube.com",
+  [c2, u2, l2],
+  e1,
+  e1,
+  null,
+  "desc"
+);
+e3 = new Exercise(
+  "e3",
+  "SECS",
+  20,
+  "Easy",
+  "www.youtube.com",
+  [c3, u3, l3],
+  e1,
+  e2,
+  null,
+  "desc"
+);
+e4 = new Exercise(
+  "e4",
+  "REPS",
+  10,
+  "Easy",
+  "www.youtube.com",
+  [c2, u1, l3],
+  e2,
+  e3,
+  2,
+  "desc"
+);
+e5 = new Exercise(
+  "e5",
+  "SECS",
+  30,
+  "Easy",
+  "www.youtube.com",
+  [c1, u2, l3],
+  e3,
+  e1,
+  null,
+  "desc"
+);
+e6 = new Exercise(
+  "e6",
+  "REPS",
+  10,
+  "Easy",
+  "www.youtube.com",
+  [c3, u2, l3],
+  e4,
+  e2,
+  3,
+  "desc"
+);
 
-eList = [e1,e2,e3,e4,e5,e6]
+eList = [e1, e2, e3, e4, e5, e6];
 
-w = new Workout('w', eList, 'Beginner', 'Medium', '3000')
+w = new Workout("w", eList, "Beginner", "Medium", "3000");
 
 // c1 = new ExerciseStat('e1', 10, 1)
 // c2 = new ExerciseStat('e2', 10, 10)

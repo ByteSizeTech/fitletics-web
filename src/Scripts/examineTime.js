@@ -3,8 +3,6 @@ let prevState = "";
 let state;
 
 function examineTime() {
-  //TODO we cneed to check for the 10 seconds countdown
-
   currentReps = 1;
   let s = getSeconds();
   if (s != currentExerciseGoal) {
@@ -26,12 +24,6 @@ function examineTime() {
     // console.log("Exercise Completed! Moving on to the next one.");
     updateProgress();
     console.log("seconds from last", getSeconds());
-
-    // timeTaken = getSeconds();
-    // console.log("timeTaken: " + timeTaken);
-    //TODO @Vishal takeTaken should be sent to the database
-    //TODO #Nimra feed in the data in the CompletedStats object
-    // reset();
     nextExercise();
   }
   //only updates the db if the state is changed

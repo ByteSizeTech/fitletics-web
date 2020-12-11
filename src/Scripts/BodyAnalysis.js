@@ -77,9 +77,6 @@ function setupCamera() {
   canvasWidth = canvas.offsetWidth;
   canvasHeight = canvasWidth * (11 / 15);
 
-  //   canvas.style.width = canvasWidth;
-  //   canvas.style.height = canvasHeight;
-
   ctx.canvas.width = canvas.offsetWidth;
   ctx.canvas.height = ctx.canvas.width * (4 / 2);
 
@@ -313,7 +310,6 @@ function getSliders() {
 }
 
 function drawCanvas(video, ctx) {
-  //   console.log(`1: ${one}, 2: ${two}, 3: ${three}, 4: ${four}`);
   ctx.drawImage(
     video,
     200,

@@ -103,5 +103,4 @@ function generateQR(uid) {
   document.getElementById("loading-gif").remove();
   document.getElementById("qrcode").style.backgroundColor = "orange";
   qrcode.makeCode(uid);
-  // qrcode.makeCode("16367163584");
 }

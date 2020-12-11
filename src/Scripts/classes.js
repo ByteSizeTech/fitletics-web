@@ -60,9 +60,7 @@ class Session {
   }
 
   calculateCaloriesBurned() {
-    //TODO: @Aadi test this once workouts are added in the DB
-
-    var userWeight = 69; //TODO: @Vishal replace this with DB call
+    var userWeight = 70;
     this.caloriesBurned = 0;
 
     for (var i = 0; i < this.workout.exerciseList.length; i++) {
