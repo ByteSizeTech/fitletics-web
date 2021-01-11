@@ -20,5 +20,5 @@ git clone https://github.com/ByteSizeTech/fitletics-web.git
     ├── src                     # Source files (alternatively `lib` or `app`)
     │   ├── Models				# Support images
     │   ├── Scripts         	# JavaScript logic files and classes
-	└── └── styles         		# .css for page styling
+    └── └── styles         		# .css for page styling
 ```	
