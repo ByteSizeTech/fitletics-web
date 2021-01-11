@@ -14,11 +14,11 @@ git clone https://github.com/ByteSizeTech/fitletics-web.git
 ## Directory Structure
 ```
     ├── build                   # HTML files and support dirs
-    │   ├── Images				# Support images
+    │   ├── Images		# Support images
     │   ├── JsonData         	# Support json files for models
     └── ...
     ├── src
-    │   ├── Models				# Body analysis' & Supported exercise's models 
+    │   ├── Models		# Body analysis' & Supported exercise's models 
     │   ├── Scripts         	# JavaScript logic files and classes
-	└── └── styles         		# .css for page styling
+    └── └── styles         	# .css for page styling
 ```	
