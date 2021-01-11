@@ -17,8 +17,8 @@ git clone https://github.com/ByteSizeTech/fitletics-web.git
     │   ├── Images				# Support images
     │   ├── JsonData         	# Support json files for models
     └── ...
-    ├── src                     # Source files (alternatively `lib` or `app`)
-    │   ├── Models				# Support images
+    ├── src
+    │   ├── Models				# Body analysis' & Supported exercise's models 
     │   ├── Scripts         	# JavaScript logic files and classes
-    └── └── styles         		# .css for page styling
+	└── └── styles         		# .css for page styling
 ```	
